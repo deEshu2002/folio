@@ -7,7 +7,38 @@
     <title>Vite + TS</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <nav>
+        <div id="circularMenu" class="circular-menu">
+          <a class="floating-btn">
+            <div class="hamburger">
+              <input
+                type="checkbox"
+                class="hamburger-init"
+                onclick="document.getElementById('circularMenu').classList.toggle('active');"
+              />
+              <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+              </div>
+            </div>
+          </a>
+
+          <menu class="items-wrapper">
+            <a href="#" class="menu-item fa fa-facebook"></a>
+            <a href="#" class="menu-item fa fa-twitter"></a>
+            <a href="#" class="menu-item fa fa-google-plus"></a>
+            <a href="#" class="menu-item fa fa-linkedin"></a>
+          </menu>
+        </div>
+        <div id="color-theme-toggle">
+          <object data="/Vector.svg" type="image/svg+xml">
+            <!-- <img src="/Vector.svg" /> fallback -->
+          </object>
+        </div>
+      </nav>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
