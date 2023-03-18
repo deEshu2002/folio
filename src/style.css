@@ -274,15 +274,16 @@ display: flex;
 }
 
 
-.to-Projects{
+.to-Projects {
   margin-top: 8%;
   background: none;
   transition: all .3s ease;
   cursor: pointer;
 }
 
+
 .to-Projects:hover{
-  margin-top:8.2%;
+  margin-top:8.3%;
 }
 
 
