@@ -13,6 +13,7 @@
 }
 html, body {
   height: 100%;
+  font-family: "Times New Roman", Times, serif;
 }
 body {
   line-height: 1.5;
@@ -25,6 +26,22 @@ input, button, textarea, select {
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
+
+button{
+    background-color: transparent;
+    border-width: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
 
 #app{
   height: 100%;
@@ -161,6 +178,7 @@ nav{
 }
 
 
+
 .circular-menu.active .menu-item:nth-child(1) {
   transform: translate3d(0rem, 13rem,0);
 }
@@ -190,8 +208,8 @@ nav{
   margin-left: 1.5rem;
   margin-top: .75rem;
   border-bottom-right-radius: 2rem;
-  transition: all .3s ease ;
-  display: none;
+  transition: all .3s ease forwards;
+  opacity: 0;
 }
 
 
@@ -208,8 +226,63 @@ nav{
 }
 
 .menu-item:hover > p{
-  display: block;
+  opacity: 1;
   width: fit-content;
+}
+
+#description-wrapper{
+  width: 100%;
+display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#description{
+    max-width: 1280px;
+  width: 40%;
+  margin-top: 6%;
+}
+
+#description h1{
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.75rem;
+  font-weight: 300;
+}
+
+#description p{
+  font-size: 1.15rem;
+  line-height: 1.5;
+  margin-top: 1.75rem;
+}
+
+#description p span{
+  display: inline-flex;
+  align-items: baseline;
+  gap: .2rem;
+  margin-left: .3rem;
+}
+
+#description p a{
+  position: relative;
+  border-bottom: 1px solid hsla(0, 0%, 69%, 1);
+  padding-bottom: 2px;
+}
+
+
+#description p a:first-child{
+
+}
+
+
+.to-Projects{
+  margin-top: 8%;
+  background: none;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.to-Projects:hover{
+  margin-top:8.2%;
 }
 
 

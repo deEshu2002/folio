@@ -1,64 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app">
-      <nav>
-        <div id="circularMenu" class="circular-menu">
-          <a class="floating-btn">
-            <div class="hamburger">
-              <input
-                type="checkbox"
-                class="hamburger-init"
-                onclick="document.getElementById('circularMenu').classList.toggle('active');"
-              />
-              <div class="menu">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-              </div>
-            </div>
-          </a>
 
-          <menu class="items-wrapper">
-            <a href="#" class="menu-item">
-              <object data="/search.svg" type="image/svg+xml">
-                <!-- <img src="/Vector.svg" /> fallback -->
-              </object>
-              <p class="menu-value">Search</p>
-            </a>
-            <a href="#" class="menu-item">
-              <object data="/bookmark.svg" type="image/svg+xml">
-                <!-- <img src="/Vector.svg" /> fallback -->
-              </object>
-              <p class="menu-value">Resources</p>
-            </a>
-            <a href="#" class="menu-item">
-              <object data="/message.svg" type="image/svg+xml">
-                <!-- <img src="/Vector.svg" /> fallback -->
-              </object>
-              <p class="menu-value">Connect</p>
-            </a>
-            <a href="#" class="menu-item">
-              <object data="/bag.svg" type="image/svg+xml">
-                <!-- <img src="/Vector.svg" /> fallback -->
-              </object>
-              <p class="menu-value">Projects</p>
-            </a>
-          </menu>
-        </div>
-        <div id="color-theme-toggle">
-          <object data="/lamp.svg" type="image/svg+xml">
-            <!-- <img src="/Vector.svg" /> fallback -->
-          </object>
-        </div>
-      </nav>
-    </div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <nav>
+      <div id="circularMenu" class="circular-menu">
+        <a class="floating-btn">
+          <div class="hamburger">
+            <input type="checkbox" class="hamburger-init"
+              onclick="document.getElementById('circularMenu').classList.toggle('active');" />
+            <div class="menu">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </div>
+          </div>
+        </a>
+
+        <menu class="items-wrapper">
+          <a href="#" class="menu-item">
+            <img src="/search.svg" alt="search" height="25" width="25" />
+            <p class="menu-value">Search</p>
+          </a>
+          <a href="#" class="menu-item">
+            <img src="/bookmark.svg" alt="search" height="25" width="25" />
+            <p class="menu-value">Resources</p>
+          </a>
+          <a href="#" class="menu-item">
+            <img src="/message.svg" alt="search" height="25" width="25" />
+            <p class="menu-value">Connect</p>
+          </a>
+          <a href="#" class="menu-item">
+            <img src="/bag.svg" alt="search" height="25" width="25" />
+            <p class="menu-value">Projects</p>
+          </a>
+        </menu>
+      </div>
+      <div id="color-theme-toggle">
+        <object data="/lamp.svg" type="image/svg+xml">
+          <!-- <img src="/Vector.svg" /> fallback -->
+        </object>
+      </div>
+    </nav>
+    <section id="description-wrapper">
+      <div id="description">
+
+        <h1>Deepanshu</h1>
+        <p> Hey there, I'm Deepanshu Mehra, a Software Developer currently based in <span>
+            <img src="/location.svg" alt="loc" height="14" width="10" />
+            <a href="#">India.</a>
+          </span><br>
+          I specialise in designing and developing JS/TS Fullstack applications, some of my creations are “<a
+            href="#">SIH Hospital App</a>”, “<a href="#">Foxulate AI App</a>” and “<a href="#">Dhawal’s
+            Portfolio</a>”.<br>
+          I love exploring and discovering new things and hold a great appreciation for creative works. Designing and
+          Developing websites allows me to channel that passion into work. Go through my “<a href="#">Entire Portfolio
+            of Projects here</a>”. Collaborate with me through <span><img src="/github.svg" alt="gh" height="14"
+              width="12" />
+          <a href="#">Github</a></span>,
+          <span><img src="/figma.svg" alt="f" height="14" width="9" />
+          <a href="#">Figma</a></span>. Get in touch with me through <span><img src="/mail.svg" alt="m" height="14"
+              width="12" />
+          <a href="#">Mail</a></span>,
+          <span><img src="/twitter.svg" alt="t" height="14" width="14" />
+          <a href="#">Twitter</a></span>, <span><img src="/linked-in.svg" alt="search" height="14" width="14" />
+          <a href="#">LinkedIn</a></span>.</br>
+      </div>
+      <button class="to-Projects">
+        <object data="/toWork.svg" type="image/svg+xml">
+          <!-- <img src="/Vector.svg" /> fallback -->
+        </object>
+      </button>
+    </section>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
