@@ -198,13 +198,16 @@ nav{
 /* .circular-menu.active .menu-item:nth-child(1) .menu-value{ */
 
 .menu-value{
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: normal;
+
   height: fit-content;
   position: absolute;
   top: -30%;
   left: 2rem;
   color: #000;
-  font-size: 1.5rem;
-  line-height: normal;
   margin-left: 1.5rem;
   margin-top: .75rem;
   border-bottom-right-radius: 2rem;
@@ -219,7 +222,7 @@ nav{
   width:  10rem;
   position: absolute;
   background-color: hsl(24, 80%, 98%);
-  top: -.5rem;
+  top: -.25rem;
   right: -1.5rem;
   z-index: -1;
   border-bottom-right-radius: 2rem;
@@ -238,7 +241,7 @@ display: flex;
 }
 
 #description{
-    max-width: 1280px;
+    max-width: 768px;
   width: 40%;
   margin-top: 6%;
 }
@@ -285,6 +288,48 @@ display: flex;
 .to-Projects:hover{
   margin-top:8.3%;
 }
+
+
+#cue{
+  z-index: -1;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  height: 70%;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#cue .cue-layout {
+  position: relative; 
+}
+
+#cue .cue-layout:first-child{
+  align-self: flex-end;
+}
+
+.cue-layout:nth-child(2){
+  right: 0;
+}
+
+.cue-layout > img{
+  position: absolute;
+}
+
+.cue-layout:first-child img{
+  bottom: 0;
+}
+.cue-layout:first-child img:first-child{
+  bottom: 5.5rem;
+  z-index: 1;
+}
+
+#cue .cue-layout:nth-child(2) img{
+  right: 0;
+}
+
+
 
 
 @media (prefers-color-scheme: light) {
