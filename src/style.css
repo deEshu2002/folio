@@ -166,7 +166,7 @@ nav {
   position: absolute;
   top: 0.2em;
   right: 0.2em;
-  z-index: 1;
+  z-index: -1;
   display: block;
   text-decoration: none;
   color: hsl(0, 0%, 100%);
@@ -182,6 +182,7 @@ nav {
 .circular-menu.active .menu-item {
   transition-timing-function: ease;
   opacity: 1;
+  z-index: 1;
 }
 
 .circular-menu.active .menu-item:nth-child(1) {
@@ -200,13 +201,13 @@ nav {
   transform: translate3d(11em, 0em, 0);
 }
 
-/* .circular-menu.active .menu-item:nth-child(1) .menu-value{ */
 
 .menu-value {
   font-family: "Oswald", sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: normal;
+  cursor: default;
 
   height: fit-content;
   position: absolute;
@@ -218,6 +219,10 @@ nav {
   border-bottom-right-radius: 2rem;
   transition: all 0.3s ease forwards;
   opacity: 0;
+}
+
+.circular-menu.active .menu-value{
+  cursor: pointer;
 }
 
 .menu-value::after {
