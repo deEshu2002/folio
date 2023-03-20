@@ -1,206 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="#" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <nav>
-      <div class="circular-menu" role="button">
-        <div class="hamburger">
-          <input
-            type="checkbox"
-            class="hamburger-init"
-            onclick="document.querySelector('.circular-menu').classList.toggle('active');"
-          />
-          <div class="menu">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="#" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <nav>
+    <div class="circular-menu" role="button">
+      <div class="hamburger">
+        <input type="checkbox" class="hamburger-init"
+          onclick="document.querySelector('.circular-menu').classList.toggle('active');" />
+        <div class="menu">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
         </div>
+      </div>
 
-        <menu class="items-wrapper">
-          <a href="#" class="menu-item">
-            <img src="/search.svg" alt="search" height="25" width="25" />
-            <span class="menu-value">Search</span>
-          </a>
-          <a href="#" class="menu-item">
-            <img src="/bookmark.svg" alt="search" height="25" width="25" />
-            <span class="menu-value">Resources</span>
-          </a>
-          <a href="#" class="menu-item">
-            <img src="/message.svg" alt="search" height="25" width="25" />
-            <span class="menu-value">Connect</span>
-          </a>
-          <a href="#" class="menu-item">
-            <img src="/bag.svg" alt="search" height="25" width="25" />
-            <span class="menu-value">Projects</span>
-          </a>
-        </menu>
-      </div>
-      <img src="/lamp.svg" alt="mode-selector" height="25" width="25" />
-    </nav>
+      <menu class="items-wrapper">
+        <a href="#" class="menu-item">
+          <img src="/search.svg" alt="search" height="25" width="25" />
+          <span class="menu-value">Search</span>
+        </a>
+        <a href="#" class="menu-item">
+          <img src="/bookmark.svg" alt="search" height="25" width="25" />
+          <span class="menu-value">Resources</span>
+        </a>
+        <a href="#" class="menu-item">
+          <img src="/message.svg" alt="search" height="25" width="25" />
+          <span class="menu-value">Connect</span>
+        </a>
+        <a href="#" class="menu-item">
+          <img src="/bag.svg" alt="search" height="25" width="25" />
+          <span class="menu-value">Projects</span>
+        </a>
+      </menu>
+    </div>
+    <button><img src="/lamp.svg" alt="mode-selector" height="25" width="25" /></button>
+  </nav>
 
-    <section id="description">
-      <div class="left-cue">
-        <img
-          src="https://source.unsplash.com/random/?cat&1"
-          alt="project-display"
-        />
-        <img
-          src="https://source.unsplash.com/random/?cat&2"
-          alt="project-display"
-        />
-      </div>
-      <h1>Deepanshu</h1>
-      <p>
-        Hey there, I'm Deepanshu Mehra, a Software Developer currently based in
-        <span>
-          <img src="/location.svg" alt="loc" height="14" width="10" />
-          <a href="#">India.</a>
-        </span>
-      </p>
-      <p>
-        I specialise in designing and developing JS/TS Fullstack applications,
-        some of my creations are “<a href="#">SIH Hospital App</a>”, “<a
-          href="#"
-          >Foxulate AI App</a
-        >” and “<a href="#">Dhawal’s Portfolio</a>”.
-      </p>
-      <p>
-        I love exploring and discovering new things and hold a great
-        appreciation for creative works. Designing and Developing websites
-        allows me to channel that passion into work. Go through my “<a href="#"
-          >Entire Portfolio of Projects here</a
-        >”. Collaborate with me through
-        <span
-          ><img src="/github.svg" alt="gh" height="14" width="12" />
-          <a href="#">Github</a></span
-        >,
-        <span
-          ><img src="/figma.svg" alt="f" height="14" width="9" />
-          <a href="#">Figma</a></span
-        >. Get in touch with me through
-        <span
-          ><img src="/mail.svg" alt="m" height="14" width="12" />
-          <a href="#">Mail</a></span
-        >,
-        <span
-          ><img src="/twitter.svg" alt="t" height="14" width="14" />
-          <a href="#">Twitter</a></span
-        >,
-        <span
-          ><img src="/linked-in.svg" alt="search" height="14" width="14" />
-          <a href="#">LinkedIn</a></span
-        >.<br />
-      </p>
-      <div class="right-cue">
-        <img
-          src="https://source.unsplash.com/random/?cat&3"
-          alt="project-display"
-        />
-        <img
-          src="https://source.unsplash.com/random/?cat&4"
-          alt="project-display"
-        />
-      </div>
-      <button id="to-projects">
-        <img src="/toWork.svg" alt="v" height="17" width="15" />
-      </button>
+  <section id="description">
+    <div class="left-cue">
+      <img src="https://source.unsplash.com/random/?cat&1" alt="project-display" />
+      <img src="https://source.unsplash.com/random/?cat&2" alt="project-display" />
+    </div>
+    <h1>Deepanshu</h1>
+    <p>
+      Hey there, I'm Deepanshu Mehra, a Software Developer currently based in
+      <span>
+        <img src="/location.svg" alt="loc" height="14" width="10" />
+        <a href="#" class="anchor-underline">India.</a>
+      </span>
+    </p>
+    <p>
+      I specialise in designing and developing JS/TS Fullstack applications,
+      some of my creations are “<a href="#" class="anchor-underline">SIH Hospital App</a>”, “<a href="#"
+        class="anchor-underline">Foxulate AI App</a>” and “<a href="#" class="anchor-underline">Dhawal’s Portfolio</a>”.
+    </p>
+    <p>
+      I love exploring and discovering new things and hold a great
+      appreciation for creative works. Designing and Developing websites
+      allows me to channel that passion into work. Go through my “<a href="#" class="anchor-underline">Entire Portfolio
+        of Projects here</a>”.
+      Collaborate with me through
+      <span><img src="/github.svg" alt="gh" height="14" width="12" />
+        <a href="#">Github</a></span>,
+      <span><img src="/figma.svg" alt="f" height="14" width="9" />
+        <a href="#">Figma</a></span>. Get in touch with me through
+      <span><img src="/mail.svg" alt="m" height="14" width="12" />
+        <a href="#">Mail</a></span>,
+      <span><img src="/twitter.svg" alt="t" height="14" width="14" />
+        <a href="#">Twitter</a></span>,
+      <span><img src="/linked-in.svg" alt="search" height="14" width="14" />
+        <a href="#">LinkedIn</a></span>.<br />
+    </p>
+    <div class="right-cue">
+      <img src="https://source.unsplash.com/random/?cat&3" alt="project-display" />
+      <img src="https://source.unsplash.com/random/?cat&4" alt="project-display" />
+    </div>
+    <button id="to-projects">
+      <img src="/toWork.svg" alt="v" height="17" width="15" />
+    </button>
+  </section>
+
+  <section class="showcase">
+    <div id="showcase-menu">
+      <ul>
+        <li class="showcase-item">Webpage</li>
+        <li class="showcase-item">UI/UX</li>
+        <li class="showcase-item">Mobile Development</li>
+        <li class="showcase-item">CSS</li>
+        <li class="showcase-item">Canvas</li>
+      </ul>
+    </div>
+
+    <section class="showcase-content">
+      <article id="first">
+        <img class="proj-hint" src="https://source.unsplash.com/random/?website&1" alt="project-hint" />
+        <div class="proj-description">
+          <p>
+            In this i have gotten a good understanding of the z-index working.
+            while wrangling around the Z-Index i came to this conclusion of
+            format.
+          </p>
+          <p>Done with my Self Cause you are my angel.</p>
+          <p>I dont’t wait caue you are</p>
+          <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
+          <p><img src="/github.svg" alt="gh" height="14" width="12" /><a href="#" class="anchor-underline">Github</a> <img
+                src="/figma.svg" alt="f" height="14" width="9" /> <a href="#" class="anchor-underline">Figma</a></p>
+
+        </div>
+      </article>
+      <article id="second">
+        <img class="proj-hint" src="https://source.unsplash.com/random/?website&2" alt="project-hint" />
+        <div class="proj-description">
+          <p>
+            In this i have gotten a good understanding of the z-index working.
+            while wrangling around the Z-Index i came to this conclusion of
+            format.
+          </p>
+          <p>Done with my Self Cause you are my angel.</p>
+          <p>I dont’t wait caue you are</p>
+          <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
+          <p><img src="/github.svg" alt="gh" height="14" width="12" /><a href="#" class="anchor-underline">Github</a> <img
+                src="/figma.svg" alt="f" height="14" width="9" /> <a href="#" class="anchor-underline">Figma</a></p>
+        </div>
+      </article>
+      <article id="third">
+        <img class="proj-hint" src="https://source.unsplash.com/random/?website&3" alt="project-hint" />
+        <div class="proj-description">
+          <p>
+            In this i have gotten a good understanding of the z-index working.
+            while wrangling around the Z-Index i came to this conclusion of
+            format.
+          </p>
+          <p>Done with my Self Cause you are my angel.</p>
+          <p>I dont’t wait caue you are</p>
+          <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
+          <p><img src="/github.svg" alt="gh" height="14" width="12" /><a href="#" class="anchor-underline">Github</a> <img src="/figma.svg"
+              alt="f" height="14" width="9" /><a href="#" class="anchor-underline">Figma</a></p>
+
+        </div>
+      </article>
+      <article id="fourth">
+        <img class="proj-hint" src="https://source.unsplash.com/random/?website&4" alt="project-hint" />
+        <div class="proj-description">
+          <p>
+            In this i have gotten a good understanding of the z-index working.
+            while wrangling around the Z-Index i came to this conclusion of
+            format.
+          </p>
+          <p>Done with my Self Cause you are my angel.</p>
+          <p>I dont’t wait caue you are</p>
+          <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
+          <p> <img src="/github.svg" alt="gh" height="14" width="12" />
+            <a href="#" class="anchor-underline">Github</a>
+            <img src="/figma.svg" alt="f" height="14" width="9" />
+            <a href="#" class="anchor-underline">Figma</a></p>
+        </div>
+      </article>
     </section>
+  </section>
+  <script type="module" src="/src/main.ts"></script>
+</body>
 
-    <section class="showcase">
-      <div id="showcase-menu">
-        <ul>
-          <li class="showcase-item">Webpage</li>
-          <li class="showcase-item">UI/UX</li>
-          <li class="showcase-item">Mobile Development</li>
-          <li class="showcase-item">CSS</li>
-          <li class="showcase-item">Canvas</li>
-        </ul>
-      </div>
-
-      <section class="showcase-content">
-        <article id="first">
-          <img
-            src="https://source.unsplash.com/random/?website&1"
-            alt="project-hint"
-          />
-          <div class="proj-description">
-            <p>
-              In this i have gotten a good understanding of the z-index working.
-              while wrangling around the Z-Index i came to this conclusion of
-              format.
-            </p>
-            <p>Done with my Self Cause you are my angel.</p>
-            <p>I dont’t wait caue you are</p>
-            <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
-            <p><a href="#">Github</a> <a href="#">Figma</a></p>
-          </div>
-        </article>
-        <article id="second">
-          <img
-            src="https://source.unsplash.com/random/?website&2"
-            alt="project-hint"
-          />
-          <div class="proj-description">
-            <p>
-              In this i have gotten a good understanding of the z-index working.
-              while wrangling around the Z-Index i came to this conclusion of
-              format.
-            </p>
-            <p>Done with my Self Cause you are my angel.</p>
-            <p>I dont’t wait caue you are</p>
-            <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
-            <p><a href="#">Github</a> <a href="#">Figma</a></p>
-          </div>
-        </article>
-        <article id="third">
-          <img
-            src="https://source.unsplash.com/random/?website&3"
-            alt="project-hint"
-          />
-          <div class="proj-description">
-            <p>
-              In this i have gotten a good understanding of the z-index working.
-              while wrangling around the Z-Index i came to this conclusion of
-              format.
-            </p>
-            <p>Done with my Self Cause you are my angel.</p>
-            <p>I dont’t wait caue you are</p>
-            <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
-            <p><a href="#">Github</a> <a href="#">Figma</a></p>
-          </div>
-        </article>
-        <article id="fourth">
-          <img
-            src="https://source.unsplash.com/random/?website&4"
-            alt="project-hint"
-          />
-          <div class="proj-description">
-            <p>
-              In this i have gotten a good understanding of the z-index working.
-              while wrangling around the Z-Index i came to this conclusion of
-              format.
-            </p>
-            <p>Done with my Self Cause you are my angel.</p>
-            <p>I dont’t wait caue you are</p>
-            <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
-            <p><a href="#">Github</a> <a href="#">Figma</a></p>
-          </div>
-        </article>
-      </section>
-    </section>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
 </html>
