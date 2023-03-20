@@ -74,7 +74,7 @@ nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 2.6svh 1.6svw 0 1.6svw;
+  padding: 1.5rem 2rem 0 2rem;
 }
 
 section {
