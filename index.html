@@ -14,133 +14,163 @@
   </head>
 
   <body>
-    <div id="app">
-      <nav>
-        <div id="circularMenu" class="circular-menu">
-          <a class="floating-btn">
-            <div class="hamburger">
-              <input
-                type="checkbox"
-                class="hamburger-init"
-                onclick="document.getElementById('circularMenu').classList.toggle('active');"
-              />
-              <div class="menu">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-              </div>
-            </div>
+    <nav>
+      <div class="circular-menu" role="button">
+        <div class="hamburger">
+          <input
+            type="checkbox"
+            class="hamburger-init"
+            onclick="document.querySelector('.circular-menu').classList.toggle('active');"
+          />
+          <div class="menu">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+        </div>
+
+        <menu class="items-wrapper">
+          <a href="#" class="menu-item">
+            <img src="/search.svg" alt="search" height="25" width="25" />
+            <span class="menu-value">Search</span>
           </a>
+          <a href="#" class="menu-item">
+            <img src="/bookmark.svg" alt="search" height="25" width="25" />
+            <span class="menu-value">Resources</span>
+          </a>
+          <a href="#" class="menu-item">
+            <img src="/message.svg" alt="search" height="25" width="25" />
+            <span class="menu-value">Connect</span>
+          </a>
+          <a href="#" class="menu-item">
+            <img src="/bag.svg" alt="search" height="25" width="25" />
+            <span class="menu-value">Projects</span>
+          </a>
+        </menu>
+      </div>
+      <img src="/lamp.svg" alt="mode-selector" height="25" width="25" />
+    </nav>
 
-          <menu class="items-wrapper">
-            <a href="#" class="menu-item">
-              <img src="/search.svg" alt="search" height="25" width="25" />
-              <p class="menu-value">Search</p>
-            </a>
-            <a href="#" class="menu-item">
-              <img src="/bookmark.svg" alt="search" height="25" width="25" />
-              <p class="menu-value">Resources</p>
-            </a>
-            <a href="#" class="menu-item">
-              <img src="/message.svg" alt="search" height="25" width="25" />
-              <p class="menu-value">Connect</p>
-            </a>
-            <a href="#" class="menu-item">
-              <img src="/bag.svg" alt="search" height="25" width="25" />
-              <p class="menu-value">Projects</p>
-            </a>
-          </menu>
-        </div>
-        <div id="color-theme-toggle">
-          <object data="/lamp.svg" type="image/svg+xml">
-            <!-- <img src="/Vector.svg" /> fallback -->
-          </object>
-        </div>
-      </nav>
-      <section id="description-wrapper">
-        <div id="description">
-          <h1>Deepanshu</h1>
+    <section id="description">
+      <div class="left-cue">
+        <img
+          src="https://source.unsplash.com/random/?cat&1"
+          alt="project-display"
+        />
+        <img
+          src="https://source.unsplash.com/random/?cat&2"
+          alt="project-display"
+        />
+      </div>
+      <h1>Deepanshu</h1>
+      <p>
+        Hey there, I'm Deepanshu Mehra, a Software Developer currently based in
+        <span>
+          <img src="/location.svg" alt="loc" height="14" width="10" />
+          <a href="#">India.</a>
+        </span>
+      </p>
+      <p>
+        I specialise in designing and developing JS/TS Fullstack applications,
+        some of my creations are “<a href="#">SIH Hospital App</a>”, “<a
+          href="#"
+          >Foxulate AI App</a
+        >” and “<a href="#">Dhawal’s Portfolio</a>”.
+      </p>
+      <p>
+        I love exploring and discovering new things and hold a great
+        appreciation for creative works. Designing and Developing websites
+        allows me to channel that passion into work. Go through my “<a href="#"
+          >Entire Portfolio of Projects here</a
+        >”. Collaborate with me through
+        <span
+          ><img src="/github.svg" alt="gh" height="14" width="12" />
+          <a href="#">Github</a></span
+        >,
+        <span
+          ><img src="/figma.svg" alt="f" height="14" width="9" />
+          <a href="#">Figma</a></span
+        >. Get in touch with me through
+        <span
+          ><img src="/mail.svg" alt="m" height="14" width="12" />
+          <a href="#">Mail</a></span
+        >,
+        <span
+          ><img src="/twitter.svg" alt="t" height="14" width="14" />
+          <a href="#">Twitter</a></span
+        >,
+        <span
+          ><img src="/linked-in.svg" alt="search" height="14" width="14" />
+          <a href="#">LinkedIn</a></span
+        >.<br />
+      </p>
+      <div class="right-cue">
+        <img
+          src="https://source.unsplash.com/random/?cat&3"
+          alt="project-display"
+        />
+        <img
+          src="https://source.unsplash.com/random/?cat&4"
+          alt="project-display"
+        />
+      </div>
+      <button id="to-projects">
+        <img src="/toWork.svg" alt="v" height="17" width="15" />
+      </button>
+    </section>
+
+    <section id="first" class="showcase">
+      <div id="showcase-menu">
+        <ul>
+          <li class="showcase-item">Webpage</li>
+          <li class="showcase-item">UI/UX</li>
+          <li class="showcase-item">Mobile Development</li>
+          <li class="showcase-item">CSS</li>
+          <li class="showcase-item">Canvas</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="display"></div>
+        <div class="proj-description">
           <p>
-            Hey there, I'm Deepanshu Mehra, a Software Developer currently based
-            in
-            <span>
-              <img src="/location.svg" alt="loc" height="14" width="10" />
-              <a href="#">India.</a>
-            </span>
+            In this i have gotten a good understanding of the z-index working.
+            while wrangling around the Z-Index i came to this conclusion of
+            format.
           </p>
+          <p>Done with my Self Cause you are my angel.</p>
+          <p>I dont’t wait caue you are</p>
+          <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
+          <p><a href="#">Github</a> <a href="#">Figma</a></p>
+        </div>
+      </div>
+    </section>
+    <section id="second" class="showcase">
+      <div id="showcase-menu">
+        <ul>
+          <li class="showcase-item">Webpage</li>
+          <li class="showcase-item">UI/UX</li>
+          <li class="showcase-item">Mobile Development</li>
+          <li class="showcase-item">CSS</li>
+          <li class="showcase-item">Canvas</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="display"></div>
+        <div class="proj-description">
           <p>
-            I specialise in designing and developing JS/TS Fullstack
-            applications, some of my creations are “<a href="#"
-              >SIH Hospital App</a
-            >”, “<a href="#">Foxulate AI App</a>” and “<a href="#"
-              >Dhawal’s Portfolio</a
-            >”.
+            In this i have gotten a good understanding of the z-index working.
+            while wrangling around the Z-Index i came to this conclusion of
+            format.
           </p>
-          <p>
-            I love exploring and discovering new things and hold a great
-            appreciation for creative works. Designing and Developing websites
-            allows me to channel that passion into work. Go through my “<a
-              href="#"
-              >Entire Portfolio of Projects here</a
-            >”. Collaborate with me through
-            <span
-              ><img src="/github.svg" alt="gh" height="14" width="12" />
-              <a href="#">Github</a></span
-            >,
-            <span
-              ><img src="/figma.svg" alt="f" height="14" width="9" />
-              <a href="#">Figma</a></span
-            >. Get in touch with me through
-            <span
-              ><img src="/mail.svg" alt="m" height="14" width="12" />
-              <a href="#">Mail</a></span
-            >,
-            <span
-              ><img src="/twitter.svg" alt="t" height="14" width="14" />
-              <a href="#">Twitter</a></span
-            >,
-            <span
-              ><img src="/linked-in.svg" alt="search" height="14" width="14" />
-              <a href="#">LinkedIn</a></span
-            >.<br />
-          </p>
+          <p>Done with my Self Cause you are my angel.</p>
+          <p>I dont’t wait caue you are</p>
+          <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
+          <p><a href="#">Github</a> <a href="#">Figma</a></p>
         </div>
-
-        <button class="to-Projects">
-          <img src="/toWork.svg" alt="f" height="17" width="15" />
-        </button>
-
-        <div class="left-cue">
-          <figure>
-            <img
-              src="https://source.unsplash.com/random/?cat&1"
-              alt="project-display"
-            />
-          </figure>
-
-          <figure>
-            <img
-              src="https://source.unsplash.com/random/?cat&2"
-              alt="project-display"
-            />
-          </figure>
-        </div>
-        <div class="right-cue">
-          <figure>
-            <img
-              src="https://source.unsplash.com/random/?cat&3"
-              alt="project-display"
-            />
-          </figure>
-          <figure>
-            <img
-              src="https://source.unsplash.com/random/?cat&4"
-              alt="project-display"
-            />
-          </figure>
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
