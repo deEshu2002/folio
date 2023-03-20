@@ -21,6 +21,9 @@
   --gray-code-color: 60, 4%;
 
   --base-text-size: 1.15rem;
+  --medium-font: 1.5rem;
+
+  --showcase-right-margin: 11rem;
 }
 
 *,
@@ -47,7 +50,6 @@ h1 {
 
 p {
   font-size: var(--base-text-size);
-  overflow-wrap: break-word;
   margin-block: 0.5rem;
 }
 
@@ -60,7 +62,13 @@ a:hover {
   color: #535bf2;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 nav {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   width: 100%;
@@ -70,7 +78,7 @@ nav {
 }
 
 section {
-  height: 90vh;
+  height: 100vh;
   width: 100%;
 }
 
@@ -154,7 +162,6 @@ button {
   border-radius: 1rem;
 }
 
-
 #description {
   padding-top: 5%;
   display: flex;
@@ -232,20 +239,19 @@ button {
   transition: all 0.7s ease;
 }
 
-
 /* 2nd level of view in first page */
-.menu-value{
+.menu-value {
   font-family: "Oswald", sans-serif;
-  font-size: 1.5rem;
+  font-size: var(--medium-font);
   position: relative;
   visibility: hidden;
 }
 
-.menu-item:hover .menu-value{
+.menu-item:hover .menu-value {
   visibility: visible;
 }
 
-.circular-menu.active .menu-item::after{
+.circular-menu.active .menu-item::after {
   content: "";
   position: absolute;
   width: 0rem;
@@ -253,7 +259,7 @@ button {
   background-color: hsl(24, 80%, 98%);
   z-index: -2;
   border-bottom-right-radius: 1.2rem;
-  transition: width .3s ease-out;
+  transition: width 0.3s ease-out;
 }
 
 /* .circular-menu.active::before{
@@ -266,9 +272,7 @@ button {
   background-color: rgba(255, 255, 255, 0.87);
 } */
 
-
-
-/* first View Page effects */
+/* first View Page interaction */
 
 /* hamburger rotation effect */
 .hamburger-init:checked + .menu .bar1 {
@@ -295,7 +299,7 @@ button {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.4rem;
 }
 
 .circular-menu.active .menu-item:nth-child(1) {
@@ -307,7 +311,7 @@ button {
 }
 
 .circular-menu.active .menu-item:nth-child(3) {
-  transform: translate3d( 10.5rem, 4.25rem, 0);
+  transform: translate3d(10.5rem, 4.25rem, 0);
 }
 
 .circular-menu.active .menu-item:nth-child(4) {
@@ -331,19 +335,46 @@ button {
   box-shadow: 0px 1em 2em -1em hsl(var(--gray-code-color), 70%);
 }
 
-
 code {
   background-color: hsl(var(--gray-code-color), 95%);
   padding: 0.125rem 0.25rem;
   width: fit-content;
 }
 
-/* secondary view level transition  */
-.circular-menu.active .menu-item:hover::after{
-  width: 9rem;
+.showcase {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 40%;
 }
 
+.showcase-item {
+  text-align: right;
+  font-size: var(--medium-font);
+}
 
+.showcase-content article {
+  position: relative;
+  height: 100%;
+  align-self: center;
+
+  margin: 1rem var(--showcase-right-margin) 0 2rem;
+}
+
+.showcase-content article img {
+  width: 40vw;
+  max-width: 40rem;
+  height: 40vh;
+  max-height: 25rem;
+
+  border-radius: 2rem;
+  filter: drop-shadow(0px 20px 25px rgba(0, 0, 0, 0.25));
+}
+
+/* secondary view level transition  */
+.circular-menu.active .menu-item:hover::after {
+  width: 9rem;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
