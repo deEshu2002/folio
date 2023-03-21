@@ -330,7 +330,7 @@ code {
   min-height: 100vh;
   align-self: center;
 
-  margin: 1rem var(--showcase-right-margin) 0 2rem;
+  margin: 1rem var(--showcase-right-margin) 10vh 2rem;
 }
 
 .showcase-content article .proj-hint {
@@ -347,9 +347,9 @@ code {
 }
 
 .proj-description{
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-left: 2rem;
-  height: calc(60vh - 4.5rem);
+  height: calc(60vh - 2.5rem);
 
   overflow-y: auto;
 }
