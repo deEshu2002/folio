@@ -446,13 +446,10 @@ code {
   transition: width 0.2s ease-out;
 }
 
-#showcase-menu:hover::before{
+#showcase-menu:hover::before, #showcase-menu:hover:after{
   height: 0;
+  transition-duration: 1.2s;
 }
-#showcase-menu:hover:after{
-  height:0;
-}
-
 
 /* secondary view level transition  */
 .circular-menu.active .menu-item:hover::after {
