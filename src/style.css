@@ -239,14 +239,14 @@ button {
   right: 6%;
 }
 
-.left-cue img:first-child,
-.right-cue img:first-child {
+.left-cue a:first-child img,
+.right-cue a:first-child img {
   rotate: 9deg;
   transition: all 0.7s ease;
 }
 
-.left-cue img:last-child,
-.right-cue img:last-child {
+.left-cue a:last-child img,
+.right-cue a:last-child img {
   margin-left: 4rem;
   rotate: -9deg;
   transition: all 0.7s ease;
@@ -295,13 +295,13 @@ button {
 }
 
 /* image hover rotate effect */
-.left-cue img:first-child:hover,
-.right-cue img:first-child:hover {
+.left-cue a:first-child img:hover,
+.right-cue a:first-child img:hover {
   transform: rotate(-9deg);
   box-shadow: 0px 1em 2em -1em hsl(var(--gray-code-color), 70%);
 }
-.left-cue img:last-child:hover,
-.right-cue img:last-child:hover {
+.left-cue a:last-child img:hover,
+.right-cue a:last-child img:hover {
   transform: rotate(9deg);
   box-shadow: 0px 1em 2em -1em hsl(var(--gray-code-color), 70%);
 }
