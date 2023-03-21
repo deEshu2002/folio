@@ -446,11 +446,9 @@ code {
   transition: width 0.2s ease-out;
 }
 
-#showcase-menu:hover::before{
+#showcase-menu:hover::before, #showcase-menu:hover:after{
   height: 0;
-}
-#showcase-menu:hover:after{
-  height:0;
+  transition-duration: 1.2s;
 }
 
 
