@@ -255,28 +255,7 @@ button {
   padding-bottom: 0.25rem;
 }
 
-/* 2nd level of view in first page */
-.menu-value {
-  font-family: "Oswald", "Times New Roman", Times, serif;
-  font-size: var(--medium-font);
-  position: relative;
-  visibility: hidden;
-}
 
-.menu-item:hover .menu-value {
-  visibility: visible;
-}
-
-.circular-menu.active .menu-item::after {
-  content: "";
-  position: absolute;
-  width: 0rem;
-  height: 2.5rem;
-  background-color: hsl(24, 80%, 98%);
-  z-index: -2;
-  border-bottom-right-radius: 1.2rem;
-  transition: width 0.3s ease-out;
-}
 
 /* .circular-menu.active::before{
   content: "";
@@ -303,36 +282,6 @@ button {
   transform: translateY(-0.5rem) rotate(-45deg);
 }
 
-/* expand menu options transition */
-.circular-menu.active::after {
-  content: "";
-  transform: scale3d(14, 14, 1);
-  opacity: 1;
-}
-
-.circular-menu.active .menu-item {
-  opacity: 1;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 1.4rem;
-}
-
-.circular-menu.active .menu-item:nth-child(1) {
-  transform: translate3d(0, 12.5rem, 0);
-}
-
-.circular-menu.active .menu-item:nth-child(2) {
-  transform: translate3d(6.25rem, 9.25rem, 0);
-}
-
-.circular-menu.active .menu-item:nth-child(3) {
-  transform: translate3d(10.5rem, 4.25rem, 0);
-}
-
-.circular-menu.active .menu-item:nth-child(4) {
-  transform: translate3d(12.75rem, -1.5rem, 0);
-}
 
 /* navigate to proj button hover effect */
 #to-projects:hover {
@@ -365,11 +314,8 @@ code {
   align-items: flex-start;
 }
 
-.showcase-menu{
-  flex-basis: 10vw;
-}
-
 .showcase-item {
+  cursor: pointer;
   text-align: right;
   font-size: var(--medium-font);
 }
@@ -391,6 +337,7 @@ code {
   max-width: 40rem;
   height: 40vh;
   max-height: 25rem;
+  margin-bottom: .5rem;
 
   border-radius: 2rem;
   filter: drop-shadow(0px 20px 25px rgba(0, 0, 0, 0.25));
@@ -402,7 +349,8 @@ code {
 }
 
 .proj-description p{
-  margin: 2rem auto;
+  margin: 2rem 0;
+  max-width: 80%;
 }
 
 .proj-description p a{
@@ -422,13 +370,95 @@ code {
 #showcase-menu{
   font-family: "Oswald", "Times New Roman", Times, serif;
   position: sticky;
-  top: 5%;
+  top: 8vh;
 }
+
+#showcase-menu::before, #showcase-menu::after{
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 10rem;
+  width: 12rem;
+  transition: all .6s ease-out;
+}
+
+#showcase-menu::before{
+  top: -50%;
+  background: linear-gradient(0deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,1) 20%);
+}
+#showcase-menu::after{
+  bottom: -50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,1) 20%);
+}
+
+
+
+/* 2nd level of view in first page */
+/* expand menu options transition */
+.circular-menu.active::after {
+  content: "";
+  transform: scale3d(14, 14, 1);
+  opacity: 1;
+}
+
+.circular-menu.active .menu-item {
+  opacity: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.circular-menu.active .menu-item:nth-child(1) {
+  transform: translate3d(0, 12.5rem, 0);
+}
+
+.circular-menu.active .menu-item:nth-child(2) {
+  transform: translate3d(6.25rem, 9.25rem, 0);
+}
+
+.circular-menu.active .menu-item:nth-child(3) {
+  transform: translate3d(10.5rem, 4.25rem, 0);
+}
+
+.circular-menu.active .menu-item:nth-child(4) {
+  transform: translate3d(12.75rem, -1.5rem, 0);
+}
+.menu-value {
+  font-family: "Oswald", "Times New Roman", Times, serif;
+  font-size: var(--medium-font);
+  position: relative;
+  visibility: hidden;
+}
+
+.menu-item:hover .menu-value {
+  visibility: visible;
+}
+
+.circular-menu.active .menu-item::after {
+  content: "";
+  position: absolute;
+  width: 0rem;
+  height: 2.5rem;
+  background-color: hsl(24, 80%, 98%);
+  z-index: -2;
+  border-bottom-right-radius: 1.2rem;
+  transition: width 0.2s ease-out;
+}
+
+#showcase-menu:hover::before{
+  height: 0;
+}
+#showcase-menu:hover:after{
+  height:0;
+}
+
 
 /* secondary view level transition  */
 .circular-menu.active .menu-item:hover::after {
   width: 9rem;
 }
+
 
 @media (prefers-color-scheme: light) {
   :root {
