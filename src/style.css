@@ -76,6 +76,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 2rem 0 2rem;
+  z-index: 100;
 }
 
 section {
@@ -334,6 +335,7 @@ code {
 }
 
 .showcase-content article .proj-hint {
+  z-index: 10;
   position: sticky;
   top: 3rem;
   width: 40vw;
