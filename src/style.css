@@ -386,7 +386,9 @@ code {
 #showcase-menu{
   font-family: "Oswald", "Times New Roman", Times, serif;
   position: sticky;
-  top: 5rem;
+  top: 8vh;
+  opacity: 0;
+  z-index: -1;
 }
 
 #showcase-menu::before, #showcase-menu::after{
