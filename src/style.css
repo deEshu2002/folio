@@ -363,12 +363,19 @@ code {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  max-width: 40%;
+}
+
+.showcase-menu{
+  flex-basis: 10vw;
 }
 
 .showcase-item {
   text-align: right;
   font-size: var(--medium-font);
+}
+
+.showcase-content{
+  flex-basis: 40vw;
 }
 
 .showcase-content article {
