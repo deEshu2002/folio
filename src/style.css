@@ -76,7 +76,9 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 2rem 0 2rem;
-  z-index: 100;
+  background-color: white;
+
+  z-index: 5;
 }
 
 section {
@@ -96,6 +98,10 @@ button {
 
 .circular-menu {
   position: relative;
+}
+
+.circular-menu > * {
+  z-index: 100;
 }
 
 .circular-menu::after {
@@ -200,7 +206,6 @@ button {
 /* cues */
 .left-cue img,
 .right-cue img {
-  /* position: absolute; */
   width: 14vw;
   height: 10vw;
   max-width: 18rem;
@@ -323,37 +328,40 @@ code {
 
 .showcase-content{
   flex-basis: 40vw;
+  position: relative;
 }
 
 .showcase-content article {
   position: relative;
-  height: fit-content;
+  /* height: fit-content; */
   min-height: 100vh;
   align-self: center;
 
-  margin: 1rem var(--showcase-right-margin) 10vh 2rem;
+  margin: 1rem var(--showcase-right-margin) 0 2rem;
 }
 
 .showcase-content article .proj-hint {
-  z-index: 10;
   position: sticky;
-  top: 3rem;
+  top: 3.45rem;
+
   width: 40vw;
   max-width: 40rem;
   height: 40vh;
   max-height: 25rem;
   margin-bottom: .5rem;
-
+  
   border-radius: 2rem;
   filter: drop-shadow(0px 20px 25px rgba(0, 0, 0, 0.25));
+  z-index: 10;
 }
 
-.proj-description{
-  margin-top: 2rem;
+.showcase-content article .proj-description{
+  display: inline-block;
+  position: sticky;
+  top: 46vh;
+  
+  margin-top: 1rem;
   margin-left: 2rem;
-  height: calc(60vh - 2.5rem);
-
-  overflow-y: auto;
 }
 
 .proj-description p{
