@@ -337,7 +337,7 @@ code {
   min-height: 100vh;
   align-self: center;
 
-  margin: 1rem var(--showcase-right-margin) 0 2rem;
+  margin: 1rem var(--showcase-right-margin) 2rem 2rem;
 }
 
 .showcase-content article .proj-hint {
