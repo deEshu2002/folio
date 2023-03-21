@@ -204,7 +204,7 @@ button {
   height: 10vw;
   max-width: 18rem;
   max-height: 14rem;
-  padding: 0.625rem;
+  padding: 0.5rem;
   cursor: pointer;
 
   box-shadow: inset 0px 10px 0.5em hsl(var(--gray-code-color), 25%),
@@ -326,13 +326,16 @@ code {
 
 .showcase-content article {
   position: relative;
-  height: 100vh;
+  height: fit-content;
+  min-height: 100vh;
   align-self: center;
 
   margin: 1rem var(--showcase-right-margin) 0 2rem;
 }
 
 .showcase-content article .proj-hint {
+  position: sticky;
+  top: 3rem;
   width: 40vw;
   max-width: 40rem;
   height: 40vh;
@@ -344,8 +347,11 @@ code {
 }
 
 .proj-description{
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-left: 2rem;
+  height: calc(60vh - 4.5rem);
+
+  overflow-y: auto;
 }
 
 .proj-description p{
@@ -370,7 +376,7 @@ code {
 #showcase-menu{
   font-family: "Oswald", "Times New Roman", Times, serif;
   position: sticky;
-  top: 8vh;
+  top: 5rem;
 }
 
 #showcase-menu::before, #showcase-menu::after{
