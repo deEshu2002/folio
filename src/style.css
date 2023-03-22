@@ -24,6 +24,7 @@
   --medium-font: 1.5rem;
 
   --showcase-right-margin: 11rem;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -321,7 +322,6 @@ code {
 }
 
 .showcase-item {
-  cursor: pointer;
   text-align: right;
   font-size: var(--medium-font);
 }
@@ -398,6 +398,7 @@ code {
   height: 10rem;
   width: 12rem;
   transition: all .6s ease-out;
+  z-index: 1;
 }
 
 #showcase-menu::before{
