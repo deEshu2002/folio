@@ -1,6 +1,9 @@
 import './style.css'
 
 
+//increase navbar z-index instead of cast
+
+
 
 const hamburgerInit = document.querySelector('.hamburger-init') as HTMLInputElement;
 function makeHamburgerActive(){
@@ -28,8 +31,8 @@ images.forEach((item) => {
 
 
 const menu = document.getElementById("showcase-menu") as HTMLUListElement;
-const menuMiddleElement = document.getElementById('showcase-menu-middle') as HTMLLIElement;
-const menuValues = document.querySelectorAll('.showcase-item');
+// const menuMiddleElement = document.getElementById('showcase-menu-middle') as HTMLLIElement;
+let menuValues = document.querySelectorAll('.showcase-item') as NodeListOf<HTMLLIElement>;
 
 function handleMenuVisibility(){
     const stickyTopValue = window.innerHeight/8;
@@ -43,22 +46,12 @@ function handleMenuVisibility(){
 }
 window.addEventListener('scroll', handleMenuVisibility, true);
 
-
 function handleShowCaseMenuTransition(e:Event){
     e.preventDefault();
-
-    const target =  (e.target as HTMLLIElement);
-    const currTop = target.getBoundingClientRect().top;
-    const middleTop = menuMiddleElement.getBoundingClientRect().top;
-    
-    const changeValue = (middleTop - currTop);
-    menuValues.forEach((elem) => {
-        // transform doesn't work in most browsers
-        // could be solved using absolute position as wrapper and top animating 
-        elem.animate({ transform: `translateY(${changeValue}px)` }, {duration: 600, fill:'forwards', easing:'cubic-bezier(0.76, 0, 0.24, 1)'});
-    })
+    (document.querySelector('.showcase-item.showcase-menu-middle') as HTMLLIElement).classList.remove('showcase-menu-middle');
+    (e.target as HTMLLIElement).classList.add('showcase-menu-middle');
 }
 
 menuValues.forEach((item) => {
-    item.addEventListener('click', (e) => handleShowCaseMenuTransition(e), false);
+    item.onclick = (e) => handleShowCaseMenuTransition(e);
 })
