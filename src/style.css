@@ -289,6 +289,16 @@ button {
   transform: translateY(-0.5rem) rotate(-45deg);
 }
 
+.curtain{
+  height: 100%;
+  top: 3rem;
+  width: 100%;
+  position: fixed;
+  opacity: 0;
+  background-color: white;
+  z-index: -100;
+}
+
 
 /* navigate to proj button hover effect */
 #to-projects:hover {
@@ -334,7 +344,6 @@ code {
 
 .showcase-content article {
   position: relative;
-  /* height: fit-content; */
   min-height: 100vh;
   align-self: center;
 
