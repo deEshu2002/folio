@@ -322,6 +322,7 @@ code {
 }
 
 .showcase-item {
+  cursor: pointer;
   text-align: right;
   font-size: var(--medium-font);
 }
