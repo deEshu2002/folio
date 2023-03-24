@@ -10,18 +10,21 @@ const hamburgerInit = document.querySelector('.hamburger-init') as HTMLInputElem
 
 
 const curtain = document.querySelector('.curtain') as HTMLDivElement;
-const images:NodeListOf<HTMLImageElement> = document.querySelectorAll('#description div[class$="cue"] a img');
+const links:NodeListOf<HTMLAnchorElement> = document.querySelectorAll('a[href^="#"]:not(a[id="to-projects"])');
 
 function handleImageToWorkTransition(e:Event){
-    const target = e.target as HTMLImageElement;
-    curtain.animate({opacity:'1', zIndex:'1',}, {duration:300, fill:'forwards', easing:'ease'})
-    const leftCue = document.querySelector('.left-cue') as HTMLDivElement;
-    leftCue.style.zIndex = '21';
-    target.animate({tranform:'translate3d(120, 120, 1)'})
+    const target = e.target as HTMLAnchorElement;
+    curtain.animate({opacity:'1', zIndex:'90',}, {duration:300, fill:'forwards', easing:'ease'})
+    // const leftCue = document.querySelector('.left-cue') as HTMLDivElement;
+    
+    console.log(target)
+    if(target.parentElement)target.parentElement.style.zIndex = '101';
+    target.animate({tranform:'translate3d(120, 120, 100)'})
     
 }
 
-images.forEach((item) => {
+
+links.forEach((item) => {
     item.addEventListener('click', (e) => handleImageToWorkTransition(e), false);
 });
 
