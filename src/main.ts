@@ -1,24 +1,12 @@
+import { handleMenuVisibility, handleShowCaseMenuTransition } from './MenuOperations';
+import { openMenuModal } from './NavOperations';
 import './style.css'
 
-
-//increase navbar z-index instead of cast
 
 
 
 const hamburgerInit = document.querySelector('.hamburger-init') as HTMLInputElement;
-function openMenuModal(){
-    const target = document.querySelector('.circular-menu') as HTMLDivElement;
-    if(target.classList.contains('active')){
-        target.classList.remove('active');
-        (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto';
-    }
-    else{
-        target.classList.add('active');
-        (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
-    }
 
-}
-hamburgerInit.onclick = () => openMenuModal();
 
 
 const curtain = document.querySelector('.curtain') as HTMLDivElement;
@@ -26,7 +14,10 @@ const images:NodeListOf<HTMLImageElement> = document.querySelectorAll('#descript
 
 function handleImageToWorkTransition(e:Event){
     const target = e.target as HTMLImageElement;
-    curtain.animate({opacity:'1', zIndex:'4',}, {duration:300, fill:'forwards', easing:'ease'})
+    curtain.animate({opacity:'1', zIndex:'1',}, {duration:300, fill:'forwards', easing:'ease'})
+    const leftCue = document.querySelector('.left-cue') as HTMLDivElement;
+    leftCue.style.zIndex = '21';
+    target.animate({tranform:'translate3d(120, 120, 1)'})
     
 }
 
@@ -39,28 +30,13 @@ images.forEach((item) => {
 
 
 
-const menu = document.getElementById("showcase-menu") as HTMLUListElement;
-// const menuMiddleElement = document.getElementById('showcase-menu-middle') as HTMLLIElement;
-let menuValues = document.querySelectorAll('.showcase-item') as NodeListOf<HTMLLIElement>;
 
-function handleMenuVisibility(){
-    const stickyTopValue = window.innerHeight/8;
 
-    if(menu.getBoundingClientRect().top <=  stickyTopValue + 80){
-        menu.animate({opacity: 1, zIndex:9}, { duration:600, fill:'forwards', easing:'cubic-bezier(0.25, 1, 0.5, 1)'})
-    }else{
-        menu.animate({opacity: 0, zIndex:-1}, { duration:600, fill:'forwards', easing:'cubic-bezier(0.25, 1, 0.5, 1)'})
-    }
-    
-}
+hamburgerInit.onclick = () => openMenuModal();
+
 window.addEventListener('scroll', handleMenuVisibility, true);
 
-function handleShowCaseMenuTransition(e:Event){
-    e.preventDefault();
-    (document.querySelector('.showcase-item.showcase-menu-middle') as HTMLLIElement).classList.remove('showcase-menu-middle');
-    (e.target as HTMLLIElement).classList.add('showcase-menu-middle');
-}
-
+let menuValues = document.querySelectorAll('.showcase-item') as NodeListOf<HTMLLIElement>;
 menuValues.forEach((item) => {
     item.onclick = (e) => handleShowCaseMenuTransition(e);
 })

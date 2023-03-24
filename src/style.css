@@ -28,7 +28,7 @@
   scroll-behavior: smooth;
 
   --nav-z-index: 50;
-  --relative-content-z-index: 1;
+  /* --relative-content-z-index: ; */
   --showcase-menu-z-index: 9;
   /* --curtain-z-index: ; */
 }
@@ -186,7 +186,7 @@ button {
 
 #description>* {
   max-width: 768px;
-  width: 40%;
+  width: 38%;
 }
 
 
@@ -248,6 +248,7 @@ button {
 .right-cue a:first-child img {
   rotate: 9deg;
   transition: all 0.7s ease;
+  z-index: -1;
 }
 
 .left-cue a:last-child img,
@@ -255,6 +256,7 @@ button {
   margin-left: 4rem;
   rotate: -9deg;
   transition: all 0.7s ease;
+  z-index: -1;
 }
 
 /* reusage potential
@@ -372,7 +374,7 @@ code {
   margin-top: 1rem;
   margin-left: 2rem;
 
-  z-index: var(--relative-content-z-index);
+  /* z-index: var(--relative-content-z-index); */
 }
 
 .proj-description p {
