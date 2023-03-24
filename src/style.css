@@ -343,10 +343,8 @@ code {
   position: sticky;
   top: 3.45rem;
 
-  width: 40vw;
-  max-width: 40rem;
-  height: 40vh;
-  max-height: 25rem;
+  width: 40rem;
+  height: 25rem;
   margin-bottom: .5rem;
 
   border-radius: 2rem;
