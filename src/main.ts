@@ -15,34 +15,74 @@ const hamburgerInit = document.querySelector('.hamburger-init') as HTMLInputElem
 
 
 const curtain = document.querySelector('.curtain') as HTMLDivElement;
-const links: NodeListOf < HTMLAnchorElement > = document.querySelectorAll('a[href^="#"]:not(a[id="to-projects"])');
+const cues: NodeListOf<HTMLImageElement> = document.querySelectorAll('img.positive-rotation, img.negative-rotation');
+
+function xAxisDifference(initialElement:HTMLAnchorElement){
+    const left = initialElement.getBoundingClientRect().left;
+    const targetLeft = (document.querySelector('.proj-hint') as HTMLImageElement).getBoundingClientRect().left;
+    console.log(left, targetLeft);
+    return targetLeft-left;
+}
+function yAxisDifference(initialElement: HTMLAnchorElement){
+    // const top = initialElement.getBoundingClientRect().top;
+    // const targetTop = (document.querySelector('#first .proj-hint') as HTMLImageElement).getBoundingClientRect().top;
+
+    // console.log(top, targetTop);
+    // return targetTop - top;
+}
 
 function handleImageToWorkTransition(e: Event) {
-    const target = e.target as HTMLAnchorElement;
+    const target = e.target as HTMLImageElement;
     curtain.animate({
         opacity: '1',
-        zIndex: '48',
+        zIndex: '4',
     }, {
         duration: 300,
         fill: 'forwards',
         easing: 'ease'
     })
-    // const leftCue = document.querySelector('.left-cue') as HTMLDivElement;
+    target.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
 
-    // console.log(target)
-    if (target.parentElement) {
+    if ( target.parentElement) {
         target.parentElement.style.zIndex = '49';
-        (document.querySelector('body') as HTMLBodyElement).style.overflow='hidden'
-        // target.parentElement.style.position = 'fixed';
-        // target.parentElement.animate({transform:'scale(3)', rotate:'0deg', top:'35%', left:'35%' }, {fill:'forwards', easing:'ease', duration:1200, delay:100})
-        target.parentElement.animate({transform:'translate3d(30vw, -10vh, 1px)', width:'40vw',height:'25vw',  rotate:'0deg'}, {fill:'forwards', easing:'ease', duration:1200, delay:100})
+        // (document.querySelector('body') as HTMLBodyElement).style.overflow='hidden'
+        target.parentElement.style.pointerEvents = 'none';
+        target.parentElement.style.position = 'fixed';
     }
+
+    target.animate({
+        padding: '0',
+        transform: `translate3d(70%, -51%,1px)`,
+        width: '40vw', height: '40vh',
+        rotate: '0deg',
+        borderRadius: '2rem',
+        boxShadow: '0px 20px 25px rgba(0, 0, 0, 0.25)'},
+        { fill: 'forwards', easing: 'ease', duration: 1200, delay: 100 })
 
 }
 
 
-links.forEach((item) => {
-    item.addEventListener('click', (e) => handleImageToWorkTransition(e), false);
+function handleMouseOutRotation(e:Event){
+   const target = (e.target as HTMLImageElement);
+   if(target.classList.length === 1){
+       if(target.classList[0] ==='positive-rotation'){
+           target.style.rotate= '9deg';
+        }else {
+            target.style.rotate = '-9deg';
+        }
+    }
+}
+
+function handleMouseOverRotation(e:Event){
+    const victim = (e.target as HTMLImageElement);
+    victim.style.rotate = '0deg';
+}
+
+
+cues.forEach((img) => {
+    img.addEventListener('click', (e) => handleImageToWorkTransition(e), false);
+    img.addEventListener('mouseover', (e) => handleMouseOverRotation(e) , false);
+    img.addEventListener('mouseout',(e) => { handleMouseOutRotation(e) })
 });
 
 
@@ -56,7 +96,7 @@ hamburgerInit.onclick = () => openMenuModal();
 
 window.addEventListener('scroll', handleMenuVisibility, true);
 
-const menuValues = document.querySelectorAll('.showcase-item') as NodeListOf < HTMLLIElement > ;
+const menuValues = document.querySelectorAll('.showcase-item') as NodeListOf<HTMLLIElement>;
 menuValues.forEach((item) => {
     item.onclick = (e) => handleShowCaseMenuTransition(e);
 })
