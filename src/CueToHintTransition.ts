@@ -19,7 +19,7 @@ export function handleImageToWorkTransition(e: Event) {
   const targetPositions = target.getBoundingClientRect();
   const targetleftPosition = targetPositions.left;
   const targetRightPosition = targetPositions.right;
-  // const targetHeight = targetPositions.height;
+  const targetHeight = targetPositions.height;
 
   const initiator = e.target as HTMLImageElement;
 
@@ -32,20 +32,27 @@ export function handleImageToWorkTransition(e: Event) {
     easing: 'ease',
   }, );
 
-  const parentPositions = ((e.target as HTMLImageElement).parentElement as HTMLAnchorElement).getBoundingClientRect();
+  const parent = (e.target as HTMLImageElement).parentElement as HTMLAnchorElement;
+  const parentPositions = parent.getBoundingClientRect();
   const currLeftPosition = parentPositions.left;
   const currRightPosition = parentPositions.right;
-  // const currBottomPosition = parentPositions.bottom;
-  // const currTopPosition = parentPositions.top;
+  const currBottomPosition = parentPositions.bottom;
+  const currTopPosition = parentPositions.top;
 
-  const XAxisChangeGap = (currLeftPosition < targetleftPosition) ? targetleftPosition - currLeftPosition : targetRightPosition - currRightPosition;
-
-  // const navHeight = nav?.getBoundingClientRect().height ?? 0;
-  // const idealBottom = navHeight + targetHeight;
+  let XAxisChangeGap = 0;
+  let YAxisChangeGap = 0;
   
-  // const YAxisChangeGap = (idealBottom < currBottomPosition && navHeight < currTopPosition) ? idealBottom - currBottomPosition : navHeight - currTopPosition;
-  // console.log(YAxisChangeGap, currTopPosition)
+    const navHeight = nav?.getBoundingClientRect().height ?? 0;
+    const idealBottom = navHeight + targetHeight;
 
+  if(parent.getAttribute('href') === '#first'  || parent.getAttribute('href') === '#second'){
+    XAxisChangeGap = targetleftPosition - currLeftPosition;
+    YAxisChangeGap = idealBottom - currBottomPosition;
+  }
+  else if(parent.getAttribute('href') === '#third' || parent.getAttribute('href') === '#fourth'){
+    XAxisChangeGap = targetRightPosition - currRightPosition;
+    YAxisChangeGap = navHeight - currTopPosition;
+  }
 
   initiator.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
 
@@ -57,7 +64,7 @@ export function handleImageToWorkTransition(e: Event) {
 
   initiator.animate({
     padding: '0',
-    transform: `translate3d(${XAxisChangeGap}px, -${0}%,1px)`,
+    transform: `translate3d( ${XAxisChangeGap}px, ${YAxisChangeGap}px,1px)`,
     width: '40rem',
     height: '25rem',
     rotate: '0deg',
