@@ -15,6 +15,10 @@ const nav = document.querySelector('nav');
 
 
 export function handleImageToWorkTransition(e: Event) {
+  //can't figure out how to position 3d transition Y axis values;
+  if(window.scrollY > 0){
+    return;
+  }
 
   const targetPositions = target.getBoundingClientRect();
   const targetleftPosition = targetPositions.left;
@@ -25,7 +29,7 @@ export function handleImageToWorkTransition(e: Event) {
 
   curtain.animate({
     opacity: '1',
-    zIndex: '4',
+    zIndex: '48',
   }, {
     duration: 300,
     fill: 'forwards',
