@@ -1,22 +1,16 @@
-// function xAxisDifference(initialElement:HTMLAnchorElement){
-//     return targetLeft-left;
-// }
-function yAxisDifference(initialElement: HTMLAnchorElement) {
-  // const top = initialElement.getBoundingClientRect().top;
-  // const targetTop = (document.querySelector('#first .proj-hint') as HTMLImageElement).getBoundingClientRect().top;
-
-  // console.log(top, targetTop);
-  // return targetTop - top;
-}
-
 const curtain = document.querySelector('.curtain') as HTMLDivElement;
 const target = document.querySelector('.showcase-content article .proj-hint') as HTMLImageElement;
 const nav = document.querySelector('nav');
 
 
+function toggleCurtain() {
+
+}
+
+
 export function handleImageToWorkTransition(e: Event) {
   //can't figure out how to position 3d transition Y axis values;
-  if(window.scrollY > 0){
+  if (window.scrollY > 0) {
     return;
   }
 
@@ -34,7 +28,7 @@ export function handleImageToWorkTransition(e: Event) {
     duration: 300,
     fill: 'forwards',
     easing: 'ease',
-  }, );
+  },);
 
   const parent = (e.target as HTMLImageElement).parentElement as HTMLAnchorElement;
   const parentPositions = parent.getBoundingClientRect();
@@ -45,26 +39,24 @@ export function handleImageToWorkTransition(e: Event) {
 
   let XAxisChangeGap = 0;
   let YAxisChangeGap = 0;
-  
-    const navHeight = nav?.getBoundingClientRect().height ?? 0;
-    const idealBottom = navHeight + targetHeight;
 
-  if(parent.getAttribute('href') === '#first'  || parent.getAttribute('href') === '#second'){
+  const navHeight = nav?.getBoundingClientRect().height ?? 0;
+  const idealBottom = navHeight + targetHeight;
+
+  if (parent.getAttribute('href') === '#first' || parent.getAttribute('href') === '#second') {
     XAxisChangeGap = targetleftPosition - currLeftPosition;
     YAxisChangeGap = idealBottom - currBottomPosition;
   }
-  else if(parent.getAttribute('href') === '#third' || parent.getAttribute('href') === '#fourth'){
+  else if (parent.getAttribute('href') === '#third' || parent.getAttribute('href') === '#fourth') {
     XAxisChangeGap = targetRightPosition - currRightPosition;
     YAxisChangeGap = navHeight - currTopPosition;
   }
 
   initiator.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
 
-  if (initiator.parentElement) {
-    initiator.parentElement.style.zIndex = '49';
-    initiator.parentElement.style.pointerEvents = 'none';
-    initiator.parentElement.style.position = 'fixed';
-  }
+    parent.style.zIndex = '49';
+    parent.style.pointerEvents = 'none';
+    parent.style.position = 'fixed';
 
   initiator.animate({
     padding: '0',
@@ -78,5 +70,21 @@ export function handleImageToWorkTransition(e: Event) {
     fill: 'forwards',
     easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
     duration: 1200,
-  }, );
+  },);
+
+  setTimeout(() => {
+    curtain.animate({
+      opacity: 0,
+      zIndex:-48
+    }, {
+      duration: 600,
+      fill: 'forwards',
+      easing: 'ease',
+    },);
+
+    setTimeout(() => {
+      parent.style.opacity = '0';
+    }, 500)
+
+  }, 1200)
 }
