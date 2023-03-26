@@ -31,7 +31,6 @@
   --hover-showcase-content-border-color: hsl(60, 4%, 60%);
   --cue-shadow-and-code-color: hsl(0, 0%, 20%);
   --cue-box-shadow-third-color: hsl(60, 0%,14%);
-  --circular-menu-bg-color: hsl(24, 80%, 2%);
   --showcase-middle-cover-gradient-and-circular-menu-bg-color: hsla(0, 0%, 14%, 0.75);
   --showcase-item-cover-gradient: hsla(0, 0%, 14%, 1);
   --proj-hint-shadow-color:hsla(0, 0%, 100%, 0.25);
@@ -77,6 +76,8 @@ ul {
   padding: 0;
 }
 
+
+
 nav {
   position: -webkit-sticky;
   position: sticky;
@@ -85,14 +86,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 2rem 0 2rem;
-  background-color: hsl(var(--background-color));
-
   z-index: var(--nav-z-index);
-}
-
-section {
-  height: 100%;
-  width: 100%;
 }
 
 img {
@@ -106,36 +100,10 @@ button {
   cursor: pointer;
 }
 
+
+/* menu component-styles */
 .circular-menu {
   position: relative;
-}
-
-.circular-menu::after {
-  opacity: 0;
-  display: block;
-  content: " ";
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  position: absolute;
-  left: -2.75rem;
-  top: -1.675rem;
-  z-index: 4;
-  background-color: var(--circular-menu-bg-color);
-  transition: all 0.3s ease-out;
-}
-
-.circular-menu .items-wrapper {
-  padding: 0;
-  margin: 0;
-}
-
-.circular-menu .menu-item {
-  position: absolute;
-  z-index: 10;
-  opacity: 0;
-  transition: transform 0.3s ease, opacity 0.2s ease;
-  cursor: default;
 }
 
 .hamburger {
@@ -158,6 +126,34 @@ button {
   z-index: 10;
 }
 
+.circular-menu::after {
+  opacity: 0;
+  display: block;
+  content: " ";
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  position: absolute;
+  left: -2.75rem;
+  top: -1.675rem;
+  z-index: 4;
+  background-color: var(--circular-menu-bg-color);
+  transition: all 0.3s ease-out;
+}
+
+.items-wrapper {
+  padding: 0;
+  margin: 0;
+}
+
+.circular-menu .menu-item {
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+
 .menu {
   position: relative;
   width: 100%;
@@ -165,7 +161,6 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
 }
 
 .menu .bar1,
@@ -185,15 +180,18 @@ button {
   flex-direction: column;
   align-items: center;
 
-  /* z-index: var(--relative-content-z-index); */
-}
-
-section[id="description"]>* {
-  max-width: 768px;
   width: 38%;
 }
 
-#description p a,
+/* #description>* {
+  max-width: 768px;
+} */
+
+#description > *{
+  margin-right: auto;
+}
+
+#description a:not(#to-projects),
 .showcase-content a span {
   border-bottom: 0.063rem dashed ;
   border-bottom-color: var(--showcase-border-and-cue-first-shadow-color);
@@ -201,8 +199,8 @@ section[id="description"]>* {
   padding-bottom: .05rem;
 }
 
-#description p a:hover,
-.showcase-content a span:hover {
+#description a:not(#to-projects):hover,
+.showcase-content span:hover {
   border-bottom: 0.063rem solid ;
  border-bottom-color: var(--hover-showcase-content-border-color);
 }
@@ -216,8 +214,7 @@ section[id="description"]>* {
 
 #to-projects {
   width: fit-content;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto;
   transition: padding 0.3s ease;
 }
 
@@ -291,31 +288,7 @@ a[href="#fourth"] {
   transform: translateY(-0.5rem) rotate(-45deg);
 }
 
-.curtain {
-  height: 100%;
-  top: 0;
-  width: 100%;
-  position: fixed;
-  opacity: 0;
-  background-color: hsl(var(--background-color));
-  z-index: -48;
-}
 
-
-/* navigate to proj button hover effect */
-#to-projects:hover {
-  padding-top: 0.8rem;
-}
-
-
-
-code {
-  background-color: var(--cue-shadow-and-code-color);
-  padding: 0.125rem 0.5rem;
-  width: fit-content;
-  margin-right: 1.5rem;
-  border-radius: .25rem;
-}
 
 .showcase {
   display: flex;
@@ -377,14 +350,6 @@ code {
   align-items: baseline;
 }
 
-/* .proj-description p a::after {
-  content: url("data:image/svg+xml,<svg width='8' height='8' viewBox='0 0 8 8' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z' fill='currentColor'/></svg>");
-  fill: var(--background-color);
-  margin-left: .25rem;
-  fill: var(--text-color);
-  position: absolute;
-} */
-
 
 /* second view interaction style */
 #showcase-menu {
@@ -443,7 +408,6 @@ code {
 
 .circular-menu.active .menu-item {
   opacity: 1;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 1.4rem;
@@ -507,6 +471,23 @@ path {
 
 path[stroke="currentColor"] {
   fill: black;
+}
+
+.curtain {
+  height: 100%;
+  top: 0;
+  width: 100%;
+  position: fixed;
+  opacity: 0;
+  background-color: hsl(var(--background-color));
+  z-index: -48;
+}
+code {
+  background-color: var(--cue-shadow-and-code-color);
+  padding: 0.125rem 0.5rem;
+  width: fit-content;
+  margin-right: 1.5rem;
+  border-radius: .25rem;
 }
 
 @media (prefers-color-scheme: light) {

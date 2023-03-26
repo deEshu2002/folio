@@ -1,0 +1,44 @@
+/* first body paint style */
+
+#first-ref, #second-ref, #third-ref, #fourth-ref{
+    position: absolute;
+    will-change: contents;
+}
+
+#first-ref {
+    rotate: 9deg;
+    bottom: 34%;
+    left: 5%;
+}
+
+#second-ref {
+    rotate: -9deg;
+    bottom: 15%;
+    left: 10%;
+}
+
+#third-ref {
+    rotate: 9deg;
+    top: 20%;
+    right: 11%;
+}
+
+#fourth-ref {
+    rotate: -9deg;
+    top: 39%;
+    right: 6%;
+}
+
+#first-ref img,
+#second-ref img,
+#third-ref img,
+#fourth-ref img {
+    display: block;
+    padding: 0.5rem;
+    box-shadow: 0px 1em 2em -1em var(--showcase-border-and-cue-first-shadow-color),
+        0px 2em 2em -1em var(--cue-shadow-and-code-color), inset 0 0.05rem .5rem var(--cue-box-shadow-third-color);
+    background-color: white;
+    width: 14vw;
+    height: 10vw;
+    transition: all 0.7s ease;
+}
