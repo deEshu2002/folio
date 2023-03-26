@@ -6,8 +6,6 @@
   list-style: none;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,8 +17,6 @@
   --normal-gap: 2;
   --high-gap: 3;
 
-  --gray-code-color: 60, 4%;
-
   --base-text-size: 1.25rem;
   --medium-font: 1.5rem;
 
@@ -28,9 +24,20 @@
   scroll-behavior: smooth;
 
   --nav-z-index: 50;
-  /* --relative-content-z-index: ; */
   --showcase-menu-z-index: 9;
-  /* --curtain-z-index: ; */
+  --background-color: 0, 0%, 14%;
+    --text-color: 0, 0%, 100%;
+  --showcase-border-and-cue-first-shadow-color: hsl(60, 4%, 35%);
+  --hover-showcase-content-border-color: hsl(60, 4%, 60%);
+  --cue-shadow-and-code-color: hsl(0, 0%, 20%);
+  --cue-box-shadow-third-color: hsl(60, 0%,14%);
+  --circular-menu-bg-color: hsl(24, 80%, 2%);
+  --showcase-middle-cover-gradient-and-circular-menu-bg-color: hsla(0, 0%, 14%, 0.75);
+  --showcase-item-cover-gradient: hsla(0, 0%, 14%, 1);
+  --proj-hint-shadow-color:hsla(0, 0%, 100%, 0.25);
+
+  background-color: hsl(var(--background-color));
+  color: hsl(var(--text-color));
 }
 
 *,
@@ -61,12 +68,8 @@ p {
 }
 
 a {
-  color: inherit;
+  color: hsl(var(--text-color));
   text-decoration: none;
-}
-
-a:hover {
-  color: #535bf2;
 }
 
 ul {
@@ -82,7 +85,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 2rem 0 2rem;
-  background-color: white;
+  background-color: hsl(var(--background-color));
 
   z-index: var(--nav-z-index);
 }
@@ -99,6 +102,7 @@ img {
 
 button {
   border-width: 0;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -117,7 +121,7 @@ button {
   left: -2.75rem;
   top: -1.675rem;
   z-index: 4;
-  background-color: hsl(24, 80%, 98%);
+  background-color: var(--circular-menu-bg-color);
   transition: all 0.3s ease-out;
 }
 
@@ -169,7 +173,7 @@ button {
 .menu .bar3 {
   width: 100%;
   height: 0.2rem;
-  background-color: hsl(var(--gray-code-color), 0%);
+  background-color: hsl(var(--text-color));
   transition: all 0.3s ease;
   border-radius: 1rem;
 }
@@ -189,9 +193,18 @@ section[id="description"]>* {
   width: 38%;
 }
 
+#description p a,
+.showcase-content a span {
+  border-bottom: 0.063rem dashed ;
+  border-bottom-color: var(--showcase-border-and-cue-first-shadow-color);
+  transition: border .3s ease;
+  padding-bottom: .05rem;
+}
 
-#description p>span>a {
-  border-bottom: 0.063rem solid hsl(var(--gray-code-color), 69%);
+#description p a:hover,
+.showcase-content a span:hover {
+  border-bottom: 0.063rem solid ;
+ border-bottom-color: var(--hover-showcase-content-border-color);
 }
 
 #description p span {
@@ -209,16 +222,17 @@ section[id="description"]>* {
 }
 
 /* cues */
-  a[href="#first"]:not(a[id="to-projects"]) img,
-  a[href="#second"] img,
-  a[href="#third"] img,
-  a[href="#fourth"] img{
+a[href="#first"]:not(a[id="to-projects"]) img,
+a[href="#second"] img,
+a[href="#third"] img,
+a[href="#fourth"] img {
 
-    display: block;
-    padding: 0.5rem;
-  
-  box-shadow: 0px 1em 2em -1em hsl(var(--gray-code-color), 70%),
-    0px 2em 2em -1em hsl(var(--gray-code-color), 80%), inset 0 .87em 1em #fff;
+  display: block;
+  padding: 0.5rem;
+
+  box-shadow: 0px 1em 2em -1em var(--showcase-border-and-cue-first-shadow-color),
+    0px 2em 2em -1em var(--cue-shadow-and-code-color), inset 0 0.05rem .5rem var(--cue-box-shadow-third-color);
+  background-color: white;
   width: 14vw;
   height: 10vw;
   transition: all 0.7s ease;
@@ -231,15 +245,16 @@ a[href="#third"],
 a[href="#fourth"] {
   position: absolute;
 }
-.positive-rotation{
+
+.positive-rotation {
   rotate: 9deg;
 }
 
-.negative-rotation{
+.negative-rotation {
   rotate: -9deg;
 }
 
-a[href="#first"]:not(a[id="to-projects"]){
+a[href="#first"]:not(a[id="to-projects"]) {
   bottom: 34%;
   left: 5%;
 }
@@ -261,17 +276,6 @@ a[href="#fourth"] {
 
 /* reusage potential
 1. flex 
-2. anchor tag baseline */
-
-.anchor-underline {
-  border-bottom: 0.063rem solid hsl(var(--gray-code-color), 69%);
-  padding-bottom: 0.25rem;
-}
-
-
-
-
-
 
 /* first View Page interaction */
 /* hamburger rotation effect */
@@ -289,11 +293,11 @@ a[href="#fourth"] {
 
 .curtain {
   height: 100%;
-  top: 3rem;
+  top: 0;
   width: 100%;
   position: fixed;
   opacity: 0;
-  background-color: white;
+  background-color: hsl(var(--background-color));
   z-index: -48;
 }
 
@@ -306,7 +310,7 @@ a[href="#fourth"] {
 
 
 code {
-  background-color: hsl(var(--gray-code-color), 95%);
+  background-color: var(--cue-shadow-and-code-color);
   padding: 0.125rem 0.5rem;
   width: fit-content;
   margin-right: 1.5rem;
@@ -348,7 +352,7 @@ code {
   margin-bottom: .5rem;
 
   border-radius: 2rem;
-  box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 20px 25px var(--proj-hint-shadow-color);
 
   z-index: 9;
 }
@@ -360,8 +364,6 @@ code {
 
   margin-top: 1rem;
   margin-left: 2rem;
-
-  /* z-index: var(--relative-content-z-index); */
 }
 
 .proj-description p {
@@ -375,11 +377,13 @@ code {
   align-items: baseline;
 }
 
-.proj-description p a::after {
-  content: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z' fill='black'/%3E%3C/svg%3E%0A");
+/* .proj-description p a::after {
+  content: url("data:image/svg+xml,<svg width='8' height='8' viewBox='0 0 8 8' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z' fill='currentColor'/></svg>");
+  fill: var(--background-color);
   margin-left: .25rem;
+  fill: var(--text-color);
   position: absolute;
-}
+} */
 
 
 /* second view interaction style */
@@ -408,14 +412,13 @@ code {
 
 .showcase-item.showcase-menu-middle::before {
   top: -500%;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 1) 20%);
+  background: linear-gradient(0deg, var(--showcase-middle-cover-gradient-and-circular-menu-bg-color) 0%,var(--showcase-item-cover-gradient) 20%);
 }
 
 .showcase-item.showcase-menu-middle::after {
   bottom: -500%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 1) 20%);
+  background: linear-gradient(180deg, var(--showcase-middle-cover-gradient-and-circular-menu-bg-color) 0%, var(--showcase-item-cover-gradient) 20%);
 }
-
 
 
 /* 2nd level of view in first page */
@@ -423,7 +426,7 @@ code {
 
 .circular-menu.active::before {
   content: "";
-  background-color: hsla(var(--gray-code-color), 100%, 0.87);
+  background-color: var(--showcase-middle-cover-gradient-and-circular-menu-bg-color);
   z-index: 1;
   position: fixed;
   top: 0;
@@ -493,26 +496,38 @@ code {
   transition-duration: 1.2s;
 }
 
-
-
 /* secondary view level transition  */
 .circular-menu.active .menu-item:hover::after {
   width: 9rem;
 }
 
+path {
+  fill: white;
+}
+
+path[stroke="currentColor"] {
+  fill: black;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --background-color: 0 0% 100%;
+    --text-color: 204, 80%, 12%;
+
+  --showcase-border-and-cue-first-shadow-color: hsl(60, 4%, 70%);
+  --hover-showcase-content-border-color: hsl(60, 4%, 60%);
+  --cue-shadow-and-code-color: hsl(0, 0%, 80%);
+  --cue-box-shadow-third-color: hsl(0, 0%,100%);
+  --circular-menu-bg-color: hsl(24, 80%, 98%);
+  --showcase-middle-cover-gradient-and-circular-menu-bg-color: hsla(0, 0%, 100%, 0.75);
+  --showcase-item-cover-gradient: hsla(0, 0%, 100%, 1);
+  --proj-hint-shadow-color:hsla(0, 0%, 0%, 0.25);
   }
 
-  a:hover {
-    color: #747bff;
+  path {
+    fill: black;
   }
-
-  button {
-    background-color: transparent;
-    cursor: pointer;
+  path[stroke="currentColor"] {
+    fill: white;
   }
 }

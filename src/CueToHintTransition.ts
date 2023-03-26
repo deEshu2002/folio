@@ -2,15 +2,11 @@ const curtain = document.querySelector('.curtain') as HTMLDivElement;
 const target = document.querySelector('.showcase-content article .proj-hint') as HTMLImageElement;
 const nav = document.querySelector('nav');
 
-
-function toggleCurtain() {
-
-}
-
-
 export function handleImageToWorkTransition(e: Event) {
   //can't figure out how to position 3d transition Y axis values;
-  if (window.scrollY > 0) {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (window.scrollY > 0 || reducedMotion) {
     return;
   }
 
@@ -28,7 +24,7 @@ export function handleImageToWorkTransition(e: Event) {
     duration: 300,
     fill: 'forwards',
     easing: 'ease',
-  },);
+  }, );
 
   const parent = (e.target as HTMLImageElement).parentElement as HTMLAnchorElement;
   const parentPositions = parent.getBoundingClientRect();
@@ -46,17 +42,16 @@ export function handleImageToWorkTransition(e: Event) {
   if (parent.getAttribute('href') === '#first' || parent.getAttribute('href') === '#second') {
     XAxisChangeGap = targetleftPosition - currLeftPosition;
     YAxisChangeGap = idealBottom - currBottomPosition;
-  }
-  else if (parent.getAttribute('href') === '#third' || parent.getAttribute('href') === '#fourth') {
+  } else if (parent.getAttribute('href') === '#third' || parent.getAttribute('href') === '#fourth') {
     XAxisChangeGap = targetRightPosition - currRightPosition;
     YAxisChangeGap = navHeight - currTopPosition;
   }
 
   initiator.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
 
-    parent.style.zIndex = '49';
-    parent.style.pointerEvents = 'none';
-    parent.style.position = 'fixed';
+  parent.style.zIndex = '49';
+  parent.style.pointerEvents = 'none';
+  parent.style.position = 'fixed';
 
   initiator.animate({
     padding: '0',
@@ -70,21 +65,26 @@ export function handleImageToWorkTransition(e: Event) {
     fill: 'forwards',
     easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
     duration: 1200,
-  },);
+  }, );
 
   setTimeout(() => {
     curtain.animate({
       opacity: 0,
-      zIndex:-48
+      zIndex: -48
     }, {
       duration: 600,
       fill: 'forwards',
       easing: 'ease',
-    },);
+    }, );
 
-    setTimeout(() => {
-      parent.style.opacity = '0';
-    }, 500)
+    parent.animate({
+      opacity: 0
+    }, {
+      fill: 'forwards',
+      easing: 'ease',
+      duration: 600,
+      delay: 300
+    });
 
   }, 1200)
 }
