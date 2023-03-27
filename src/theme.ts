@@ -17,10 +17,7 @@ export function getThemeBasedColorOf(element: string, property: string) {
     return propertyValue;
 }
 
-// window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-    // console.log('mode changed!!');
-    // projHintShadows = (document.getElementById('first') as HTMLAnchorElement).style.boxShadow;
-
-    // cueShadows = (document.getElementById('first-ref') as HTMLAnchorElement).style.boxShadow;
-
-// });
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+    console.log('mode changed!!');
+    isCurrThemeDark =  window.matchMedia('(prefers-color-scheme: dark)').matches ;
+});

@@ -1,4 +1,4 @@
-import { getThemeBasedColorOf } from "./theme";
+import { getThemeBasedColorOf, isCurrThemeDark } from "./theme";
 
 export function handleMouseOutRotation(e: Event) {
     const eventInitiator = (e.target as HTMLImageElement);
@@ -22,10 +22,10 @@ export function handleMouseOverRotation(e: Event) {
     const parentAnchor = eventInitiator.parentElement as HTMLAnchorElement;
 
     parentAnchor.style.rotate = '0deg';
-    
-    
-    // console.log( window.getComputedStyle(document.getElementById('first-ref') as HTMLAnchorElement).boxShadow)
-    const cueShadows = getThemeBasedColorOf('#first-ref','box-shadow')
 
-        parentAnchor.style.boxShadow = cueShadows;
+    if(isCurrThemeDark){
+        parentAnchor.style.boxShadow =  '0px 1rem 2rem -1rem #090401';
+    }else{
+        parentAnchor.style.boxShadow =  '0px 1rem 2rem -1rem #cccccc';
+    }
 }
