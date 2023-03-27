@@ -10,7 +10,7 @@ import {
 import {
     openMenuModal
 } from './NavOperations';
-import './styles.css'
+import './style.css'
 
 
 const hamburgerInit = document.querySelector('.hamburger-init') as HTMLInputElement;
@@ -34,9 +34,4 @@ menuValues.forEach((item) => {
 })
 
 
-export let userPreferedTheme:'light' | 'dark';
-userPreferedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches?"dark":"light" ;
-
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) { console.log('changed!!'); 
-    
-})
+console.log(window.getComputedStyle(document.querySelector(':root')).getPropertyValue('background-color'))

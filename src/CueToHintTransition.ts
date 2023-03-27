@@ -1,11 +1,13 @@
+import { reducedMotion } from "./reducedmotion";
+import { getThemeBasedColorOf } from "./theme";
+
 const curtain = document.querySelector('.curtain') as HTMLDivElement;
 const target = document.querySelector('.showcase-content article .proj-hint') as HTMLImageElement;
 const nav = document.querySelector('nav');
 
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export function handleImageToWorkTransition(e: Event) {
-  //can't figure out how to position 3d transition Y axis values;
+  // Can't figure out how to position 3d transition Y axis values;
 
   if (window.scrollY > 0 || reducedMotion) {
     return;
@@ -51,6 +53,7 @@ export function handleImageToWorkTransition(e: Event) {
   parent.style.zIndex = '49';
   parent.style.pointerEvents = 'none';
   parent.style.position = 'fixed';
+  const projHintShadows = (document.getElementById('first') as HTMLAnchorElement).style.boxShadow;
 
   parent.animate({
     padding: '0',
@@ -59,7 +62,7 @@ export function handleImageToWorkTransition(e: Event) {
     height: '25rem',
     rotate: '0deg',
     borderRadius: '2rem',
-    boxShadow: '0px 20px 25px rgba(0, 0, 0, 0.25)',
+    boxShadow: projHintShadows,
   }, {
     fill: 'forwards',
     easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
