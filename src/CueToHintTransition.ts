@@ -1,10 +1,9 @@
-import { reducedMotion } from "./reducedmotion";
-import { getThemeBasedColorOf } from "./theme";
+import { reducedMotion } from './reducedmotion';
+import { getThemeBasedColorOf } from './theme';
 
 const curtain = document.querySelector('.curtain') as HTMLDivElement;
 const projHint = document.querySelector('#first .proj-hint') as HTMLImageElement;
 const nav = document.querySelector('nav');
-
 
 export function handleImageToWorkTransition(e: Event) {
   // Can't figure out how to position 3d transition Y axis values;
@@ -18,16 +17,19 @@ export function handleImageToWorkTransition(e: Event) {
   const targetRightPosition = projHintPosition.right;
   const targetHeight = projHintPosition.height;
 
-  curtain.animate({
-    opacity: '1',
-    zIndex: '48',
-  }, {
-    duration: 300,
-    fill: 'forwards',
-    easing: 'ease',
-  },);
+  curtain.animate(
+    {
+      opacity: '1',
+      zIndex: '48',
+    },
+    {
+      duration: 300,
+      fill: 'forwards',
+      easing: 'ease',
+    },
+  );
 
-  const curr = (e.target as HTMLImageElement);
+  const curr = e.target as HTMLImageElement;
 
   const parent = (e.target as HTMLImageElement).parentElement as HTMLAnchorElement;
 
@@ -58,38 +60,46 @@ export function handleImageToWorkTransition(e: Event) {
   parent.style.position = 'fixed';
   const projHintShadows = getThemeBasedColorOf('#first .proj-hint', 'box-shadow');
 
-  curr.animate({
-    transform: `translate3d( ${XAxisChangeGap}px, ${YAxisChangeGap}px,1px)`,
-    borderRadius: '2rem',
-    padding: 0,
-    boxShadow: projHintShadows,
-    width: '40rem',
-    height: '25rem',
-    rotate:'0deg'
-  }, {
-    fill: 'forwards',
-    easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
-    duration: 1200,
-  })
+  curr.animate(
+    {
+      transform: `translate3d( ${XAxisChangeGap}px, ${YAxisChangeGap}px,1px)`,
+      borderRadius: '2rem',
+      padding: 0,
+      boxShadow: projHintShadows,
+      width: '40rem',
+      height: '25rem',
+      rotate: '0deg',
+    },
+    {
+      fill: 'forwards',
+      easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+      duration: 1200,
+    },
+  );
 
   setTimeout(() => {
-    curtain.animate({
-      opacity: 0,
-      zIndex: -48
-    }, {
-      duration: 600,
-      fill: 'forwards',
-      easing: 'ease',
-    },);
+    curtain.animate(
+      {
+        opacity: 0,
+        zIndex: -48,
+      },
+      {
+        duration: 600,
+        fill: 'forwards',
+        easing: 'ease',
+      },
+    );
 
-    parent.animate({
-      opacity: 0
-    }, {
-      fill: 'forwards',
-      easing: 'ease',
-      duration: 600,
-      delay: 300
-    });
-
-  }, 1200)
+    parent.animate(
+      {
+        opacity: 0,
+      },
+      {
+        fill: 'forwards',
+        easing: 'ease',
+        duration: 600,
+        delay: 300,
+      },
+    );
+  }, 1200);
 }
