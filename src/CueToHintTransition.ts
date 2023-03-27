@@ -2,7 +2,7 @@ import { reducedMotion } from "./reducedmotion";
 import { getThemeBasedColorOf } from "./theme";
 
 const curtain = document.querySelector('.curtain') as HTMLDivElement;
-const target = document.querySelector('.showcase-content article .proj-hint') as HTMLImageElement;
+const projHint = document.querySelector('#first .proj-hint') as HTMLImageElement;
 const nav = document.querySelector('nav');
 
 
@@ -13,10 +13,10 @@ export function handleImageToWorkTransition(e: Event) {
     return;
   }
 
-  const targetPositions = target.getBoundingClientRect();
-  const targetleftPosition = targetPositions.left;
-  const targetRightPosition = targetPositions.right;
-  const targetHeight = targetPositions.height;
+  const projHintPosition = projHint.getBoundingClientRect();
+  const targetleftPosition = projHintPosition.left;
+  const targetRightPosition = projHintPosition.right;
+  const targetHeight = projHintPosition.height;
 
   curtain.animate({
     opacity: '1',
@@ -25,14 +25,17 @@ export function handleImageToWorkTransition(e: Event) {
     duration: 300,
     fill: 'forwards',
     easing: 'ease',
-  }, );
+  },);
+
+  const curr = (e.target as HTMLImageElement);
 
   const parent = (e.target as HTMLImageElement).parentElement as HTMLAnchorElement;
-  const parentPositions = parent.getBoundingClientRect();
-  const currLeftPosition = parentPositions.left;
-  const currRightPosition = parentPositions.right;
-  const currBottomPosition = parentPositions.bottom;
-  const currTopPosition = parentPositions.top;
+
+  const currPosition = parent.getBoundingClientRect();
+  const currLeftPosition = currPosition.left;
+  const currRightPosition = currPosition.right;
+  const currBottomPosition = currPosition.bottom;
+  const currTopPosition = currPosition.top;
 
   let XAxisChangeGap = 0;
   let YAxisChangeGap = 0;
@@ -53,21 +56,21 @@ export function handleImageToWorkTransition(e: Event) {
   parent.style.zIndex = '49';
   parent.style.pointerEvents = 'none';
   parent.style.position = 'fixed';
-  const projHintShadows = getThemeBasedColorOf('#first','box-shadow');
+  const projHintShadows = getThemeBasedColorOf('#first .proj-hint', 'box-shadow');
 
-  parent.animate({
-    padding: '0',
+  curr.animate({
     transform: `translate3d( ${XAxisChangeGap}px, ${YAxisChangeGap}px,1px)`,
+    borderRadius: '2rem',
+    padding: 0,
+    boxShadow: projHintShadows,
     width: '40rem',
     height: '25rem',
-    rotate: '0deg',
-    borderRadius: '2rem',
-    boxShadow: projHintShadows,
+    rotate:'0deg'
   }, {
     fill: 'forwards',
     easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
     duration: 1200,
-  }, );
+  })
 
   setTimeout(() => {
     curtain.animate({
@@ -77,7 +80,7 @@ export function handleImageToWorkTransition(e: Event) {
       duration: 600,
       fill: 'forwards',
       easing: 'ease',
-    }, );
+    },);
 
     parent.animate({
       opacity: 0

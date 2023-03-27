@@ -10,9 +10,9 @@ export function getThemeBasedColorOf(element: string, property: string) {
     const computedStyle = window.getComputedStyle(document.querySelector(`${element}`) as HTMLElement);
     let propertyValue;
     if (isCurrThemeDark) {
-        propertyValue = computedStyle.getPropertyValue(`${property}`)
+        propertyValue = computedStyle.getPropertyValue(`${property}`);
     } else {
-        propertyValue = computedStyle.getPropertyValue(`--${property}`);
+        propertyValue = computedStyle.getPropertyValue(`--light-${property}`);
     }
     return propertyValue;
 }

@@ -2,16 +2,18 @@ import { getThemeBasedColorOf, isCurrThemeDark } from "./theme";
 
 export function handleMouseOutRotation(e: Event) {
     const eventInitiator = (e.target as HTMLImageElement);
-    const parentAnchor = eventInitiator.parentNode as HTMLAnchorElement;
 
-    const cueShadows = getThemeBasedColorOf('#first-ref','box-shadow')
+    const cueShadows = getThemeBasedColorOf('#first-ref img','box-shadow')
+    const currElemParent = eventInitiator.parentElement as HTMLAnchorElement;
 
-    if (parentAnchor.classList.length === 0) {
-        parentAnchor.style.boxShadow = cueShadows;
-        if (parentAnchor.id === 'first-ref' || parentAnchor.id === 'third-ref') {
-            parentAnchor.style.rotate = '9deg';
-        } else if(parentAnchor.id === 'second-ref' || parentAnchor.id === 'fourth-ref'){
-            parentAnchor.style.rotate = '-9deg';
+    if (eventInitiator.classList.length === 0) {
+        eventInitiator.style.boxShadow = cueShadows;
+
+        if (currElemParent.id == 'first-ref' || currElemParent.id == 'third-ref') {
+            eventInitiator.style.rotate = '9deg';
+        } 
+         else if(currElemParent.id == 'second-ref' || currElemParent.id == 'fourth-ref'){
+            eventInitiator.style.rotate = '-9deg';
         }
     }
 }
@@ -19,13 +21,14 @@ export function handleMouseOutRotation(e: Event) {
 
 export function handleMouseOverRotation(e: Event) {
     const eventInitiator = (e.target as HTMLImageElement);
-    const parentAnchor = eventInitiator.parentElement as HTMLAnchorElement;
+console.log(isCurrThemeDark)
 
-    parentAnchor.style.rotate = '0deg';
-
+    eventInitiator.style.rotate = '0deg';
     if(isCurrThemeDark){
-        parentAnchor.style.boxShadow =  '0px 1rem 2rem -1rem #090401';
-    }else{
-        parentAnchor.style.boxShadow =  '0px 1rem 2rem -1rem #cccccc';
+        eventInitiator.style.boxShadow = "0px 1rem 2rem -1rem #090401";
     }
+    else{
+        eventInitiator.style.boxShadow = "0px 1rem 2rem -1rem #cccccc";
+    }
+
 }
