@@ -2,9 +2,10 @@ const curtain = document.querySelector('.curtain') as HTMLDivElement;
 const target = document.querySelector('.showcase-content article .proj-hint') as HTMLImageElement;
 const nav = document.querySelector('nav');
 
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 export function handleImageToWorkTransition(e: Event) {
   //can't figure out how to position 3d transition Y axis values;
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (window.scrollY > 0 || reducedMotion) {
     return;
@@ -14,8 +15,6 @@ export function handleImageToWorkTransition(e: Event) {
   const targetleftPosition = targetPositions.left;
   const targetRightPosition = targetPositions.right;
   const targetHeight = targetPositions.height;
-
-  const initiator = e.target as HTMLImageElement;
 
   curtain.animate({
     opacity: '1',
@@ -39,21 +38,21 @@ export function handleImageToWorkTransition(e: Event) {
   const navHeight = nav?.getBoundingClientRect().height ?? 0;
   const idealBottom = navHeight + targetHeight;
 
-  if (parent.getAttribute('href') === '#first' || parent.getAttribute('href') === '#second') {
+  if (parent.id === 'first-ref' || parent.id === 'second-ref') {
     XAxisChangeGap = targetleftPosition - currLeftPosition;
     YAxisChangeGap = idealBottom - currBottomPosition;
-  } else if (parent.getAttribute('href') === '#third' || parent.getAttribute('href') === '#fourth') {
+  } else if (parent.id === 'third-ref' || parent.id === 'fourth-ref') {
     XAxisChangeGap = targetRightPosition - currRightPosition;
     YAxisChangeGap = navHeight - currTopPosition;
   }
 
-  initiator.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
+  parent.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
 
   parent.style.zIndex = '49';
   parent.style.pointerEvents = 'none';
   parent.style.position = 'fixed';
 
-  initiator.animate({
+  parent.animate({
     padding: '0',
     transform: `translate3d( ${XAxisChangeGap}px, ${YAxisChangeGap}px,1px)`,
     width: '40rem',
