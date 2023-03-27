@@ -3,7 +3,8 @@ import { getThemeBasedColorOf } from "./theme";
 export function handleMouseOutRotation(e: Event) {
     const eventInitiator = (e.target as HTMLImageElement);
     const parentAnchor = eventInitiator.parentNode as HTMLAnchorElement;
-    const cueShadows = (document.getElementById('first-ref') as HTMLAnchorElement).style.boxShadow;
+
+    const cueShadows = getThemeBasedColorOf('#first-ref','box-shadow')
 
     if (parentAnchor.classList.length === 0) {
         parentAnchor.style.boxShadow = cueShadows;
@@ -24,6 +25,7 @@ export function handleMouseOverRotation(e: Event) {
     
     
     // console.log( window.getComputedStyle(document.getElementById('first-ref') as HTMLAnchorElement).boxShadow)
+    const cueShadows = getThemeBasedColorOf('#first-ref','box-shadow')
 
         parentAnchor.style.boxShadow = cueShadows;
 }

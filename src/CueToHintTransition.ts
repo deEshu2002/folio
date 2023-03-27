@@ -53,7 +53,7 @@ export function handleImageToWorkTransition(e: Event) {
   parent.style.zIndex = '49';
   parent.style.pointerEvents = 'none';
   parent.style.position = 'fixed';
-  const projHintShadows = (document.getElementById('first') as HTMLAnchorElement).style.boxShadow;
+  const projHintShadows = getThemeBasedColorOf('#first','box-shadow');
 
   parent.animate({
     padding: '0',

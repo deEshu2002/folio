@@ -33,5 +33,3 @@ menuValues.forEach((item) => {
     item.onclick = (e) => handleShowCaseMenuTransition(e);
 })
 
-
-console.log(window.getComputedStyle(document.querySelector(':root')).getPropertyValue('background-color'))
