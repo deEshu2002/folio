@@ -12,13 +12,15 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
 
-    background-color: #242424;
-    color: #EBEBEB;
-
 
     --light-background-color: #ffffff;
     --light-color: #062337;
 
+    --dark-background-color: #242424;
+    --dark-color: #EBEBEB;
+
+    background-color: #242424;
+    color: #EBEBEB;
 
     scroll-behavior: smooth;
 }
@@ -73,13 +75,15 @@ button {
 
 path {
     --light-fill: #062337;
-    fill: #EBEBEB;
+    --dark-fill: #EBEBEB;
+    fill: var(--dark-fill);
 
 }
 
 path[stroke="currentColor"] {
     --light-fill: #ffffff;
-    fill: #090401;
+    --dark-fill: #090401;
+    fill: var(--dark-fill);
 }
 
 /* first body paint styles */
@@ -97,7 +101,6 @@ nav {
 
 .circular-menu {
     position: relative;
-    will-change: contents;
 }
 
 .hamburger {
@@ -133,9 +136,10 @@ nav {
 .bar2,
 .bar3 {
     --light-background-color: #062337;
+    --dark-background-color: #EBEBEB;
     width: 100%;
     height: 0.2rem;
-    background-color: #EBEBEB;
+    background-color: var(--dark-background-color);
     transition: all 0.3s ease;
     border-radius: 1rem;
 }
@@ -148,6 +152,7 @@ nav {
 .circular-menu::after {
 
     --light-background-color: #EBEBEB;
+    --dark-background-color: #090401;
     opacity: 0;
     display: block;
     content: " ";
@@ -158,7 +163,7 @@ nav {
     left: -2.75rem;
     top: -1.675rem;
     z-index: 4;
-    background-color: #090401;
+    background-color: var(--dark-background-color);
     transition: all 0.3s ease-out;
 }
 
@@ -186,8 +191,9 @@ nav {
 #description a:not(#to-projects),
 .showcase-content span {
     --light-border-bottom-color: #b6b6af;
+    --dark-border-bottom-color: #5d5d56;
     border-bottom: 0.063rem dashed;
-    border-bottom-color: #5d5d56;
+    border-bottom-color: var(--dark-border-bottom-color);
     transition: border .3s ease;
     padding-bottom: .05rem;
 }
@@ -235,18 +241,20 @@ nav {
     --light-background-color: #ffffff;
     --light-box-shadow: 0px 1em 2em -1em #cccccc,
         0px 2em 2em -1em #cccccc, inset 0 0.05rem .5rem #ffffff;
+    --dark-background-color: #363636;
+    --dark-box-shadow: 0px 1em 2em -1em #090401,
+        0px 2em 2em -1em #090401, inset 0 0.05rem .5rem #242424;
 
     display: block;
-    background-color: #363636;
+    background-color: var(--dark-background-color);
     border-radius: inherit;
 
     padding: 0.5rem;
     width: 14vw;
     height: 10vw;
 
-    box-shadow: 0px 1em 2em -1em #090401,
-        0px 2em 2em -1em #090401, inset 0 0.05rem .05rem #242424;
-        transition: all .6s ease;
+    box-shadow: var(--dark-box-shadow);
+    transition: all .6s ease;
 }
 
 #first-ref img,
@@ -299,15 +307,17 @@ nav {
 
 .showcase-item.showcase-menu-middle::before {
     --light-background: linear-gradient(0deg, rgba(255, 255, 255, 0.75) 0%, #ffffff 20%);
+    --dark-background: linear-gradient(0deg, rgba(36, 36, 36, 0.75) 0%, #242424 20%);
     top: -500%;
-    background: linear-gradient(0deg, rgba(36, 36, 36, 0.75) 0%, #242424 20%);
+    background: var(--dark-background);
 }
 
 .showcase-item.showcase-menu-middle::after {
 
     --light-background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, #ffffff 20%);
+    --dark-background: linear-gradient(180deg, rgba(36, 36, 36, 0.75) 0%, #242424 20%);
     bottom: -500%;
-    background: linear-gradient(180deg, rgba(36, 36, 36, 0.75) 0%, #242424 20%);
+    background: var(--dark-background);
 }
 
 .showcase-content {
@@ -324,13 +334,14 @@ nav {
 
 .proj-hint {
     --light-box-shadow: 0px 20px 25px #9d9d95;
+    --dark-box-shadow: 0px 20px 25px #090401;
     position: sticky;
     top: 3.45rem;
     width: 40rem;
     height: 25rem;
     margin-bottom: .5rem;
     border-radius: 2rem;
-    box-shadow: 0px 20px 25px #090401;
+    box-shadow: var(--dark-box-shadow);
 
     z-index: 9;
 }
@@ -357,7 +368,8 @@ nav {
 
 .proj-description p code {
     --light-background-color: #cccccc;
-    background-color: #333333;
+    --dark-background-color: #333333;
+    background-color: var(--dark-background-color);
     padding: 0.25rem 0.5rem;
     font-size: 1rem;
     margin-right: 1.5rem;
@@ -382,8 +394,9 @@ nav {
 
 .circular-menu.active::before {
     --light-background-color: #ffffff;
+    --dark-background-color: #242424;
     content: "";
-    background-color: #242424;
+    background-color: var(--dark-background-color);
     opacity: .8;
     z-index: 1;
     position: fixed;
@@ -437,8 +450,9 @@ nav {
 #description a:not(#to-projects):hover,
 .showcase-content span:hover {
     --light-border-bottom-color: #9d9d95;
+    --dark-border-bottom-color: #676767;
     border-bottom: 0.063rem solid;
-    border-bottom-color: #676767;
+    border-bottom-color: var(--dark-border-bottom-color);
 }
 
 #to-projects:hover {
@@ -468,11 +482,12 @@ nav {
 
 .circular-menu.active .menu-item::after {
     --light-background-color: #EBEBEB;
+    --dark-background-color: #090401;
     content: "";
     position: absolute;
     width: 0rem;
     height: 2.5rem;
-    background-color: #090401;
+    background-color: var(--dark-background-color);
     z-index: -1;
     border-bottom-right-radius: 1.2rem;
     transition: width 0.3s ease-out;
@@ -484,20 +499,21 @@ nav {
 
 .curtain {
     --light-background-color: #ffffff;
+    --dark-background-color: #242424;
     height: 100%;
     top: 0;
     width: 100%;
     position: fixed;
     opacity: 0;
-    background-color: #242424;
+    background-color: var(--dark-background-color);
     z-index: -48;
 }
 
 @media (prefers-color-scheme: light) {
 
     :root {
-        background-color: #ffffff;
-        color: #062337;
+        background-color: var(--light-background);
+        color: var(--light-color);
     }
 
     path {
@@ -530,7 +546,6 @@ nav {
         background-color: #ffffff;
         box-shadow: 0px 1em 2em -1em #cccccc,
             0px 2em 2em -1em #cccccc, inset 0 0.05rem .5rem #ffffff;
-
     }
 
     .showcase-item.showcase-menu-middle::before {

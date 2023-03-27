@@ -7,6 +7,7 @@ export function handleMouseOutRotation(e: Event) {
     const currElemParent = eventInitiator.parentElement as HTMLAnchorElement;
 
     if (eventInitiator.classList.length === 0) {
+
         eventInitiator.style.boxShadow = cueShadows;
 
         if (currElemParent.id == 'first-ref' || currElemParent.id == 'third-ref') {
@@ -30,5 +31,4 @@ console.log(isCurrThemeDark)
     else{
         eventInitiator.style.boxShadow = "0px 1rem 2rem -1rem #cccccc";
     }
-
 }

@@ -16,7 +16,7 @@ import './style.css'
 const hamburgerInit = document.querySelector('.hamburger-init') as HTMLInputElement;
 
 
-const cues: NodeListOf < HTMLImageElement > =  document.querySelectorAll('#first-ref img ,#second-ref img, #third-ref img, #fourth-ref img');
+export const cues: NodeListOf < HTMLImageElement > =  document.querySelectorAll('#first-ref img ,#second-ref img, #third-ref img, #fourth-ref img');
 
 hamburgerInit.onclick = () => openMenuModal();
 
