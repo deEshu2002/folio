@@ -1,0 +1,27 @@
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- lamp  thread -->
+    <!--         <g> -->
+    <!--     <line x1="14" y1="4" x2="14" y2="8" stroke="black" stroke-width="2" /> -->
+    <!-- lamp hood -->
+    <!--     <path d="M5 18C5 4.66667 23 4.66666 23 18" stroke="black" stroke-width="2" /> -->
+    <!-- lamp bulb -->
+    <!--     <path d="M18 19C18 24.3333 10 24.3333 10 19" stroke="black" stroke-width="2" /> -->
+    <!-- lamp cover -->
+    <!--     <line x1="5" y1="18" x2="23" y2="18" stroke="black" stroke-width="2" stroke-linecap="round" /> -->
+    <!--     </g> -->
+
+    <!-- sun round -->
+    <!-- <g> -->
+    <path d="M8.79999 13.7505C8.79999 7.01651 18.8 7.01651 18.8 13.7505" stroke="black" stroke-width="2" />
+    <path d="M18.8 13.6495C18.8 20.3835 8.79999 20.3835 8.79999 13.6495" stroke="black" stroke-width="2" />
+    <!-- sun lines
+    <line x1="23.5" y1="14" x2="26.5" y2="14" stroke="black" stroke-width="2" stroke-linecap="round" />
+    <line x1="20.5142" y1="20.8" x2="22.6355" y2="22.9213" stroke="black" stroke-width="2" stroke-linecap="round" />
+    <line x1="13.5" y1="23.5" x2="13.5" y2="26.5" stroke="black" stroke-width="2" stroke-linecap="round" />
+    <line x1="6.67367" y1="20.614" x2="4.51321" y2="22.6954" stroke="black" stroke-width="2" stroke-linecap="round" />
+    <line x1="4" y1="13.5" x2="1" y2="13.5" stroke="black" stroke-width="2" stroke-linecap="round" />
+    <line x1="6.43692" y1="6.65733" x2="4.23136" y2="4.62374" stroke="black" stroke-width="2" stroke-linecap="round"/>
+    <line x1="14" y1="4" x2="14" y2="1" stroke="black" stroke-width="2" stroke-linecap="round" />
+    <line x1="20.7689" y1="6.9552" x2="22.8902" y2="4.83388" stroke="black" stroke-width="2" stroke-linecap="round" />
+    </g> -->
+</svg>
