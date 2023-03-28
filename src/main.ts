@@ -13,7 +13,8 @@ export const cues: NodeListOf<HTMLImageElement> = document.querySelectorAll(
 hamburgerInit.onclick = () => openMenuModal();
 
 cues.forEach((img) => {
-  img.addEventListener('click', (e) => handleImageToWorkTransition(e), false);
+    //don't forget to remove event listeners at end of transition
+  img.addEventListener('mouseup', (e) => handleImageToWorkTransition(e), false);
   img.addEventListener('mouseenter', (e) => handleMouseOverRotation(e), false);
   img.addEventListener('mouseout', (e) => handleMouseOutRotation(e), false);
 });
