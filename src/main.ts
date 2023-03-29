@@ -3,6 +3,7 @@ import { handleImageToWorkTransition } from './CueToHintTransition';
 import { handleMenuVisibility, handleShowCaseMenuTransition } from './MenuOperations';
 import { openMenuModal } from './NavOperations';
 import './style.css';
+import sunMoon from './sunMoon';
 
 const hamburgerInit = document.querySelector('.hamburger-init') as HTMLInputElement;
 
@@ -25,3 +26,8 @@ const menuValues = document.querySelectorAll('.showcase-item') as NodeListOf<HTM
 menuValues.forEach((item) => {
   item.onclick = (e) => handleShowCaseMenuTransition(e);
 });
+
+
+const toggleButton =  document.getElementById('mode-toggle') as HTMLButtonElement;
+
+toggleButton.onmouseup = (e) => sunMoon(e);

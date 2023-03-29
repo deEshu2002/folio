@@ -16,12 +16,12 @@ export function getThemeBasedColorOf(element: string, property: string) {
     propertyValue = computedStyle.getPropertyValue(`--light-${property}`);
   }
 
-  console.log(element, property, computedStyle);
+  // console.log(element, property, computedStyle);
   return propertyValue;
 }
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-  console.log('mode changed!!');
+  // console.log('mode changed!!');
   isCurrThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   cues.forEach((elem) => {
     elem.setAttribute('style', '');

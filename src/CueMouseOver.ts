@@ -19,7 +19,7 @@ export function handleMouseOutRotation(e: Event) {
 
 export function handleMouseOverRotation(e: Event) {
   const eventInitiator = e.target as HTMLImageElement;
-  console.log(isCurrThemeDark);
+  // console.log(isCurrThemeDark);
 
   eventInitiator.style.rotate = '0deg';
   if (isCurrThemeDark) {
