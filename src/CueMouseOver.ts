@@ -1,4 +1,4 @@
-import { getThemeBasedColorOf, isCurrThemeDark } from './theme';
+import { getThemeBasedColorOf, isCurrThemeDark} from './theme';
 
 export function handleMouseOutRotation(e: Event) {
   const eventInitiator = e.target as HTMLImageElement;
