@@ -1,9 +1,10 @@
 import { handleMouseOverRotation, handleMouseOutRotation } from './CueMouseOver';
 import { handleImageToWorkTransition } from './CueToHintTransition';
+import { handleTheme, setSavedColorPreferenece } from './handleTheme';
 import { handleMenuVisibility, handleShowCaseMenuTransition } from './MenuOperations';
 import { openMenuModal } from './NavOperations';
 import './style.css';
-import { appendModeToggleButton, sunMoonTransition } from './sunMoonTransition';
+// import { appendModeToggleButton, sunMoonTransition } from './sunMoonTransition';
 
 const hamburgerInit = document.querySelector('.hamburger-init') as HTMLInputElement;
 
@@ -30,5 +31,12 @@ menuValues.forEach((item) => {
 
 const toggleButton =  document.getElementById('mode-toggle') as HTMLButtonElement;
 
-toggleButton.onmouseup = (e) => sunMoonTransition();
-window.onload = () =>appendModeToggleButton();
+// toggleButton.onmouseup = (e) => sunMoonTransition();
+window.onload = () => handleTheme(true);
+
+export const modeButton = document.getElementById('mode-toggle') as HTMLButtonElement;
+
+modeButton.onclick = () => {
+  setSavedColorPreferenece();
+  handleTheme();
+}
