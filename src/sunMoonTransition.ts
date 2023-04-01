@@ -22,6 +22,14 @@ export function handleSunMoonAnimation() {
     }
   }, 50)
 
+  if(reducedMotion){
+    circleMask.setAttribute('cx', isDarkMode ? '12' : '30');
+    circleMask.setAttribute('cy', isDarkMode ? '4' : '0');
+    sharedCircle.setAttribute('r', isDarkMode ? '9' : '5');
+    sunLines.style.opacity = isDarkMode ? '0': '1';
+    return;
+  }
+
 
   svg?.animate(
     { transform: isDarkMode ? 'rotate(40deg)' : 'rotate(90deg)' },

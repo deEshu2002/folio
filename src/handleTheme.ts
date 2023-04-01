@@ -1,4 +1,4 @@
-import { cues } from './main';
+import { resetJSStyles } from './main';
 import { handleSunMoonAnimation } from './sunMoonTransition';
 
 const storageKey = 'theme-preference';
@@ -39,8 +39,6 @@ export const darkThemeMap: Map<string, string> = new Map([
   ['--accent-color-tertiary', '#676767'],
 ]);
 
-// && initialUserPrefferedState !== null 
-
 function fillColors(ColorState:'dark'| 'light'){
     // transition based on provided state of theme
       const docStyles = document.documentElement.style;
@@ -80,8 +78,6 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
   console.log('mode changed!!');
   toggleColorPreferenceState();
   handleTheme({initFlag:true});
-
-  cues.forEach((elem) => {
-    elem.setAttribute('style', '');
-  });
+  
+  resetJSStyles();
 });

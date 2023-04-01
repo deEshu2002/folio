@@ -34,12 +34,16 @@ window.onload = () => handleTheme({initFlag:true});
 
 export const modeButton = document.getElementById('mode-toggle') as HTMLButtonElement;
 
+export function resetJSStyles(){
+  cues.forEach((elem) => {
+    elem.removeAttribute('style');
+  });
+}
+
 modeButton.onclick = (e) => {
   toggleColorPreferenceState();
   setTimeout(() => setSavedColorPreferenece(),100);
   handleTheme({initFlag:false});
 
-  cues.forEach((elem) => {
-    elem.setAttribute('style', '');
-  });
+  resetJSStyles();
 }

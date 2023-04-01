@@ -1,6 +1,10 @@
 import { darkThemeMap, initialUserPrefferedState, lightThemeMap} from './handleTheme';
+import { reducedMotion } from './reducedmotion';
 
 export function handleMouseOutRotation(e: Event) {
+  if(reducedMotion){
+    return;
+  }
   const eventInitiator = e.target as HTMLImageElement;
 
   let cueShadows;
@@ -25,6 +29,10 @@ export function handleMouseOutRotation(e: Event) {
 }
 
 export function handleMouseOverRotation(e: Event) {
+  if(reducedMotion){
+    return;
+  }
+
   const eventInitiator = e.target as HTMLImageElement;
 
   eventInitiator.style.rotate = '0deg';
