@@ -1,4 +1,4 @@
-import { darkThemeMap, lightThemeMap, mode } from './handleTheme';
+import { darkThemeMap, initialUserPrefferedState, lightThemeMap } from './handleTheme';
 import { reducedMotion } from './reducedmotion';
 
 const curtain = document.querySelector('.curtain') as HTMLDivElement;
@@ -59,7 +59,7 @@ export function handleImageToWorkTransition(e: Event) {
   parent.style.pointerEvents = 'none';
   parent.style.position = 'fixed';
   // const projHintShadows = getThemeBasedColorOf('#first .proj-hint', 'box-shadow');
-  const projHintShadows = mode === 'light' ? lightThemeMap.get('--hint-img-shadow'):darkThemeMap.get('--hint-img-shadow') ;
+  const projHintShadows = initialUserPrefferedState === 'light' ? lightThemeMap.get('--hint-img-shadow'):darkThemeMap.get('--hint-img-shadow') ;
 
   curr.animate(
     {

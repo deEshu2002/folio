@@ -1,6 +1,6 @@
 import { handleMouseOverRotation, handleMouseOutRotation } from './CueMouseOver';
 import { handleImageToWorkTransition } from './CueToHintTransition';
-import { handleTheme, setSavedColorPreferenece } from './handleTheme';
+import { handleTheme, setSavedColorPreferenece, toggleColorPreferenceState } from './handleTheme';
 import { handleMenuVisibility, handleShowCaseMenuTransition } from './MenuOperations';
 import { openMenuModal } from './NavOperations';
 import './style.css';
@@ -29,14 +29,17 @@ menuValues.forEach((item) => {
 });
 
 
-const toggleButton =  document.getElementById('mode-toggle') as HTMLButtonElement;
-
 // toggleButton.onmouseup = (e) => sunMoonTransition();
-window.onload = () => handleTheme(true);
+window.onload = () => handleTheme({initFlag:true});
 
 export const modeButton = document.getElementById('mode-toggle') as HTMLButtonElement;
 
-modeButton.onclick = () => {
-  setSavedColorPreferenece();
-  handleTheme();
+modeButton.onclick = (e) => {
+  toggleColorPreferenceState();
+  setTimeout(() => setSavedColorPreferenece(),100);
+  handleTheme({initFlag:false});
+
+  cues.forEach((elem) => {
+    elem.setAttribute('style', '');
+  });
 }

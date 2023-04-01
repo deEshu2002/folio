@@ -208,11 +208,10 @@ nav {
   /* --hover-light-border-bottom-color: ;
   --hover-dark-border-bottom-color: ; */
 
+  padding-bottom: 0.05rem;
   border-bottom: 0.063rem dashed;
   border-bottom-color: #5d5d56;
   border-bottom-color: var(--accent-color-secondary);
-  transition: border 0.3s ease;
-  padding-bottom: 0.05rem;
 }
 
 #to-projects {

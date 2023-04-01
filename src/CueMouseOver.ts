@@ -1,11 +1,11 @@
-import { darkThemeMap, lightThemeMap, mode } from './handleTheme';
+import { darkThemeMap, initialUserPrefferedState, lightThemeMap} from './handleTheme';
 
 export function handleMouseOutRotation(e: Event) {
   const eventInitiator = e.target as HTMLImageElement;
 
   let cueShadows;
 
-  if( mode === 'light'){
+  if( initialUserPrefferedState === 'light'){
     cueShadows = lightThemeMap.get('--cue-box-shadow');
   }else{
     cueShadows = darkThemeMap.get('--cue-box-shadow');
@@ -28,9 +28,9 @@ export function handleMouseOverRotation(e: Event) {
   const eventInitiator = e.target as HTMLImageElement;
 
   eventInitiator.style.rotate = '0deg';
-  if (mode === 'dark') {
+  if (initialUserPrefferedState === 'dark') {
     eventInitiator.style.boxShadow = '0px 1rem 2rem -1rem #090401';
-  } else if( mode === 'light'){
+  } else if( initialUserPrefferedState === 'light'){
     eventInitiator.style.boxShadow = '0px 1rem 2rem -1rem #cccccc';
   }
 }

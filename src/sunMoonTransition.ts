@@ -1,15 +1,27 @@
-import { mode } from "./handleTheme";
-import { modeButton } from "./main";
+import { initialUserPrefferedState } from './handleTheme';
+import { modeButton } from './main';
+import { reducedMotion } from './reducedmotion';
 
 export function handleSunMoonAnimation() {
-  const svg = modeButton?.children[0];
+  const svg = modeButton?.children[0] as SVGElement;
 
-  const circleMask = svg?.children[0]?.children[1];
+  const circleMask = svg?.children[0]?.children[1] as SVGCircleElement;
 
-  const sharedCircle = svg?.children[1];
+  const sharedCircle = svg?.children[1] as SVGCircleElement;
 
-  const sunLines = svg?.children[2];
-  const isDarkMode = mode === 'dark';
+  const sunLines = svg?.children[2] as SVGGElement;
+  const isDarkMode = initialUserPrefferedState === 'dark';
+
+  setTimeout(() => {
+    if (isDarkMode) {
+      svg.style.stroke = 'white';
+      sharedCircle.style.fill = 'white';
+    } else {
+      svg.style.stroke = 'black';
+      sharedCircle.style.fill = 'black';
+    }
+  }, 50)
+
 
   svg?.animate(
     { transform: isDarkMode ? 'rotate(40deg)' : 'rotate(90deg)' },
@@ -25,6 +37,6 @@ export function handleSunMoonAnimation() {
   );
   sunLines?.animate(
     { opacity: isDarkMode ? 0 : 1 },
-    { fill: 'forwards', duration: 500, easing: 'cubic-bezier(.69,.28,0,1.09)', delay: 100 }
-  )
+    { fill: 'forwards', duration: 500, easing: 'cubic-bezier(.69,.28,0,1.09)', delay: 100 },
+  );
 }
