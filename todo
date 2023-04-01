@@ -1,0 +1,5 @@
+[] types for function
+[] update from setTimeout to requestAnimationFrame
+[] update from rem to px and vhs to %s
+[] add media query for different viewport
+[] add aria and all attributes in html for a11y
