@@ -174,9 +174,14 @@ nav {
   width:24px;
   height: 24px;
   cursor: pointer;
+  rotate: 40deg;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   outline-offset: 5px;
+}
+
+#mode-toggle circle {
+  transform: r .3s ease;
 }
 
 #description {

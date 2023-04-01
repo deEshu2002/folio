@@ -20,29 +20,29 @@ export function handleSunMoonAnimation() {
       svg.style.stroke = 'black';
       sharedCircle.style.fill = 'black';
     }
-  }, 50)
+  }, 50);
 
-  if(reducedMotion){
+  // const canChangeCircleRadius = !!(document.createElementNS('http://www.w3.org/2000/svg','circle').animate({r:'5'}));
+  // console.log(canChangeCircleRadius)
+  if (reducedMotion) {
+    sharedCircle.setAttribute('r', isDarkMode ? '9' : '5');
     circleMask.setAttribute('cx', isDarkMode ? '12' : '30');
     circleMask.setAttribute('cy', isDarkMode ? '4' : '0');
-    sharedCircle.setAttribute('r', isDarkMode ? '9' : '5');
-    sunLines.style.opacity = isDarkMode ? '0': '1';
+    sunLines.style.opacity = isDarkMode ? '0' : '1';
     return;
   }
 
-
   svg?.animate(
-    { transform: isDarkMode ? 'rotate(40deg)' : 'rotate(90deg)' },
+    { transform: isDarkMode ? 'rotate(0deg)' : 'rotate(90deg)' },
     { fill: 'forwards', duration: 500, easing: 'ease', delay: 100 },
   );
   circleMask?.animate(
-    { cx: isDarkMode ? 12 : 30, cy: isDarkMode ? 4 : 0 },
+    { cx: isDarkMode ? '12' : '30', cy: isDarkMode ? '4' : '0' },
     { fill: 'forwards', duration: 500, easing: 'cubic-bezier(.69,.28,0,1.09)', delay: 100 },
   );
-  sharedCircle?.animate(
-    { r: isDarkMode ? 9 : 5 },
-    { fill: 'forwards', duration: 500, easing: 'cubic-bezier(.69,.28,0,1.09)', delay: 100 },
-  );
+  setTimeout(() => {
+    sharedCircle.setAttribute('r', isDarkMode ? '9' : '5');
+  }, 250);
   sunLines?.animate(
     { opacity: isDarkMode ? 0 : 1 },
     { fill: 'forwards', duration: 500, easing: 'cubic-bezier(.69,.28,0,1.09)', delay: 100 },

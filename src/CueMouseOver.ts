@@ -1,17 +1,17 @@
-import { darkThemeMap, initialUserPrefferedState, lightThemeMap} from './handleTheme';
+import { darkThemeMap, initialUserPrefferedState, lightThemeMap } from './handleTheme';
 import { reducedMotion } from './reducedmotion';
 
 export function handleMouseOutRotation(e: Event) {
-  if(reducedMotion){
+  if (reducedMotion) {
     return;
   }
   const eventInitiator = e.target as HTMLImageElement;
 
   let cueShadows;
 
-  if( initialUserPrefferedState === 'light'){
+  if (initialUserPrefferedState === 'light') {
     cueShadows = lightThemeMap.get('--cue-box-shadow');
-  }else{
+  } else {
     cueShadows = darkThemeMap.get('--cue-box-shadow');
   }
 
@@ -29,7 +29,7 @@ export function handleMouseOutRotation(e: Event) {
 }
 
 export function handleMouseOverRotation(e: Event) {
-  if(reducedMotion){
+  if (reducedMotion) {
     return;
   }
 
@@ -38,7 +38,7 @@ export function handleMouseOverRotation(e: Event) {
   eventInitiator.style.rotate = '0deg';
   if (initialUserPrefferedState === 'dark') {
     eventInitiator.style.boxShadow = '0px 1rem 2rem -1rem #090401';
-  } else if( initialUserPrefferedState === 'light'){
+  } else if (initialUserPrefferedState === 'light') {
     eventInitiator.style.boxShadow = '0px 1rem 2rem -1rem #cccccc';
   }
 }

@@ -5,7 +5,7 @@ export function handleImageToWorkTransition(e: Event) {
   const curtain = document.querySelector('.curtain') as HTMLDivElement;
   const projHint = document.querySelector('#first .proj-hint') as HTMLImageElement;
   const nav = document.querySelector('nav');
-  
+
   // Can't figure out how to position 3d transition Y axis values;
 
   if (window.scrollY > 0 || reducedMotion) {
@@ -23,7 +23,7 @@ export function handleImageToWorkTransition(e: Event) {
       zIndex: '48',
     },
     {
-      duration: 300,
+      duration: 0,
       fill: 'forwards',
       easing: 'ease',
     },
@@ -42,7 +42,7 @@ export function handleImageToWorkTransition(e: Event) {
   let XAxisChangeGap = 0;
   let YAxisChangeGap = 0;
 
-  const navHeight = (nav?.getBoundingClientRect().height ?? 0 )
+  const navHeight = nav?.getBoundingClientRect().height ?? 0;
   const idealBottom = navHeight + targetHeight;
 
   if (parent.id === 'first-ref' || parent.id === 'second-ref') {
@@ -59,13 +59,16 @@ export function handleImageToWorkTransition(e: Event) {
   parent.style.pointerEvents = 'none';
   parent.style.position = 'fixed';
   // const projHintShadows = getThemeBasedColorOf('#first .proj-hint', 'box-shadow');
-  const projHintShadows = initialUserPrefferedState === 'light' ? lightThemeMap.get('--hint-img-shadow'):darkThemeMap.get('--hint-img-shadow') ;
+  const projHintShadows =
+    initialUserPrefferedState === 'light'
+      ? lightThemeMap.get('--hint-img-shadow')
+      : darkThemeMap.get('--hint-img-shadow');
 
+  curr.style.padding = '0';
   curr.animate(
     {
       transform: `translate3d( ${XAxisChangeGap}px, ${YAxisChangeGap}px,1px)`,
       borderRadius: '2rem',
-      padding: 0,
       boxShadow: projHintShadows,
       width: '40rem',
       height: '25rem',

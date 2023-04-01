@@ -3,10 +3,11 @@ import { handleSunMoonAnimation } from './sunMoonTransition';
 
 const storageKey = 'theme-preference';
 
-export let initialUserPrefferedState = window.matchMedia('(prefers-color-scheme: dark)').matches === true ? 'dark' : 'light';
+export let initialUserPrefferedState =
+  window.matchMedia('(prefers-color-scheme: dark)').matches === true ? 'dark' : 'light';
 
-export function toggleColorPreferenceState(){
-    initialUserPrefferedState =  initialUserPrefferedState === 'dark' ? 'light':'dark';
+export function toggleColorPreferenceState() {
+  initialUserPrefferedState = initialUserPrefferedState === 'dark' ? 'light' : 'dark';
 }
 
 export function setSavedColorPreferenece() {
@@ -39,36 +40,34 @@ export const darkThemeMap: Map<string, string> = new Map([
   ['--accent-color-tertiary', '#676767'],
 ]);
 
-function fillColors(ColorState:'dark'| 'light'){
-    // transition based on provided state of theme
-      const docStyles = document.documentElement.style;
-      if (ColorState === 'dark') {
-        // change colors to dark
-        for (const [key, value] of darkThemeMap.entries()) {
-          docStyles.setProperty(key, value);
-        }
-      } else if (ColorState === 'light') {
-        // change colors to light
-        for (const [key, value] of lightThemeMap.entries()) {
-          docStyles.setProperty(key, value);
-        }
-      }
-
+function fillColors(ColorState: 'dark' | 'light') {
+  // transition based on provided state of theme
+  const docStyles = document.documentElement.style;
+  if (ColorState === 'dark') {
+    // change colors to dark
+    for (const [key, value] of darkThemeMap.entries()) {
+      docStyles.setProperty(key, value);
+    }
+  } else if (ColorState === 'light') {
+    // change colors to light
+    for (const [key, value] of lightThemeMap.entries()) {
+      docStyles.setProperty(key, value);
+    }
+  }
 }
 
-export const handleTheme = ({initFlag}:{initFlag:boolean}) => {
-
-  if( initFlag ){
-      if(localStorage.getItem(storageKey)){
-          const savedPrefState = localStorage.getItem(storageKey);
-          // transition based on saved state of theme
-          initialUserPrefferedState = savedPrefState;
-          fillColors(savedPrefState);
-          console.log(savedPrefState);
-        }
-  }else{
-      // transition based on browser agent preffered theme
-      fillColors(initialUserPrefferedState);
+export const handleTheme = ({ initFlag }: { initFlag: boolean }) => {
+  if (initFlag) {
+    if (localStorage.getItem(storageKey)) {
+      const savedPrefState = localStorage.getItem(storageKey);
+      // transition based on saved state of theme
+      initialUserPrefferedState = savedPrefState;
+      fillColors(savedPrefState);
+      console.log(savedPrefState);
+    }
+  } else {
+    // transition based on browser agent preffered theme
+    fillColors(initialUserPrefferedState);
   }
 
   handleSunMoonAnimation();
@@ -77,7 +76,7 @@ export const handleTheme = ({initFlag}:{initFlag:boolean}) => {
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
   console.log('mode changed!!');
   toggleColorPreferenceState();
-  handleTheme({initFlag:true});
-  
+  handleTheme({ initFlag: true });
+
   resetJSStyles();
 });

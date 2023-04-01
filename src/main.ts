@@ -15,7 +15,7 @@ export const cues: NodeListOf<HTMLImageElement> = document.querySelectorAll(
 hamburgerInit.onclick = () => openMenuModal();
 
 cues.forEach((img) => {
-    //don't forget to remove event listeners at end of transition
+  //don't forget to remove event listeners at end of transition
   img.addEventListener('mouseup', (e) => handleImageToWorkTransition(e), false);
   img.addEventListener('mouseenter', (e) => handleMouseOverRotation(e), false);
   img.addEventListener('mouseout', (e) => handleMouseOutRotation(e), false);
@@ -28,22 +28,21 @@ menuValues.forEach((item) => {
   item.onclick = (e) => handleShowCaseMenuTransition(e);
 });
 
-
 // toggleButton.onmouseup = (e) => sunMoonTransition();
-window.onload = () => handleTheme({initFlag:true});
+window.onload = () => handleTheme({ initFlag: true });
 
 export const modeButton = document.getElementById('mode-toggle') as HTMLButtonElement;
 
-export function resetJSStyles(){
+export function resetJSStyles() {
   cues.forEach((elem) => {
     elem.removeAttribute('style');
   });
 }
 
-modeButton.onclick = (e) => {
+modeButton.onclick = () => {
   toggleColorPreferenceState();
-  setTimeout(() => setSavedColorPreferenece(),100);
-  handleTheme({initFlag:false});
+  setTimeout(() => setSavedColorPreferenece(), 100);
+  handleTheme({ initFlag: false });
 
   resetJSStyles();
-}
+};
