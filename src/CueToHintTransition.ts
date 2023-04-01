@@ -1,11 +1,11 @@
 import { darkThemeMap, initialUserPrefferedState, lightThemeMap } from './handleTheme';
 import { reducedMotion } from './reducedmotion';
 
-const curtain = document.querySelector('.curtain') as HTMLDivElement;
-const projHint = document.querySelector('#first .proj-hint') as HTMLImageElement;
-const nav = document.querySelector('nav');
-
 export function handleImageToWorkTransition(e: Event) {
+  const curtain = document.querySelector('.curtain') as HTMLDivElement;
+  const projHint = document.querySelector('#first .proj-hint') as HTMLImageElement;
+  const nav = document.querySelector('nav');
+  
   // Can't figure out how to position 3d transition Y axis values;
 
   if (window.scrollY > 0 || reducedMotion) {
@@ -42,15 +42,15 @@ export function handleImageToWorkTransition(e: Event) {
   let XAxisChangeGap = 0;
   let YAxisChangeGap = 0;
 
-  const navHeight = nav?.getBoundingClientRect().height ?? 0;
+  const navHeight = (nav?.getBoundingClientRect().height ?? 0 )
   const idealBottom = navHeight + targetHeight;
 
   if (parent.id === 'first-ref' || parent.id === 'second-ref') {
     XAxisChangeGap = targetleftPosition - currLeftPosition;
-    YAxisChangeGap = idealBottom - currBottomPosition;
+    YAxisChangeGap = idealBottom - currBottomPosition + 2; // 2px differenece in calculation
   } else if (parent.id === 'third-ref' || parent.id === 'fourth-ref') {
     XAxisChangeGap = targetRightPosition - currRightPosition;
-    YAxisChangeGap = navHeight - currTopPosition;
+    YAxisChangeGap = navHeight - currTopPosition + 2;
   }
 
   parent.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
