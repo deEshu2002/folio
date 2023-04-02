@@ -207,8 +207,10 @@ nav {
 }
 
 #to-projects {
-  width: fit-content;
   margin: 10vh auto 10vh auto;
+}
+
+#to-projects svg{
   transition: padding 0.3s ease;
 }
 
@@ -448,8 +450,9 @@ nav {
   border-bottom-color: var(--accent-color-tertiary);
 }
 
-#to-projects:hover {
-  padding-top: 0.8rem;
+
+#to-projects:hover  svg{
+  padding-top: 5px;
 }
 
 #showcase-menu:hover .showcase-item.showcase-menu-middle::before,
