@@ -49,7 +49,6 @@ export function handleImageToWorkTransition(e: Event) {
     YAxisChangeGap = navHeight - currTopPosition + 2;
   }
 
-  parent.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
 
   parent.style.zIndex = '49';
   parent.style.pointerEvents = 'none';
@@ -101,4 +100,8 @@ export function handleImageToWorkTransition(e: Event) {
       delay: 1500,
     },
   );
+
+  setTimeout(() => {parent.removeAttribute('style')
+  parent.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
+}, 1600);
 }

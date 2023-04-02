@@ -12,7 +12,11 @@ export function toggleColorPreferenceState() {
 
 export function setSavedColorPreferenece() {
   const oppositeTheme:mode = localStorage.getItem(storageKey) === 'light' ? 'dark' : 'light';
-  localStorage.setItem(storageKey, oppositeTheme);
+  const currentBrowserTheme = window.matchMedia('(prefers-color-scheme: dark)').matches === true ? 'dark' : 'light';
+  localStorage.clear();
+  if(currentBrowserTheme !== oppositeTheme){
+    localStorage.setItem(storageKey, oppositeTheme);
+  }
 }
 
 export const lightThemeMap: Map<string, string> = new Map([
