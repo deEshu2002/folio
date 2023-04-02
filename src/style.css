@@ -506,6 +506,7 @@ nav {
   background-color: #242424;
   background-color: var(--background-color);
   z-index: -48;
+  transition: opacity .3s ease;
 }
 
 @media (prefers-color-scheme: light) {
