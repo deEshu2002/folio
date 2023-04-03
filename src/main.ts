@@ -46,3 +46,7 @@ modeButton.onclick = () => {
 
   resetJSStyles();
 };
+
+(document.querySelector('.menu-item:last-child') as HTMLAnchorElement).onclick = () => {
+  hamburgerInit.click();
+};
