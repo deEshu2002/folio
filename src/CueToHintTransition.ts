@@ -16,14 +16,19 @@ export function handleImageToWorkTransition(e: Event) {
   const targetleftPosition = projHintPosition.left;
   const targetRightPosition = projHintPosition.right;
   const targetHeight = projHintPosition.height;
+  const targetWidth = projHintPosition.width;
+  console.log(targetHeight, targetWidth);
 
-  curtain.animate({
-    opacity: '1',
-    zIndex: '48',
-  }, {
-    fill: 'forwards',
-    duration: 200,
-  })
+  curtain.animate(
+    {
+      opacity: '1',
+      zIndex: '48',
+    },
+    {
+      fill: 'forwards',
+      duration: 200,
+    },
+  );
 
   const curr = e.target as HTMLImageElement;
 
@@ -49,7 +54,6 @@ export function handleImageToWorkTransition(e: Event) {
     YAxisChangeGap = navHeight - currTopPosition + 2;
   }
 
-
   parent.style.zIndex = '49';
   parent.style.pointerEvents = 'none';
   parent.style.position = 'fixed';
@@ -65,8 +69,8 @@ export function handleImageToWorkTransition(e: Event) {
       transform: `translate3d( ${XAxisChangeGap}px, ${YAxisChangeGap}px,1px)`,
       borderRadius: '2rem',
       boxShadow: projHintShadows,
-      width: '40rem',
-      height: '25rem',
+      width: `${targetWidth}px`,
+      height: `${targetHeight}px`,
       rotate: '0deg',
     },
     {
@@ -85,7 +89,7 @@ export function handleImageToWorkTransition(e: Event) {
       duration: 600,
       fill: 'forwards',
       easing: 'ease',
-      delay: 1200
+      delay: 1200,
     },
   );
 
@@ -101,7 +105,8 @@ export function handleImageToWorkTransition(e: Event) {
     },
   );
 
-  setTimeout(() => {parent.removeAttribute('style')
-  parent.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
-}, 1600);
+  setTimeout(() => {
+    parent.removeAttribute('style');
+    parent.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
+  }, 1600);
 }
