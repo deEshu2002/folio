@@ -525,14 +525,6 @@ nav {
   }
 }
 
-
-@media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ }
-@media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
-@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
-@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
-@media (min-width:1281px) { /* hi-res laptops and desktops */ }
-
 @media (max-width: 951px) {
 .proj-hint{
     width: 100%;
@@ -553,12 +545,6 @@ nav {
   }
 }
 
-
-@media screen and (min-width: 724px) and (max-width:951px) {
-  
-}
-
-/* 820 */
 @media (min-width: 220px) and (max-width: 723px) {
    h1{
       font-size: 2rem;
@@ -574,36 +560,11 @@ nav {
  #first-ref, #second-ref,#third-ref, #fourth-ref {
     display: none;
   }
-  
-}
+  .circular-menu{
+    visibility: hidden;
+  }
 
-/* @media screen and (max-width: 951px) and (max-height: 951px) {
- 
-
-#first-ref {
-  bottom: 15%;
-  left: 12%;
+.showcase-content article {
+      margin: 1rem 0 2rem 0;
+    }
 }
-
-#second-ref {
-  bottom: 6%;
-  left: 26%;
-}
-
-#third-ref {
-  top: 6%;
-  right: 26%;
-}
-
-#fourth-ref {
-  top: 15%;
-  right: 12%;
-}
-  
-  
-  
-}
-
-@media  screen and (max-width: 450px) {
- 
-} */
