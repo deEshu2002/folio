@@ -1,7 +1,7 @@
 import { handleMouseOutRotation, handleMouseOverRotation } from './CueMouseOver';
 import { initialUserPrefferedState } from './themeOperations';
 import { reducedMotion } from './reducedmotion';
-import { darkThemeMap, lightThemeMap } from './themesData';
+import { darkThemeMap, lightThemeMap } from './jsThemesData';
 
 export function handleImageToWorkTransition(e: Event) {
   if (window.scrollY > 0 || reducedMotion) {

@@ -1,6 +1,5 @@
 import { resetJSStyles } from './main';
 import { handleSunMoonAnimation } from './sunMoonTransition';
-import { darkThemeMap, lightThemeMap } from './themesData';
 import { handleThemeProps, mode } from './types';
 
 const storageKey = 'theme-preference';
@@ -12,23 +11,17 @@ function toggleColorPreferenceState() {
   initialUserPrefferedState = initialUserPrefferedState === 'dark' ? 'light' : 'dark';
 }
 
-function setSavedColorPreferenece() {
+function setSavedPreferenece() {
   localStorage.setItem(storageKey, initialUserPrefferedState);
 }
 
 function fillColors(ColorState: mode) {
   // transition based on provided state of theme
-  const docStyles = document.documentElement.style;
+  const docElement = document.documentElement;
   if (ColorState === 'dark') {
-    // change colors to dark
-    for (const [key, value] of darkThemeMap.entries()) {
-      docStyles.setProperty(key, value);
-    }
+    docElement.setAttribute('data-user-theme', 'dark');
   } else if (ColorState === 'light') {
-    // change colors to light
-    for (const [key, value] of lightThemeMap.entries()) {
-      docStyles.setProperty(key, value);
-    }
+    docElement.setAttribute('data-user-theme', 'light');
   }
 }
 
@@ -59,7 +52,7 @@ export const handleTheme = ({ initFlag }: handleThemeProps) => {
 
 export function themeToggle() {
   toggleColorPreferenceState();
-  setTimeout(() => setSavedColorPreferenece(), 100);
+  setTimeout(() => setSavedPreferenece(), 100);
   handleTheme({ initFlag: false });
 
   resetJSStyles();
