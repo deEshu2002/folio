@@ -1,23 +1,21 @@
-import { darkThemeMap, initialUserPrefferedState, lightThemeMap } from './handleTheme';
+import { handleMouseOutRotation, handleMouseOverRotation } from './CueMouseOver';
+import { initialUserPrefferedState } from './themeOperations';
 import { reducedMotion } from './reducedmotion';
+import { darkThemeMap, lightThemeMap } from './themesData';
 
 export function handleImageToWorkTransition(e: Event) {
-  const curtain = document.querySelector('.curtain') as HTMLDivElement;
-  const projHint = document.querySelector('#first .proj-hint') as HTMLImageElement;
-  const nav = document.querySelector('nav');
-
-  // Can't figure out how to position 3d transition Y axis values;
-
   if (window.scrollY > 0 || reducedMotion) {
     return;
   }
+  const curtain = document.querySelector('.curtain') as HTMLDivElement;
+  const projHint = document.querySelector('#first .proj-hint') as HTMLImageElement;
+  const nav = document.querySelector('nav');
 
   const projHintPosition = projHint.getBoundingClientRect();
   const targetleftPosition = projHintPosition.left;
   const targetRightPosition = projHintPosition.right;
   const targetHeight = projHintPosition.height;
   const targetWidth = projHintPosition.width;
-  console.log(targetHeight, targetWidth);
 
   curtain.animate(
     {
@@ -30,9 +28,9 @@ export function handleImageToWorkTransition(e: Event) {
     },
   );
 
-  const curr = e.target as HTMLImageElement;
+  const eventInitiator = e.target as HTMLImageElement;
 
-  const parent = (e.target as HTMLImageElement).parentElement as HTMLAnchorElement;
+  const parent = eventInitiator.parentElement as HTMLAnchorElement;
 
   const currPosition = parent.getBoundingClientRect();
   const currLeftPosition = currPosition.left;
@@ -57,14 +55,13 @@ export function handleImageToWorkTransition(e: Event) {
   parent.style.zIndex = '49';
   parent.style.pointerEvents = 'none';
   parent.style.position = 'fixed';
-  // const projHintShadows = getThemeBasedColorOf('#first .proj-hint', 'box-shadow');
   const projHintShadows =
     initialUserPrefferedState === 'light'
       ? lightThemeMap.get('--hint-img-shadow')
       : darkThemeMap.get('--hint-img-shadow');
 
-  curr.style.padding = '0';
-  curr.animate(
+  eventInitiator.style.padding = '0';
+  eventInitiator.animate(
     {
       transform: `translate3d( ${XAxisChangeGap}px, ${YAxisChangeGap}px,1px)`,
       borderRadius: '2rem',
@@ -109,4 +106,7 @@ export function handleImageToWorkTransition(e: Event) {
     parent.removeAttribute('style');
     parent.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
   }, 1600);
+
+  eventInitiator.removeEventListener('mouseenter', handleMouseOverRotation);
+  eventInitiator.removeEventListener('mouseout', handleMouseOutRotation);
 }

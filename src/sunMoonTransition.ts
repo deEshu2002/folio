@@ -1,4 +1,4 @@
-import { initialUserPrefferedState } from './handleTheme';
+import { initialUserPrefferedState } from './themeOperations';
 import { modeButton } from './main';
 import { reducedMotion } from './reducedmotion';
 
@@ -22,8 +22,6 @@ export function handleSunMoonAnimation() {
     }
   }, 50);
 
-  // const canChangeCircleRadius = !!(document.createElementNS('http://www.w3.org/2000/svg','circle').animate({r:'5'}));
-  // console.log(canChangeCircleRadius)
   if (reducedMotion) {
     sharedCircle.setAttribute('r', isDarkMode ? '9' : '5');
     circleMask.setAttribute('cx', isDarkMode ? '12' : '30');

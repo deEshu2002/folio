@@ -1,5 +1,6 @@
-import { darkThemeMap, initialUserPrefferedState, lightThemeMap } from './handleTheme';
+import { initialUserPrefferedState } from './themeOperations';
 import { reducedMotion } from './reducedmotion';
+import { darkThemeMap, lightThemeMap } from './themesData';
 
 export function handleMouseOutRotation(e: Event) {
   if (reducedMotion) {
@@ -7,18 +8,17 @@ export function handleMouseOutRotation(e: Event) {
   }
   const eventInitiator = e.target as HTMLImageElement;
 
-  let cueShadows;
-
-  if (initialUserPrefferedState === 'light') {
-    cueShadows = lightThemeMap.get('--cue-box-shadow');
-  } else {
-    cueShadows = darkThemeMap.get('--cue-box-shadow');
-  }
+  const cueShadows =
+    initialUserPrefferedState === 'light'
+      ? lightThemeMap.get('--cue-box-shadow')
+      : darkThemeMap.get('--cue-box-shadow');
 
   const currElemParent = eventInitiator.parentElement as HTMLAnchorElement;
 
   if (eventInitiator.classList.length === 0) {
-    eventInitiator.style.boxShadow = cueShadows!;
+    if (cueShadows) {
+      eventInitiator.style.boxShadow = cueShadows;
+    }
 
     if (currElemParent.id == 'first-ref' || currElemParent.id == 'third-ref') {
       eventInitiator.style.rotate = '9deg';

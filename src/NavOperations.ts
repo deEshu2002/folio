@@ -1,3 +1,5 @@
+import { hamburgerInit } from './main';
+
 export function openMenuModal() {
   const target = document.querySelector('.circular-menu') as HTMLDivElement;
   if (target.classList.contains('active')) {
@@ -7,4 +9,8 @@ export function openMenuModal() {
     target.classList.add('active');
     (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
   }
+}
+
+export function projectsButtonClickEvent() {
+  hamburgerInit.click();
 }
