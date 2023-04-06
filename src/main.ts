@@ -8,7 +8,6 @@ import {
   handleShowCaseMenuTransition,
 } from './MenuOperations';
 import { openMenuModal, projectsButtonClickEvent } from './NavOperations';
-import './style.css';
 
 export const modeButton = document.getElementById('mode-toggle') as HTMLButtonElement;
 handleTheme({ initFlag: true });
