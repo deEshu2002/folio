@@ -73,8 +73,16 @@ function eventLoaders(resizeEvent?: boolean) {
   }
 }
 
+function initPageTransition() {
+  const hashValue = document.location.hash.substring(1);
+  const targetTop = document.getElementById(hashValue)?.getBoundingClientRect().top;
+  window.scrollTo({ top: targetTop });
+}
+
 eventLoaders();
 
 window.onresize = () => {
   eventLoaders(true);
 };
+
+window.onload = initPageTransition;

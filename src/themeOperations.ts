@@ -37,7 +37,7 @@ function getSavedPreferenece() {
   if (lStype === typeof initialUserPrefferedState) {
     return localStorage.getItem(storageKey) as mode;
   } else {
-    return null;
+    return;
   }
 }
 

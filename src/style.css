@@ -350,7 +350,7 @@ nav {
 .proj-description {
   display: inline-block;
   position: sticky;
-  top: 46%;
+  top: 50%;
 
   margin-top: 1rem;
   margin-left: 2rem;
