@@ -1,7 +1,12 @@
 import { handleMouseOverRotation, handleMouseOutRotation } from './CueMouseOver';
 import { handleImageToWorkTransition } from './CueToHintTransition';
 import { handleTheme, setSavedColorPreferenece, toggleColorPreferenceState } from './handleTheme';
-import { handleMenuVisibility, handleShowCaseMenuTransition } from './MenuOperations';
+import {
+  handleMenuSliderMouseEnterVisibility,
+  handleMenuSliderMouseLeaveVisibility,
+  handleMenuVisibility,
+  handleShowCaseMenuTransition,
+} from './MenuOperations';
 import { openMenuModal } from './NavOperations';
 import './style.css';
 // import { appendModeToggleButton, sunMoonTransition } from './sunMoonTransition';
@@ -50,3 +55,8 @@ modeButton.onclick = () => {
 (document.querySelector('.menu-item:last-child') as HTMLAnchorElement).onclick = () => {
   hamburgerInit.click();
 };
+
+const showcaseMenu = document.getElementById('showcase-menu') as HTMLUListElement;
+
+showcaseMenu.addEventListener('mouseenter', handleMenuSliderMouseEnterVisibility, false);
+showcaseMenu.addEventListener('mouseleave', handleMenuSliderMouseLeaveVisibility, false);

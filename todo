@@ -1,8 +1,6 @@
 [x] types for function
 [] update from rem to px and vhs to %s
-[] onload image appearence. 
 [] make video/ photo of work done
-[] add media query for different viewport
-[] fill placeholder photos in html
+[x] add media query for different viewport
 [] removing event listeners effectively
 [] add aria and all attributes in html for a11y
