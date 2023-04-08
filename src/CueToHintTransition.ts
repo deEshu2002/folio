@@ -17,7 +17,7 @@ export function handleImageToWorkTransition(e: Event) {
   const targetHeight = projHintPosition.height;
   const targetWidth = projHintPosition.width;
 
-  curtain.style.opacity = '1';
+  curtain.toggleAttribute('hidden');
   curtain.style.zIndex = '48';
 
   const eventInitiator = e.target as HTMLImageElement;
@@ -69,7 +69,10 @@ export function handleImageToWorkTransition(e: Event) {
     },
   );
 
-  setTimeout(() => curtain.removeAttribute('style'), 1200);
+  setTimeout(() => {
+    curtain.removeAttribute('style');
+    curtain.toggleAttribute('hidden');
+  }, 1200);
 
   parent.animate(
     {

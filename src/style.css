@@ -397,6 +397,11 @@ nav {
   opacity: 1;
 }
 
+.menu-item {
+  position: absolute;
+  transition: transform 0.3s ease;
+}
+
 .circular-menu.active .menu-item:nth-child(1) {
   transform: translate3d(-1.5rem, 12.75rem, 0);
 }
@@ -417,17 +422,9 @@ nav {
   font-family: 'Oswald', 'Times New Roman', Times, serif;
   font-size: 1.5rem;
   position: relative;
-  visibility: hidden;
+  opacity: 0;
   transition: all;
   transition-delay: 0.1s;
-}
-
-.menu-item {
-  position: absolute;
-  z-index: 10;
-  opacity: 0;
-  visibility: hidden;
-  transition: transform 0.3s ease, visibility 0.2s ease, opacity 0.2s ease;
 }
 
 #description a:not(#to-projects):hover,
@@ -448,15 +445,13 @@ nav {
 
 /* second impression change */
 .circular-menu.active .menu-item {
-  opacity: 1;
   display: inline-flex;
   align-items: center;
   gap: 1.4rem;
-  visibility: visible;
 }
 
 .menu-item:hover .menu-value {
-  visibility: visible;
+  opacity: 1;
 }
 
 .circular-menu.active .menu-item::after {
@@ -480,10 +475,8 @@ nav {
   top: 0;
   width: 100%;
   position: fixed;
-  opacity: 0;
   background-color: #242424;
   background-color: var(--background-color);
-  z-index: -48;
   transition: opacity 0.3s ease;
 }
 
