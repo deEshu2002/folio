@@ -1,4 +1,4 @@
-import { hamburgerInit } from './main';
+import { modeButton } from './main';
 
 export function openMenuModal() {
   const target = document.querySelector('.circular-menu') as HTMLDivElement;
@@ -12,5 +12,5 @@ export function openMenuModal() {
 }
 
 export function projectsButtonClickEvent() {
-  hamburgerInit.click();
+  modeButton.click();
 }

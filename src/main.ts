@@ -12,7 +12,7 @@ import { openMenuModal, projectsButtonClickEvent } from './NavOperations';
 export const modeButton = document.getElementById('mode-toggle') as HTMLButtonElement;
 handleTheme({ initFlag: true });
 
-export const hamburgerInit = document.querySelector('.hamburger-init') as HTMLInputElement;
+export const menuOptions = document.querySelector('.hamburger') as HTMLButtonElement;
 
 const cues: NodeListOf<HTMLImageElement> = document.querySelectorAll(
   '#first-ref img ,#second-ref img, #third-ref img, #fourth-ref img',
@@ -32,7 +32,7 @@ export function resetJSStyles() {
 function eventLoaders(resizeEvent?: boolean) {
   const smallerScreen = window.innerWidth > 220 && window.innerWidth < 723 ? true : false;
   if (!smallerScreen) {
-    hamburgerInit.addEventListener('click', openMenuModal);
+    menuOptions.addEventListener('click', openMenuModal);
     cues.forEach((img) => {
       img.addEventListener('mouseup', handleImageToWorkTransition, { once: true });
       img.addEventListener('mouseenter', handleMouseOverRotation);
@@ -51,7 +51,7 @@ function eventLoaders(resizeEvent?: boolean) {
       item.addEventListener('click', handleShowCaseMenuTransition);
     });
   } else if (resizeEvent) {
-    hamburgerInit.removeEventListener('click', openMenuModal);
+    menuOptions.removeEventListener('click', openMenuModal);
     cues.forEach((img) => {
       img.removeEventListener('mouseup', handleImageToWorkTransition);
       img.removeEventListener('mouseenter', handleMouseOverRotation);

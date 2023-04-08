@@ -10,6 +10,7 @@
     <meta name="description" content="A beginner's guide Vite + TS" />
 
     <meta name="keywords" content="Keywords" />
+    <meta name="robots" content="index, follow" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="" />
@@ -23,6 +24,27 @@
     <meta name="twitter:description" content="" />
     <meta name="twitter:image" content="" />
     <meta property="twitter:url" content="" />
+    <style media="print">
+      .article-actions-container,
+      .document-toc-container,
+      .language-menu,
+      .main-menu-toggle,
+      .mdn-cta-container,
+      .on-github,
+      .page-footer,
+      .sidebar,
+      .top-navigation-main,
+      ul.prev-next {
+        display: none !important;
+      }
+      .main-page-content,
+      .main-page-content pre {
+        padding: 2px;
+      }
+      .main-page-content pre {
+        border-left-width: 2px;
+      }
+    </style>
 
     <link rel="icon" type="image/svg+xml" href="#" />
     <link rel="apple-touch-icon" href="favicon.png" />
@@ -39,17 +61,16 @@
 
   <body>
     <nav>
-      <div class="circular-menu" role="button">
-        <div class="hamburger">
-          <input type="checkbox" class="hamburger-init" />
-          <div class="menu">
+      <div class="circular-menu">
+        <button class="hamburger items-wrapper" title="Show menu options" aria-label="Show menu options">
+          <div class="bars-wrapper">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
           </div>
-        </div>
+        </button>
 
-        <menu class="items-wrapper">
+        <menu class="items-wrapper" aria-hidden="true">
           <a href="#" class="menu-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 25 17">
               <path
@@ -86,7 +107,7 @@
           </a>
         </menu>
       </div>
-      <button id="mode-toggle" title="Toggles light and dark" aria-label="auto" aria-live="polite">
+      <button id="mode-toggle" title="Toggle light and dark mode" aria-label="auto" aria-live="polite">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
