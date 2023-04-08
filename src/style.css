@@ -63,7 +63,7 @@ a {
   text-decoration: none;
 }
 
-ul {
+li {
   list-style: none;
   padding: 0;
 }
@@ -74,6 +74,8 @@ img {
 }
 
 button {
+  margin: 0;
+  padding: 0;
   border-width: 0;
   background-color: transparent;
   cursor: pointer;
@@ -90,8 +92,7 @@ path[stroke='currentColor'] {
 }
 
 /* first body paint styles */
-
-nav {
+header {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -134,11 +135,6 @@ nav {
   border-radius: 1rem;
 }
 
-.items-wrapper {
-  padding: 0;
-  margin: 0;
-}
-
 .circular-menu::after {
   opacity: 0;
   display: block;
@@ -163,17 +159,19 @@ nav {
   outline-offset: 0.3125rem;
 }
 
-#description {
-  height: 100vh;
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 38%;
 }
 
-#description > * {
-  margin-right: auto;
+#description {
+  width: 38%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
 }
 
 #description span {
@@ -312,7 +310,7 @@ nav {
   position: relative;
 }
 
-.showcase-content article {
+.showcase-content section {
   position: relative;
   min-height: 100vh;
   align-self: center;
@@ -366,6 +364,11 @@ nav {
 /* paint on functional property  - first-display-styles*/
 
 /* first impression change */
+.mp-collapse {
+  padding: 0;
+  margin: 0;
+}
+
 .circular-menu.active .bar1 {
   transform: translate3d(0, 0.5rem, 0) rotate(45deg);
 }
@@ -425,6 +428,8 @@ nav {
   opacity: 0;
   transition: all;
   transition-delay: 0.1s;
+  color: #ebebeb;
+  color: var(--text-color);
 }
 
 #description a:not(#to-projects):hover,
@@ -526,7 +531,7 @@ nav {
     flex-basis: 52%;
   }
 
-  .showcase-content article {
+  .showcase-content section {
     margin: 1rem 1rem 2rem 1rem;
   }
   #showcase-menu {
@@ -556,7 +561,7 @@ nav {
     visibility: hidden;
   }
 
-  .showcase-content article {
+  .showcase-content section {
     margin: 1rem 0 2rem 0;
   }
 }
