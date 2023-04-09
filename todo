@@ -3,4 +3,4 @@
 [] make video/ photo of work done
 [x] add media query for different viewport
 [x] removing event listeners effectively
-[] add aria and all attributes in html for a11y
+[-] add aria and all attributes in html for a11y
