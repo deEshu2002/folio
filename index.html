@@ -25,24 +25,39 @@
     <meta name="twitter:image" content="" />
     <meta property="twitter:url" content="" />
     <style media="print">
-      .article-actions-container,
-      .document-toc-container,
-      .language-menu,
-      .main-menu-toggle,
-      .mdn-cta-container,
-      .on-github,
-      .page-footer,
-      .sidebar,
-      .top-navigation-main,
-      ul.prev-next {
+      :root {
+        color: #062337 !important;
+      }
+      path {
+        fill: #062337 !important;
+      }
+      path[stroke='currentColor'] {
+        fill: #ebebeb !important;
+      }
+      #description {
+        height: 90vh !important;
+      }
+      .proj-hint {
+        position: relative !important;
+        box-shadow: none !important;
+      }
+      .proj-description {
+        position: relative !important;
+      }
+      #first-ref,
+      #second-ref,
+      #third-ref,
+      #fourth-ref {
         display: none !important;
       }
-      .main-page-content,
-      .main-page-content pre {
-        padding: 2px;
+      .showcase-content section {
+        margin: 0 1rem 0 1rem !important;
       }
-      .main-page-content pre {
-        border-left-width: 2px;
+      #showcase-menu {
+        display: none !important;
+      }
+      #to-projects {
+        display: none !important;
       }
     </style>
 
@@ -113,7 +128,12 @@
           </menu>
         </div>
       </nav>
-      <button id="mode-toggle" title="Toggle light and dark mode" aria-label="auto" aria-live="polite">
+      <button
+        id="mode-toggle"
+        title="Toggle light and dark mode"
+        aria-label="toggle website color scheme"
+        aria-live="polite"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -439,12 +459,7 @@
             </div>
           </section>
           <section id="five" aria-labelledby="">
-            <img
-              class="proj-hint"
-              src="https://source.unsplash.com/random/?abstract&5"
-              alt="project-hint"
-              loading="lazy"
-            />
+            <img class="proj-hint" src="https://source.unsplash.com/random/?abstract&5" alt="project-hint" />
             <div class="proj-description">
               <p>
                 In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i
@@ -491,12 +506,7 @@
             </div>
           </section>
           <section id="six" aria-labelledby="">
-            <img
-              class="proj-hint"
-              src="https://source.unsplash.com/random/?abstract&6"
-              alt="project-hint"
-              loading="lazy"
-            />
+            <img class="proj-hint" src="https://source.unsplash.com/random/?abstract&6" alt="project-hint" />
             <div class="proj-description">
               <p>
                 In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i
@@ -542,12 +552,7 @@
             </div>
           </section>
           <section id="seven" aria-labelledby="">
-            <img
-              class="proj-hint"
-              src="https://source.unsplash.com/random/?abstract&7"
-              alt="project-hint"
-              loading="lazy"
-            />
+            <img class="proj-hint" src="https://source.unsplash.com/random/?abstract&7" alt="project-hint" />
             <div class="proj-description">
               <p>
                 In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i
@@ -593,12 +598,7 @@
             </div>
           </section>
           <section id="eight" aria-labelledby="">
-            <img
-              class="proj-hint"
-              src="https://source.unsplash.com/random/?abstract&8"
-              alt="project-hint"
-              loading="lazy"
-            />
+            <img class="proj-hint" src="https://source.unsplash.com/random/?abstract&8" alt="project-hint" />
             <div class="proj-description">
               <p>
                 In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i

@@ -9,7 +9,7 @@ export function openMenuModal(e: Event) {
     (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto';
     currTarget.setAttribute('title', 'Show menu options');
     currTarget.setAttribute('aria-label', 'show menu options');
-    setTimeout(() => menu.toggleAttribute('hidden'), 100);
+    setTimeout(() => menu.toggleAttribute('hidden'), 10);
   } else {
     target.classList.add('active');
     (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
