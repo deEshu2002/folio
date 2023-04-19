@@ -9,7 +9,7 @@ export function handleImageToWorkTransition(e: Event) {
   }
   const curtain = document.querySelector('.curtain') as HTMLDivElement;
   const projHint = document.querySelector('#first .proj-hint') as HTMLImageElement;
-  const nav = document.querySelector('nav');
+  const header = document.querySelector('header');
 
   const projHintPosition = projHint.getBoundingClientRect();
   const targetleftPosition = projHintPosition.left;
@@ -33,7 +33,7 @@ export function handleImageToWorkTransition(e: Event) {
   let XAxisChangeGap = 0;
   let YAxisChangeGap = 0;
 
-  const navHeight = nav?.getBoundingClientRect().height ?? 0;
+  const navHeight = header?.getBoundingClientRect().height ?? 0;
   const idealBottom = navHeight + targetHeight;
 
   if (parent.id === 'first-ref' || parent.id === 'second-ref') {
