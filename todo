@@ -1,6 +1,6 @@
 [x] types for function
 [x] update from rem to px and vhs to %s
-[] make video/ photo of work done
+[x] make video/ photo of work done
 [x] add media query for different viewport
 [x] removing event listeners effectively
 [-] add aria and all attributes in html for a11y

@@ -68,7 +68,7 @@ li {
   padding: 0;
 }
 
-img {
+img{
   object-position: center;
   object-fit: cover;
 }
@@ -319,6 +319,8 @@ main {
 
 .proj-hint {
   position: sticky;
+  object-position: center;
+  object-fit: cover;
   top: 3.45rem;
   max-width: 40rem;
   width: 40vw;

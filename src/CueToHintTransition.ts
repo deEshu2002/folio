@@ -38,10 +38,10 @@ export function handleImageToWorkTransition(e: Event) {
 
   if (parent.id === 'first-ref' || parent.id === 'second-ref') {
     XAxisChangeGap = targetleftPosition - currLeftPosition;
-    YAxisChangeGap = idealBottom - currBottomPosition + 2; // 2px differenece in calculation
+    YAxisChangeGap = idealBottom - currBottomPosition + 4; // 2px differenece in calculation
   } else if (parent.id === 'third-ref' || parent.id === 'fourth-ref') {
     XAxisChangeGap = targetRightPosition - currRightPosition;
-    YAxisChangeGap = navHeight - currTopPosition + 2;
+    YAxisChangeGap = navHeight - currTopPosition + 4;
   }
 
   parent.style.zIndex = '49';
