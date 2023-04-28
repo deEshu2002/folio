@@ -23,10 +23,20 @@ const menuValues = document.querySelectorAll('.showcase-item') as NodeListOf<HTM
 
 const projectsButton = document.querySelector('.menu-item:last-child') as HTMLAnchorElement;
 
+ let clipVideos = document.querySelectorAll("video") as NodeListOf<HTMLVideoElement> ;
+
 export function resetJSStyles() {
   cues.forEach((elem) => {
     elem.removeAttribute('style');
   });
+}
+
+function playEvent(e:Event){
+  (e.target as HTMLVideoElement).play();
+}
+
+function pauseEvent(e:Event){
+   (e.target as HTMLVideoElement).pause();
 }
 
 function eventLoaders(resizeEvent?: boolean) {
@@ -50,6 +60,11 @@ function eventLoaders(resizeEvent?: boolean) {
     menuValues.forEach((item) => {
       item.addEventListener('click', handleShowCaseMenuTransition);
     });
+
+    clipVideos.forEach((item) => {
+      item.addEventListener('mouseover', playEvent);
+      item.addEventListener('mouseout', pauseEvent);
+    })
   } else if (resizeEvent) {
     menuOptions.removeEventListener('click', openMenuModal);
     cues.forEach((img) => {
@@ -69,6 +84,11 @@ function eventLoaders(resizeEvent?: boolean) {
     menuValues.forEach((item) => {
       item.removeEventListener('click', handleShowCaseMenuTransition);
     });
+
+    clipVideos.forEach((item) => {
+      item.removeEventListener('mouseover', playEvent);
+      item.removeEventListener('mouseout', pauseEvent);
+    })
   }
 }
 
