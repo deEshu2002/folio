@@ -1,660 +1,494 @@
 <!DOCTYPE html>
 <html lang="en" data-user-theme="system">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f6f6f6" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#333536" media="(prefers-color-scheme: dark)" />
-    <title>Vite + TS</title>
-    <meta name="title" content="Vite + TS" />
-    <meta name="description" content="A beginner's guide Vite + TS" />
 
-    <meta name="keywords" content="Keywords" />
-    <meta name="robots" content="index, follow" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f6f6" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#333536" media="(prefers-color-scheme: dark)" />
+  <title>Vite + TS</title>
+  <meta name="title" content="Vite + TS" />
+  <meta name="description" content="A beginner's guide Vite + TS" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:image:alt" content="" />
+  <meta name="keywords" content="Keywords" />
+  <meta name="robots" content="index, follow" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:description" content="" />
-    <meta name="twitter:image" content="" />
-    <meta property="twitter:url" content="" />
-    <style media="print">
-      :root {
-        color: #062337 !important;
-      }
-      path {
-        fill: #062337 !important;
-      }
-      path[stroke='currentColor'] {
-        fill: #ebebeb !important;
-      }
-      #description {
-        height: 90vh !important;
-      }
-      .proj-hint {
-        position: relative !important;
-        box-shadow: none !important;
-      }
-      .proj-description {
-        position: relative !important;
-      }
-      #first-ref,
-      #second-ref,
-      #third-ref,
-      #fourth-ref {
-        display: none !important;
-      }
-      .showcase-content section {
-        margin: 0 1rem 0 1rem !important;
-      }
-      #showcase-menu {
-        display: none !important;
-      }
-      #to-projects {
-        display: none !important;
-      }
-    </style>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:image:alt" content="" />
 
-    <link rel="icon" type="image/svg+xml" href="#" />
-    <link rel="apple-touch-icon" href="favicon.png" />
-    <link rel="mask-icon" href="favicon.svg" color="#000000" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="" />
+  <meta property="twitter:url" content="" />
+  <style media="print">
+    :root {
+      color: #062337 !important;
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" as="style" href="src/style.css" />
-  </head>
+    path {
+      fill: #062337 !important;
+    }
 
-  <body>
-    <header>
-      <nav>
-        <div class="circular-menu">
-          <button class="hamburger" title="Show menu options" aria-label="Show menu options">
-            <div class="bars-wrapper">
-              <div class="bar1"></div>
-              <div class="bar2"></div>
-              <div class="bar3"></div>
-            </div>
+    path[stroke='currentColor'] {
+      fill: #ebebeb !important;
+    }
+
+    #description {
+      height: 90vh !important;
+    }
+
+    .proj-hint {
+      position: relative !important;
+      box-shadow: none !important;
+    }
+
+    .proj-description {
+      position: relative !important;
+    }
+
+    #first-ref,
+    #second-ref,
+    #third-ref,
+    #fourth-ref {
+      display: none !important;
+    }
+
+    .showcase-content section {
+      margin: 0 1rem 0 1rem !important;
+    }
+
+    #showcase-menu {
+      display: none !important;
+    }
+
+    #to-projects {
+      display: none !important;
+    }
+  </style>
+
+  <link rel="icon" type="image/svg+xml" href="#" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="mask-icon" href="favicon.svg" color="#000000" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" href="src/style.css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="circular-menu">
+        <button class="hamburger" title="Show menu options" aria-label="Show menu options">
+          <div class="bars-wrapper">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+        </button>
+
+        <menu class="mp-collapse" hidden>
+          <button class="menu-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 25 17">
+              <path
+                d="M1.25 3.75a1.21 1.21 0 0 1-.891-.36c-.24-.24-.36-.537-.359-.89 0-.354.12-.651.36-.891s.537-.36.89-.359H5c.354 0 .651.12.891.36s.36.537.359.89c0 .354-.12.651-.36.891s-.537.36-.89.359H1.25Zm0 6.25a1.21 1.21 0 0 1-.891-.36c-.24-.24-.36-.537-.359-.89 0-.354.12-.651.36-.891s.537-.36.89-.359H5c.354 0 .651.12.891.36s.36.537.359.89c0 .354-.12.651-.36.891s-.537.36-.89.359H1.25Zm21.125 5.375-3.938-3.938c-.5.355-1.047.62-1.64.798A6.217 6.217 0 0 1 15 12.5c-1.73 0-3.203-.61-4.422-1.829C9.357 9.452 8.748 7.978 8.75 6.25c0-1.73.61-3.203 1.829-4.423C11.798.608 13.272 0 15 0c1.73 0 3.203.61 4.422 1.829 1.22 1.219 1.829 2.693 1.828 4.421a6.25 6.25 0 0 1-.266 1.797 5.587 5.587 0 0 1-.797 1.64l3.938 3.938c.23.23.344.52.344.875 0 .354-.115.646-.344.875-.23.23-.52.344-.875.344-.354 0-.646-.115-.875-.344ZM15 10c1.042 0 1.927-.365 2.656-1.094.73-.729 1.094-1.614 1.094-2.656s-.365-1.927-1.094-2.656C16.927 2.864 16.042 2.5 15 2.5s-1.927.365-2.656 1.094c-.73.729-1.094 1.614-1.094 2.656s.365 1.927 1.094 2.656C13.073 9.636 13.958 10 15 10ZM1.25 16.25a1.21 1.21 0 0 1-.891-.36c-.24-.24-.36-.537-.359-.89 0-.354.12-.651.36-.891s.537-.36.89-.359h10c.354 0 .651.12.891.36s.36.537.359.89c0 .354-.12.651-.36.891s-.537.36-.89.359h-10Z" />
+            </svg>
+            <span class="menu-value">Search</span>
           </button>
-
-          <menu class="mp-collapse" hidden>
-            <button class="menu-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 25 17">
-                <path
-                  d="M1.25 3.75a1.21 1.21 0 0 1-.891-.36c-.24-.24-.36-.537-.359-.89 0-.354.12-.651.36-.891s.537-.36.89-.359H5c.354 0 .651.12.891.36s.36.537.359.89c0 .354-.12.651-.36.891s-.537.36-.89.359H1.25Zm0 6.25a1.21 1.21 0 0 1-.891-.36c-.24-.24-.36-.537-.359-.89 0-.354.12-.651.36-.891s.537-.36.89-.359H5c.354 0 .651.12.891.36s.36.537.359.89c0 .354-.12.651-.36.891s-.537.36-.89.359H1.25Zm21.125 5.375-3.938-3.938c-.5.355-1.047.62-1.64.798A6.217 6.217 0 0 1 15 12.5c-1.73 0-3.203-.61-4.422-1.829C9.357 9.452 8.748 7.978 8.75 6.25c0-1.73.61-3.203 1.829-4.423C11.798.608 13.272 0 15 0c1.73 0 3.203.61 4.422 1.829 1.22 1.219 1.829 2.693 1.828 4.421a6.25 6.25 0 0 1-.266 1.797 5.587 5.587 0 0 1-.797 1.64l3.938 3.938c.23.23.344.52.344.875 0 .354-.115.646-.344.875-.23.23-.52.344-.875.344-.354 0-.646-.115-.875-.344ZM15 10c1.042 0 1.927-.365 2.656-1.094.73-.729 1.094-1.614 1.094-2.656s-.365-1.927-1.094-2.656C16.927 2.864 16.042 2.5 15 2.5s-1.927.365-2.656 1.094c-.73.729-1.094 1.614-1.094 2.656s.365 1.927 1.094 2.656C13.073 9.636 13.958 10 15 10ZM1.25 16.25a1.21 1.21 0 0 1-.891-.36c-.24-.24-.36-.537-.359-.89 0-.354.12-.651.36-.891s.537-.36.89-.359h10c.354 0 .651.12.891.36s.36.537.359.89c0 .354-.12.651-.36.891s-.537.36-.89.359h-10Z"
-                />
-              </svg>
-              <span class="menu-value">Search</span>
-            </button>
-            <button
-              class="menu-item"
-              title="View useful Resources for Software developer"
-              aria-label="View useful Resources for Software developer"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 20 23">
-                <path
-                  d="M0 22.5v-20C0 1.812.245 1.224.735.734A2.403 2.403 0 0 1 2.5 0H10v2.5H2.5v16.188L8.75 16 15 18.688V10h2.5v12.5l-8.75-3.75L0 22.5Zm15-15V5h-2.5V2.5H15V0h2.5v2.5H20V5h-2.5v2.5H15Z"
-                />
-              </svg>
-              <span class="menu-value">Resources</span>
-            </button>
-            <button class="menu-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor">
-                <path
-                  d="M2.5 2.5h20v15H3.962L2.5 18.962V2.5Zm0-2.5A2.497 2.497 0 0 0 .013 2.5L0 25l5-5h17.5c1.375 0 2.5-1.125 2.5-2.5v-15C25 1.125 23.875 0 22.5 0h-20ZM5 12.5h15V15H5v-2.5Zm0-3.75h15v2.5H5v-2.5ZM5 5h15v2.5H5V5Z"
-                />
-              </svg>
-
-              <span class="menu-value">Connect</span>
-            </button>
-            <a href="#first" class="menu-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 25 24">
-                <path
-                  d="M15 5V2.5h-5V5h5ZM2.5 7.5v13.75h20V7.5h-20Zm20-2.5C23.887 5 25 6.112 25 7.5v13.75c0 1.387-1.113 2.5-2.5 2.5h-20a2.491 2.491 0 0 1-2.5-2.5L.013 7.5C.013 6.112 1.113 5 2.5 5h5V2.5C7.5 1.113 8.613 0 10 0h5c1.387 0 2.5 1.113 2.5 2.5V5h5Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-              <span class="menu-value">Projects</span>
-            </a>
-          </menu>
-        </div>
-      </nav>
-      <button
-        id="mode-toggle"
-        title="Toggle light and dark mode"
-        aria-label="toggle website color scheme"
-        aria-live="polite"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <mask id="mask">
-            <rect x="0" y="0" width="100%" height="100%" fill="white" />
-            <circle cx="12" cy="4" r="9" fill="black" />
-          </mask>
-          <circle fill="currentColor" cx="12" cy="12" r="9" mask="url(#mask)" />
-          <g fill="currentColor" opacity="0">
-            <line x1="12" y1="1" x2="12" y2="3" />
-            <line x1="12" y1="21" x2="12" y2="23" />
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-            <line x1="1" y1="12" x2="3" y2="12" />
-            <line x1="21" y1="12" x2="23" y2="12" />
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-          </g>
-        </svg>
-      </button>
-    </header>
-    <aside>
-      <a href="#first" id="first-ref">
-        <img src="/sih.jpg" alt="project-display" />
-      </a>
-      <a href="#second" id="second-ref"
-        ><img src="/foxulate.jpg" alt="project-display"
-      /></a>
-      <a href="#five" id="third-ref">
-        <img src="/hotel.jpg" alt="project-display"
-      /></a>
-      <a href="#seven" id="fourth-ref"
-        ><img src="/port.jpg" alt="project-display"
-      /></a>
-    </aside>
-    <div class="curtain" hidden></div>
-    <main>
-      <section id="description" aria-labelledby="Deepanshu">
-        <h1>Deepanshu</h1>
-        <p>
-          Hey there, I'm Deepanshu Mehra, a Software Developer currently based in
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="14" fill="currentColor">
+          <button class="menu-item" title="View useful Resources for Software developer"
+            aria-label="View useful Resources for Software developer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 20 23">
               <path
-                d="M5 7c.344 0 .638-.137.883-.412A1.43 1.43 0 0 0 6.25 5.6c0-.385-.122-.715-.367-.99-.245-.274-.54-.41-.883-.41-.344 0-.638.137-.883.412a1.43 1.43 0 0 0-.367.988c0 .385.123.715.367.99.245.274.54.41.883.41Zm0 5.145c1.27-1.307 2.214-2.494 2.828-3.562.615-1.067.922-2.015.922-2.843 0-1.272-.362-2.313-1.086-3.123C6.94 1.806 6.052 1.4 5 1.4s-1.94.406-2.664 1.217C1.61 3.427 1.25 4.469 1.25 5.74c0 .828.307 1.776.922 2.844C2.786 9.652 3.729 10.84 5 12.145ZM5 14c-1.677-1.598-2.93-3.083-3.758-4.453C.415 8.176 0 6.907 0 5.74c0-1.75.503-3.144 1.508-4.183C2.514.52 3.678 0 5 0c1.323 0 2.487.52 3.492 1.558C9.498 2.596 10 3.99 10 5.74c0 1.167-.414 2.436-1.242 3.807C7.929 10.917 6.677 12.402 5 14Z"
-              />
+                d="M0 22.5v-20C0 1.812.245 1.224.735.734A2.403 2.403 0 0 1 2.5 0H10v2.5H2.5v16.188L8.75 16 15 18.688V10h2.5v12.5l-8.75-3.75L0 22.5Zm15-15V5h-2.5V2.5H15V0h2.5v2.5H20V5h-2.5v2.5H15Z" />
             </svg>
-            <a href="#">India.</a>
-          </span>
-        </p>
-        <p>
-          I specialise in designing and developing JS/TS Fullstack applications, some of my creations are “<a href="#"
-            >SIH Hospital App</a
-          >”, “<a href="#">Foxulate AI App</a>” and “<a href="#">Dhawal’s Portfolio</a>”.
-        </p>
-        <p>
-          I love exploring and discovering new things and hold a great appreciation for creative works. Designing and
-          Developing websites allows me to channel that passion into work. Go through my “<a href="#"
-            >Entire Portfolio of Projects here</a
-          >”. Collaborate with me through
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" fill="currentColor" viewBox="0 0 11 12">
+            <span class="menu-value">Resources</span>
+          </button>
+          <button class="menu-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor">
               <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.176 9.884C1.9 10.665 1.9 8.49 1 8.21M7.353 11V9.047c0-.558.053-.781-.265-1.116C8.571 7.764 10 7.151 10 4.583a2.64 2.64 0 0 0-.688-1.785 2.46 2.46 0 0 0-.053-1.786s-.583-.167-1.853.726a6.19 6.19 0 0 0-3.282 0C2.853.845 2.27 1.012 2.27 1.012a2.46 2.46 0 0 0-.053 1.786 2.64 2.64 0 0 0-.689 1.785c0 2.567 1.43 3.18 2.912 3.348-.317.335-.317.67-.265 1.116V11"
-              />
+                d="M2.5 2.5h20v15H3.962L2.5 18.962V2.5Zm0-2.5A2.497 2.497 0 0 0 .013 2.5L0 25l5-5h17.5c1.375 0 2.5-1.125 2.5-2.5v-15C25 1.125 23.875 0 22.5 0h-20ZM5 12.5h15V15H5v-2.5Zm0-3.75h15v2.5H5v-2.5ZM5 5h15v2.5H5V5Z" />
             </svg>
 
-            <a href="#">Github</a>,</span
-          >
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14" fill="currentColor" viewBox="0 0 6 10">
+            <span class="menu-value">Connect</span>
+          </button>
+          <a href="#first" class="menu-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 25 24">
               <path
-                d="M5.22 3.425c.299-.212.529-.53.656-.904.127-.376.144-.788.048-1.175a1.878 1.878 0 0 0-.58-.97A1.49 1.49 0 0 0 4.37 0H1.619a1.49 1.49 0 0 0-.974.375c-.28.243-.484.584-.58.971-.096.387-.08.8.048 1.175.127.375.358.692.656.904-.235.165-.429.397-.564.672A2.058 2.058 0 0 0 0 5c0 .316.07.626.205.902.135.275.33.507.564.672-.24.17-.437.408-.572.691a2.07 2.07 0 0 0-.196.925c.006.323.086.638.232.915.145.276.352.505.598.662.247.157.525.238.807.234.282-.004.558-.092.801-.256.244-.163.445-.397.585-.677.14-.28.214-.598.213-.92V6.317c.162.185.357.33.57.422a1.434 1.434 0 0 0 1.326-.091c.203-.122.381-.291.522-.497.142-.207.243-.445.298-.699.055-.254.062-.52.02-.777a2.005 2.005 0 0 0-.259-.718 1.733 1.733 0 0 0-.494-.533Zm.283-1.574c-.001.344-.12.673-.333.916-.212.242-.5.38-.8.38H3.237V.556H4.37c.3.002.588.139.8.381.212.243.332.572.333.915Zm-5.017 0C.487 1.508.607 1.18.82.936c.212-.242.5-.38.8-.38h1.133v2.592H1.619a1.07 1.07 0 0 1-.8-.381 1.401 1.401 0 0 1-.333-.916ZM.486 5c.001-.343.121-.672.333-.915.212-.243.5-.38.8-.381h1.133v2.592H1.619a1.07 1.07 0 0 1-.8-.38 1.401 1.401 0 0 1-.333-.916ZM1.62 9.443c-.3 0-.589-.137-.801-.38a1.397 1.397 0 0 1-.332-.917c0-.343.12-.673.332-.916.212-.243.5-.38.801-.38h1.133v1.296c-.001.344-.121.673-.333.916-.212.242-.5.38-.8.38ZM4.37 6.295c-.3 0-.589-.137-.801-.38A1.397 1.397 0 0 1 3.237 5c0-.344.12-.673.332-.916.212-.244.5-.38.801-.38.3 0 .589.136.801.38.212.243.332.572.332.916 0 .344-.12.673-.332.916-.212.243-.5.38-.801.38Z"
-              />
+                d="M15 5V2.5h-5V5h5ZM2.5 7.5v13.75h20V7.5h-20Zm20-2.5C23.887 5 25 6.112 25 7.5v13.75c0 1.387-1.113 2.5-2.5 2.5h-20a2.491 2.491 0 0 1-2.5-2.5L.013 7.5C.013 6.112 1.113 5 2.5 5h5V2.5C7.5 1.113 8.613 0 10 0h5c1.387 0 2.5 1.113 2.5 2.5V5h5Z"
+                clip-rule="evenodd" />
             </svg>
-            <a href="#">Figma</a>.</span
-          >
-          Get in touch with me through
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" fill="currentColor" viewBox="0 0 10 8">
-              <path
-                d="M1 8a.963.963 0 0 1-.706-.294A.961.961 0 0 1 0 7V1C0 .725.098.49.294.294A.961.961 0 0 1 1 0h8c.275 0 .51.098.707.294A.961.961 0 0 1 10 1v6c0 .275-.098.51-.294.707A.961.961 0 0 1 9 8H1Zm4-3.5L1 2v5h8V2L5 4.5Zm0-1L9 1H1l4 2.5ZM1 2V1v6-5Z"
-              />
-            </svg>
-
-            <a href="#">Mail</a>,</span
-          >
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 10 10">
-              <path
-                d="M9.974 1.507a.409.409 0 0 0-.136-.186.335.335 0 0 0-.203-.07H8.244a2.394 2.394 0 0 0-.678-.828 2.036 2.036 0 0 0-.929-.4 1.937 1.937 0 0 0-.99.107 2.165 2.165 0 0 0-.845.595 2.523 2.523 0 0 0-.487.813 2.783 2.783 0 0 0-.172.963v.318C2.281 2.267.757.559.743.538A.356.356 0 0 0 .57.429a.324.324 0 0 0-.198.01.37.37 0 0 0-.165.122.447.447 0 0 0-.086.2c-.399 2.51.265 4.193.892 5.162.314.49.696.918 1.13 1.27-.7.901-1.78 1.37-1.79 1.375a.366.366 0 0 0-.136.102.431.431 0 0 0-.084.159.471.471 0 0 0 .042.359c.037.062.174.265.508.458.417.234.966.354 1.63.354 3.226 0 5.926-2.828 6.2-6.468l1.383-1.567a.462.462 0 0 0 .097-.217.494.494 0 0 0-.02-.241ZM7.9 3.053a.434.434 0 0 0-.106.271C7.608 6.599 5.2 9.167 2.313 9.167c-.485 0-.824-.073-1.062-.162.526-.323 1.258-.885 1.734-1.692a.453.453 0 0 0 .046-.333.446.446 0 0 0-.069-.156.385.385 0 0 0-.118-.11c-.005-.005-.682-.406-1.264-1.317C.921 4.365.642 3.11.752 1.663c.723.677 2.105 1.78 3.698 2.083.052.01.106.006.158-.01a.358.358 0 0 0 .14-.084.427.427 0 0 0 .093-.143.477.477 0 0 0 .035-.175v-.833c0-.382.116-.752.328-1.049.213-.296.508-.5.837-.579.328-.078.67-.025.97.15.298.175.535.462.67.812.03.074.077.137.137.182.06.044.13.068.202.068h.732l-.851.968Z"
-              />
-            </svg>
-            <a href="#">Twitter</a>,</span
-          >
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 10 10">
-              <path
-                d="M3.6 2.6a.6.6 0 1 1-1.2 0 .6.6 0 0 1 1.2 0ZM10 .8v8.4a.8.8 0 0 1-.8.8H.8a.8.8 0 0 1-.8-.8V.8A.8.8 0 0 1 .8 0h8.4a.8.8 0 0 1 .8.8Zm-.8 8.4V.8H.8v8.4h8.4ZM3 3.8a.4.4 0 0 0-.4.4v3.2a.4.4 0 1 0 .8 0V4.2a.4.4 0 0 0-.4-.4Zm3 0a1.8 1.8 0 0 0-1.01.31.4.4 0 0 0-.79.09v3.2a.4.4 0 1 0 .8 0V5.6a1 1 0 0 1 2 0v1.8a.4.4 0 1 0 .8 0V5.6A1.8 1.8 0 0 0 6 3.8Z"
-              />
-            </svg>
-            <a href="#">LinkedIn</a>.</span
-          ><br />
-        </p>
-        <a id="to-projects" href="#first" aria-label="Navigate to Projects">
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="22" fill="currentColor">
-            <path
-              d="M7.5 16.75 0 9.25 1.75 7.5l5.75 5.719L13.25 7.5 15 9.25l-7.5 7.5Zm0-7.5L0 1.75 1.75 0 7.5 5.719 13.25 0 15 1.75l-7.5 7.5Z"
-            />
-          </svg>
-        </a>
-      </section>
-
-      <section class="showcase">
-        <menu id="showcase-menu">
-          <li class="showcase-item active"><a href="#">Webpage</a></li>
-          <li class="showcase-item active"><a href="#">UI/UX</a></li>
-          <li class="showcase-item showcase-menu-middle"><a href="#">Mobile Development</a></li>
-          <li class="showcase-item active"><a href="#">CSS</a></li>
-          <li class="showcase-item active"><a href="#">Canvas</a></li>
+            <span class="menu-value">Projects</span>
+          </a>
         </menu>
+      </div>
+    </nav>
+    <button id="mode-toggle" title="Toggle light and dark mode" aria-label="toggle website color scheme"
+      aria-live="polite">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <mask id="mask">
+          <rect x="0" y="0" width="100%" height="100%" fill="white" />
+          <circle cx="12" cy="4" r="9" fill="black" />
+        </mask>
+        <circle fill="currentColor" cx="12" cy="12" r="9" mask="url(#mask)" />
+        <g fill="currentColor" opacity="0">
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </g>
+      </svg>
+    </button>
+  </header>
+  <aside>
+    <a href="#first" id="first-ref">
+      <img src="/sih.jpg" alt="project-display" />
+    </a>
+    <a href="#second" id="second-ref"><img src="/foxulate.jpg" alt="project-display" /></a>
+    <a href="#five" id="third-ref">
+      <img src="/hotel.jpg" alt="project-display" /></a>
+    <a href="#seven" id="fourth-ref"><img src="/port.jpg" alt="project-display" /></a>
+  </aside>
+  <div class="curtain" hidden></div>
+  <main>
+    <section id="description" aria-labelledby="Deepanshu">
+      <h1>Deepanshu</h1>
+      <p>
+        Hey there, I'm Deepanshu Mehra, a Software Developer currently based in
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="14" fill="currentColor">
+            <path
+              d="M5 7c.344 0 .638-.137.883-.412A1.43 1.43 0 0 0 6.25 5.6c0-.385-.122-.715-.367-.99-.245-.274-.54-.41-.883-.41-.344 0-.638.137-.883.412a1.43 1.43 0 0 0-.367.988c0 .385.123.715.367.99.245.274.54.41.883.41Zm0 5.145c1.27-1.307 2.214-2.494 2.828-3.562.615-1.067.922-2.015.922-2.843 0-1.272-.362-2.313-1.086-3.123C6.94 1.806 6.052 1.4 5 1.4s-1.94.406-2.664 1.217C1.61 3.427 1.25 4.469 1.25 5.74c0 .828.307 1.776.922 2.844C2.786 9.652 3.729 10.84 5 12.145ZM5 14c-1.677-1.598-2.93-3.083-3.758-4.453C.415 8.176 0 6.907 0 5.74c0-1.75.503-3.144 1.508-4.183C2.514.52 3.678 0 5 0c1.323 0 2.487.52 3.492 1.558C9.498 2.596 10 3.99 10 5.74c0 1.167-.414 2.436-1.242 3.807C7.929 10.917 6.677 12.402 5 14Z" />
+          </svg>
+          <a href="#">India.</a>
+        </span>
+      </p>
+      <p>
+        I specialise in designing and developing JS/TS Fullstack applications, some of my creations are “<a href="#">SIH
+          Hospital App</a>”, “<a href="#">Foxulate AI App</a>” and “<a href="#">Dhawal’s Portfolio</a>”.
+      </p>
+      <p>
+        I love exploring and discovering new things and hold a great appreciation for creative works. Designing and
+        Developing websites allows me to channel that passion into work. Go through my “<a href="#">Entire Portfolio of
+          Projects here</a>”. Collaborate with me through
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" fill="currentColor" viewBox="0 0 11 12">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              d="M4.176 9.884C1.9 10.665 1.9 8.49 1 8.21M7.353 11V9.047c0-.558.053-.781-.265-1.116C8.571 7.764 10 7.151 10 4.583a2.64 2.64 0 0 0-.688-1.785 2.46 2.46 0 0 0-.053-1.786s-.583-.167-1.853.726a6.19 6.19 0 0 0-3.282 0C2.853.845 2.27 1.012 2.27 1.012a2.46 2.46 0 0 0-.053 1.786 2.64 2.64 0 0 0-.689 1.785c0 2.567 1.43 3.18 2.912 3.348-.317.335-.317.67-.265 1.116V11" />
+          </svg>
 
-        <section class="showcase-content">
-          <section id="first" aria-labelledby="">
-            <video class="proj-hint" src="http://vimeo-hp-videos.global.ssl.fastly.net/3/3.mp4"
-type="video/mp4" muted class="vid" poster="/sih.jpg" loop >
-   </video>
-            <div class="proj-description">
-              <p>
-                In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i
-                came to this conclusion of format.
-              </p>
-              <p>Done with my Self Cause you are my angel.</p>
-              <p>I dont’t wait caue you are</p>
-              <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
-              <p>
-                <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <a href="#"
-                  ><span>Github</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
+          <a href="#">Github</a>,</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14" fill="currentColor" viewBox="0 0 6 10">
+            <path
+              d="M5.22 3.425c.299-.212.529-.53.656-.904.127-.376.144-.788.048-1.175a1.878 1.878 0 0 0-.58-.97A1.49 1.49 0 0 0 4.37 0H1.619a1.49 1.49 0 0 0-.974.375c-.28.243-.484.584-.58.971-.096.387-.08.8.048 1.175.127.375.358.692.656.904-.235.165-.429.397-.564.672A2.058 2.058 0 0 0 0 5c0 .316.07.626.205.902.135.275.33.507.564.672-.24.17-.437.408-.572.691a2.07 2.07 0 0 0-.196.925c.006.323.086.638.232.915.145.276.352.505.598.662.247.157.525.238.807.234.282-.004.558-.092.801-.256.244-.163.445-.397.585-.677.14-.28.214-.598.213-.92V6.317c.162.185.357.33.57.422a1.434 1.434 0 0 0 1.326-.091c.203-.122.381-.291.522-.497.142-.207.243-.445.298-.699.055-.254.062-.52.02-.777a2.005 2.005 0 0 0-.259-.718 1.733 1.733 0 0 0-.494-.533Zm.283-1.574c-.001.344-.12.673-.333.916-.212.242-.5.38-.8.38H3.237V.556H4.37c.3.002.588.139.8.381.212.243.332.572.333.915Zm-5.017 0C.487 1.508.607 1.18.82.936c.212-.242.5-.38.8-.38h1.133v2.592H1.619a1.07 1.07 0 0 1-.8-.381 1.401 1.401 0 0 1-.333-.916ZM.486 5c.001-.343.121-.672.333-.915.212-.243.5-.38.8-.381h1.133v2.592H1.619a1.07 1.07 0 0 1-.8-.38 1.401 1.401 0 0 1-.333-.916ZM1.62 9.443c-.3 0-.589-.137-.801-.38a1.397 1.397 0 0 1-.332-.917c0-.343.12-.673.332-.916.212-.243.5-.38.801-.38h1.133v1.296c-.001.344-.121.673-.333.916-.212.242-.5.38-.8.38ZM4.37 6.295c-.3 0-.589-.137-.801-.38A1.397 1.397 0 0 1 3.237 5c0-.344.12-.673.332-.916.212-.244.5-.38.801-.38.3 0 .589.136.801.38.212.243.332.572.332.916 0 .344-.12.673-.332.916-.212.243-.5.38-.801.38Z" />
+          </svg>
+          <a href="#">Figma</a>.</span>
+        Get in touch with me through
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" fill="currentColor" viewBox="0 0 10 8">
+            <path
+              d="M1 8a.963.963 0 0 1-.706-.294A.961.961 0 0 1 0 7V1C0 .725.098.49.294.294A.961.961 0 0 1 1 0h8c.275 0 .51.098.707.294A.961.961 0 0 1 10 1v6c0 .275-.098.51-.294.707A.961.961 0 0 1 9 8H1Zm4-3.5L1 2v5h8V2L5 4.5Zm0-1L9 1H1l4 2.5ZM1 2V1v6-5Z" />
+          </svg>
 
-                <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
-                    fill="currentColor"
-                  />
-                </svg>
+          <a href="#">Mail</a>,</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 10 10">
+            <path
+              d="M9.974 1.507a.409.409 0 0 0-.136-.186.335.335 0 0 0-.203-.07H8.244a2.394 2.394 0 0 0-.678-.828 2.036 2.036 0 0 0-.929-.4 1.937 1.937 0 0 0-.99.107 2.165 2.165 0 0 0-.845.595 2.523 2.523 0 0 0-.487.813 2.783 2.783 0 0 0-.172.963v.318C2.281 2.267.757.559.743.538A.356.356 0 0 0 .57.429a.324.324 0 0 0-.198.01.37.37 0 0 0-.165.122.447.447 0 0 0-.086.2c-.399 2.51.265 4.193.892 5.162.314.49.696.918 1.13 1.27-.7.901-1.78 1.37-1.79 1.375a.366.366 0 0 0-.136.102.431.431 0 0 0-.084.159.471.471 0 0 0 .042.359c.037.062.174.265.508.458.417.234.966.354 1.63.354 3.226 0 5.926-2.828 6.2-6.468l1.383-1.567a.462.462 0 0 0 .097-.217.494.494 0 0 0-.02-.241ZM7.9 3.053a.434.434 0 0 0-.106.271C7.608 6.599 5.2 9.167 2.313 9.167c-.485 0-.824-.073-1.062-.162.526-.323 1.258-.885 1.734-1.692a.453.453 0 0 0 .046-.333.446.446 0 0 0-.069-.156.385.385 0 0 0-.118-.11c-.005-.005-.682-.406-1.264-1.317C.921 4.365.642 3.11.752 1.663c.723.677 2.105 1.78 3.698 2.083.052.01.106.006.158-.01a.358.358 0 0 0 .14-.084.427.427 0 0 0 .093-.143.477.477 0 0 0 .035-.175v-.833c0-.382.116-.752.328-1.049.213-.296.508-.5.837-.579.328-.078.67-.025.97.15.298.175.535.462.67.812.03.074.077.137.137.182.06.044.13.068.202.068h.732l-.851.968Z" />
+          </svg>
+          <a href="#">Twitter</a>,</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 10 10">
+            <path
+              d="M3.6 2.6a.6.6 0 1 1-1.2 0 .6.6 0 0 1 1.2 0ZM10 .8v8.4a.8.8 0 0 1-.8.8H.8a.8.8 0 0 1-.8-.8V.8A.8.8 0 0 1 .8 0h8.4a.8.8 0 0 1 .8.8Zm-.8 8.4V.8H.8v8.4h8.4ZM3 3.8a.4.4 0 0 0-.4.4v3.2a.4.4 0 1 0 .8 0V4.2a.4.4 0 0 0-.4-.4Zm3 0a1.8 1.8 0 0 0-1.01.31.4.4 0 0 0-.79.09v3.2a.4.4 0 1 0 .8 0V5.6a1 1 0 0 1 2 0v1.8a.4.4 0 1 0 .8 0V5.6A1.8 1.8 0 0 0 6 3.8Z" />
+          </svg>
+          <a href="#">LinkedIn</a>.</span><br />
+      </p>
+      <a id="to-projects" href="#first" aria-label="Navigate to Projects">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="22" fill="currentColor">
+          <path
+            d="M7.5 16.75 0 9.25 1.75 7.5l5.75 5.719L13.25 7.5 15 9.25l-7.5 7.5Zm0-7.5L0 1.75 1.75 0 7.5 5.719 13.25 0 15 1.75l-7.5 7.5Z" />
+        </svg>
+      </a>
+    </section>
 
-                <a href="#"
-                  ><span>Figma</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-              </p>
-            </div>
-          </section>
-          <section id="second" aria-labelledby="">
- <video class="proj-hint" src="http://vimeo-hp-videos.global.ssl.fastly.net/3/3.mp4"
-type="video/mp4" muted class="vid" poster="/foxulate.jpg" loop >
-   </video>
+    <section class="showcase">
+      <menu id="showcase-menu">
+        <li class="showcase-item active"><a href="#">Webpage</a></li>
+        <li class="showcase-item active"><a href="#">UI/UX</a></li>
+        <li class="showcase-item showcase-menu-middle"><a href="#">Mobile Development</a></li>
+        <li class="showcase-item active"><a href="#">CSS</a></li>
+        <li class="showcase-item active"><a href="#">Canvas</a></li>
+      </menu>
 
-            <div class="proj-description">
-              <p>
-                In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i
-                came to this conclusion of format.
-              </p>
-              <p>Done with my Self Cause you are my angel.</p>
-              <p>I dont’t wait caue you are</p>
-              <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
-              <p>
-                <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <section class="showcase-content">
+        <section id="first" aria-labelledby="hospital bed allotment website">
+          <video class="proj-hint" src="/sih.webm" type="video/webm" muted class="vid" poster="/sih.jpg" loop>
+          </video>
+          <div class="proj-description">
+            <p>
+              In this project I Started working with React and used third-party libraries to help build Hospital Bed Allotment Website and started to become familier with React and its JS ecosystem.
+            </p>
+            <p>This Application also features Dashboard for reporting to hospital for their availability.</p>
+            <p>From UI/Ux to Development I have Build this project alone.</p>
+            <p><code>Figma</code><code>React</code><code>Tailwind</code><code>React-Router</code><code>React-Redux</code></p>
+            <p>
+              <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <a href="https://github.com/deEshu2002/sih-hosp-app"><span>Github</span>
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                    d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
+                    fill="currentColor" />
                 </svg>
+              </a>
 
-                <a href="#"
-                  ><span>Github</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
+              <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
+                  fill="currentColor" />
+              </svg>
 
-                <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <a href="https://www.figma.com/community/file/1234017087738088393"><span>Figma</span>
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
-                    fill="currentColor"
-                  />
+                    d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
+                    fill="currentColor" />
                 </svg>
-                <a href="#"
-                  ><span>Figma</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-              </p>
-            </div>
-          </section>
-          <section id="third" aria-labelledby="">
-            <img class="proj-hint" src="/isa.jpg" alt="project-hint" />
-            <div class="proj-description">
-              <p>
-                In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i
-                came to this conclusion of format.
-              </p>
-              <p>Done with my Self Cause you are my angel.</p>
-              <p>I dont’t wait caue you are</p>
-              <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
-              <p>
-                <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <a href="#"
-                  ><span>Github</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
+              </a>
+            </p>
+          </div>
+        </section>
+        <section id="second" aria-labelledby="creative writing assistant website">
+          <img class="proj-hint" src="/foxulate.jpg" alt="proj hint image">
+          <div class="proj-description">
+            <p>
+              In this project I Started working with NextJS and used third-party libraries to help build Writer's companion Website and started to become familier with NEXTJS and its paradigms.
+            </p>
+            <p>This project is using Hugging Face DistilBERT transformer to help feed words that falls on same context.</p>
+            <p><code>NextJS</code><code>React</code><code>Tailwind</code><code>Flask</code><code>HuggingFace-Transformer</code></p>
+            <p>
+              <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
 
-                <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <a href="#"><span>Github</span>
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
-                    fill="currentColor"
-                  />
+                    d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
+                    fill="currentColor" />
                 </svg>
-                <a href="#"
-                  ><span>Figma</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-              </p>
-            </div>
-          </section>
-          <section id="fourth" aria-labelledby="">
-            <img class="proj-hint" src="/cat-blog.jpg" alt="project-hint" />
-            <div class="proj-description">
-              <p>
-                In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i
-                came to this conclusion of format.
-              </p>
-              <p>Done with my Self Cause you are my angel.</p>
-              <p>I dont’t wait caue you are</p>
-              <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
-              <p>
-                <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <a href="#"
-                  ><span>Github</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
+              </a>
 
-                <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
+                  fill="currentColor" />
+              </svg>
+              <a href="#"><span>Figma</span>
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
-                    fill="currentColor"
-                  />
+                    d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
+                    fill="currentColor" />
                 </svg>
-                <a href="#"
-                  ><span>Figma</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-              </p>
-            </div>
-          </section>
-          <section id="five" aria-labelledby="">
-  <video class="proj-hint" src="http://vimeo-hp-videos.global.ssl.fastly.net/3/3.mp4"
-type="video/mp4" muted class="vid" poster="/hotel.jpg" loop >
-   </video>
-            <div class="proj-description">
-              <p>
-                In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i
-                came to this conclusion of format.
-              </p>
-              <p>Done with my Self Cause you are my angel.</p>
-              <p>I dont’t wait caue you are</p>
-              <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
-              <p>
-                <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              </a>
+            </p>
+          </div>
+        </section>
+        <section id="third" aria-labelledby="Unsplash clone website">
+          <video class="proj-hint" src="/isa.webm" type="video/webm" muted class="vid" poster="/isa.jpg" loop>
+          </video>
+          <div class="proj-description">
+            <p>
+             In this project I experimented with new syntax and patterns in React 18, such as the useTransition hook and suspenseful rendering, and finding a way around of useEffect's twice rendering. 
+            </p>
+            <p>This application is a clone of Unsplash while using Unsplash API</p>
+            <p><code>Figma</code><code>React</code><code>Memoization</code><code>Tailwind</code><code>NodeJS(ExpressJS)</code></p>
+            <p>
+              <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <a href="https://github.com/deEshu2002/image-search-app"><span>Github</span>
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                    d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
+                    fill="currentColor" />
                 </svg>
-                <a href="#"
-                  ><span>Github</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-
-                <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              </a>
+           </p>
+          </div>
+        </section>
+        <section id="fourth" aria-labelledby="Cat Blogging webpage">
+          <img class="proj-hint" src="/cat-blog.jpg" alt="project-hint" />
+          <div class="proj-description">
+            <p>
+              I built this Cat's Blogging website using tRPC, React Query, Zod, Next.js, PostgreSQL, and Docker. This project helped me gain experience working with these technologies and tools, including API creation, data management, schema validation, and deployment.In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i
+              came to this conclusion of format.
+            </p>
+            <p>I wanted to build this project to try out trending technologies.</p>
+            <p><code>Typescript</code><code>NextJS</code><code>React</code><code>React-Query</code> <code>PostgreSQL</code><code>Docker</code></p>
+            <p>
+              <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <a href="https://github.com/deEshu2002/t3-blog-app"><span>Github</span>
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
-                    fill="currentColor"
-                  />
+                    d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
+                    fill="currentColor" />
                 </svg>
-                <a href="#"
-                  ><span>Figma</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-              </p>
-            </div>
-          </section>
-          <section id="six" aria-labelledby="">
-            <img class="proj-hint" src="/sih-mob.png" alt="project-hint" />
-            <div class="proj-description">
-              <p>
-                In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i
-                came to this conclusion of format.
-              </p>
-              <p>Done with my Self Cause you are my angel.</p>
-              <p>I dont’t wait caue you are</p>
-              <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
-              <p>
-                <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              </a>
+            </p>
+          </div>
+        </section>
+        <section id="five" aria-labelledby="Hotel provider UI design for webpage">
+          <img class="proj-hint" src="/hotel.jpg" alt="proj hint image" />
+          <div class="proj-description">
+            <p>
+              This Project is part of my ventures to trying to understand UI/UX and build a useful Design for a Hotel website.
+            </p>
+            <p>In this project i have tried working with color theory and choosed "chartreuse" color which is very rare in websites.</p>
+            <p><code>Figma</code><code>Color-Theory</code><code>Gradients</code><code>UI/UX</code></p>
+            <p>
+              <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
+                  fill="currentColor" />
+              </svg>
+              <a href="https://www.figma.com/community/file/1234021782929311693"><span>Figma</span>
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                    d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
+                    fill="currentColor" />
                 </svg>
-                <a href="#"
-                  ><span>Github</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-                <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              </a>
+            </p>
+          </div>
+        </section>
+        <section id="six" aria-labelledby="hospital bed availability mobile UI design">
+          <img class="proj-hint" src="/sih-mob.png" alt="project-hint" />
+          <div class="proj-description">
+            <p>
+              This Mobile Application design is also the part of the Hospital Bed allotment website, here it works as a reporting application to the users who are looking for Beds.
+            </p>
+            <p>This is also the part of endeavour of UI/UX for Mobile Applications.</p>
+            <p><code>Figma</code><code>UI/UX</code><code>Mobile-Application</code></p>
+            <p>
+              <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
+                  fill="currentColor" />
+              </svg>
+              <a href="https://www.figma.com/community/file/1234023306605020112"><span>Figma</span>
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
-                    fill="currentColor"
-                  />
+                    d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
+                    fill="currentColor" />
                 </svg>
-                <a href="#"
-                  ><span>Figma</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-              </p>
-            </div>
-          </section>
-          <section id="seven" aria-labelledby="">
-<video class="proj-hint" src="http://vimeo-hp-videos.global.ssl.fastly.net/3/3.mp4"
-type="video/mp4" muted class="vid" poster="/port.jpg" loop >
-   </video>
-            <div class="proj-description">
-              <p>
-                In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i
-                came to this conclusion of format.
-              </p>
-              <p>Done with my Self Cause you are my angel.</p>
-              <p>I dont’t wait caue you are</p>
-              <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
-              <p>
-                <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              </a>
+            </p>
+          </div>
+        </section>
+        <section id="seven" aria-labelledby="portfolio template webpage">
+          <video class="proj-hint" src="/port.webm" type="video/webm" muted class="vid" poster="/port.jpg" loop>
+          </video>
+          <div class="proj-description">
+            <p>
+              In this i have gotten a good understanding of working with pure CSS and JS. I have also build a Router for this application which stores states in History API and also utilised Intersection observer API.
+            </p>
+            <p><code>Web APIs</code><code>TS</code><code>CSS</code></p>
+            <p>
+              <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <a href="https://github.com/deEshu2002/portfolio-2023"><span>Github</span>
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                    d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
+                    fill="currentColor" />
                 </svg>
-                <a href="#"
-                  ><span>Github</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-                <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              </a>
+              <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
+                  fill="currentColor" />
+              </svg>
+              <a href="https://www.figma.com/community/file/1234025720057763797"><span>Figma</span>
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
-                    fill="currentColor"
-                  />
+                    d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
+                    fill="currentColor" />
                 </svg>
-                <a href="#"
-                  ><span>Figma</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-              </p>
-            </div>
-          </section>
-          <section id="eight" aria-labelledby="">
-            <img class="proj-hint" src="https://source.unsplash.com/random/?abstract&8" alt="project-hint" />
-            <div class="proj-description">
-              <p>
-                In this i have gotten a good understanding of the z-index working. while wrangling around the Z-Index i
-                came to this conclusion of format.
-              </p>
-              <p>Done with my Self Cause you are my angel.</p>
-              <p>I dont’t wait caue you are</p>
-              <p><code>Figma</code><code>React</code><code>Tailwind</code></p>
-              <p>
-                <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              </a>
+            </p>
+          </div>
+        </section>
+        <section id="eight" aria-labelledby="">
+          <img class="proj-hint" src="https://source.unsplash.com/random/?abstract&8" alt="project-hint" />
+          <div class="proj-description">
+            <p>
+              Soon...
+            </p>
+            <p>...</p>
+            <p>...</p>
+            <p><code>.</code><code>.</code><code>.</code></p>
+            <p>
+              <svg width="12" height="14" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <a href="#" hidden><span>Github</span>
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M4.17647 9.88407C1.9 10.6652 1.9 8.48916 1 8.21018M7.35294 11V9.04713C7.35294 8.48916 7.40588 8.26598 7.08824 7.9312C8.57059 7.76381 10 7.15005 10 4.58342C9.99936 3.91663 9.75253 3.27628 9.31177 2.79793C9.51848 2.21875 9.49945 1.5769 9.25882 1.01245C9.25882 1.01245 8.67647 0.845061 7.40588 1.7378C6.32971 1.44241 5.1997 1.44241 4.12353 1.7378C2.85294 0.845061 2.27059 1.01245 2.27059 1.01245C2.02996 1.5769 2.01093 2.21875 2.21765 2.79793C1.77689 3.27628 1.53006 3.91663 1.52941 4.58342C1.52941 7.15005 2.95882 7.76381 4.44118 7.9312C4.12353 8.26598 4.12353 8.60076 4.17647 9.04713V11"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                    d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
+                    fill="currentColor" />
                 </svg>
-                <a href="#"
-                  ><span>Github</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-                <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              </a>
+              <svg width="9" height="14" viewBox="0 0 6 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
+                  fill="currentColor" />
+              </svg>
+              <a href="#" hidden><span>Figma</span>
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M5.21962 3.42523C5.51853 3.21328 5.74897 2.8957 5.87605 2.52054C6.00313 2.14538 6.01994 1.73307 5.92393 1.34601C5.82793 0.95895 5.62433 0.618203 5.34396 0.37534C5.06359 0.132476 4.7217 0.000716228 4.37004 0H1.61902C1.26736 0.000716228 0.925471 0.132476 0.645099 0.37534C0.364728 0.618203 0.161133 0.95895 0.0651277 1.34601C-0.0308776 1.73307 -0.014068 2.14538 0.113013 2.52054C0.240093 2.8957 0.470528 3.21328 0.769442 3.42523C0.53432 3.59044 0.340137 3.82184 0.205433 4.09736C0.0707284 4.37287 0 4.68329 0 4.99898C0 5.31467 0.0707284 5.62509 0.205433 5.9006C0.340137 6.17612 0.53432 6.40752 0.769442 6.57273C0.529312 6.7422 0.332081 6.98056 0.197316 7.26416C0.06255 7.54776 -0.00506733 7.86674 0.0011712 8.18946C0.00740972 8.51219 0.0872873 8.82744 0.23288 9.10394C0.378473 9.38045 0.584721 9.60859 0.831165 9.76575C1.07761 9.92291 1.35568 10.0036 1.63781 9.99988C1.91993 9.99613 2.19629 9.90806 2.43948 9.74439C2.68267 9.58073 2.88423 9.34717 3.02417 9.06687C3.16412 8.78658 3.23758 8.46929 3.23727 8.14649V6.31816C3.39913 6.50342 3.59352 6.64727 3.80758 6.74022C4.02163 6.83316 4.25049 6.87308 4.47904 6.85734C4.70758 6.84159 4.9306 6.77053 5.13336 6.64887C5.33612 6.5272 5.51401 6.35769 5.65527 6.15154C5.79653 5.94539 5.89795 5.7073 5.95283 5.45298C6.00771 5.19866 6.01479 4.93391 5.97361 4.67623C5.93244 4.41855 5.84394 4.1738 5.71396 3.95815C5.58399 3.7425 5.4155 3.56086 5.21962 3.42523ZM5.50281 1.85147C5.50175 2.19483 5.38206 2.52377 5.16985 2.76656C4.95765 3.00935 4.67014 3.14629 4.37004 3.14751H3.23727V0.555442H4.37004C4.67014 0.556662 4.95765 0.693599 5.16985 0.936389C5.38206 1.17918 5.50175 1.50812 5.50281 1.85147ZM0.486249 1.85147C0.487315 1.50812 0.607002 1.17918 0.819208 0.936389C1.03141 0.693599 1.31892 0.556662 1.61902 0.555442H2.75179V3.14751H1.61902C1.31892 3.14629 1.03141 3.00935 0.819208 2.76656C0.607002 2.52377 0.487315 2.19483 0.486249 1.85147ZM0.486249 4.99898C0.487315 4.65563 0.607002 4.32668 0.819208 4.08389C1.03141 3.84111 1.31892 3.70417 1.61902 3.70295H2.75179V6.29501H1.61902C1.31892 6.29379 1.03141 6.15685 0.819208 5.91407C0.607002 5.67128 0.487315 5.34233 0.486249 4.99898ZM1.61902 9.44252C1.31859 9.44252 1.03047 9.30597 0.81803 9.06292C0.605594 8.81987 0.486249 8.49021 0.486249 8.14649C0.486249 7.80276 0.605594 7.47311 0.81803 7.23005C1.03047 6.987 1.31859 6.85045 1.61902 6.85045H2.75179V8.14649C2.75073 8.48984 2.63104 8.81878 2.41883 9.06157C2.20663 9.30436 1.91912 9.4413 1.61902 9.44252ZM4.37004 6.29501C4.06961 6.29501 3.78148 6.15847 3.56905 5.91541C3.35661 5.67236 3.23727 5.34271 3.23727 4.99898C3.23727 4.65525 3.35661 4.3256 3.56905 4.08255C3.78148 3.83949 4.06961 3.70295 4.37004 3.70295C4.67047 3.70295 4.9586 3.83949 5.17103 4.08255C5.38347 4.3256 5.50281 4.65525 5.50281 4.99898C5.50281 5.34271 5.38347 5.67236 5.17103 5.91541C4.9586 6.15847 4.67047 6.29501 4.37004 6.29501Z"
-                    fill="currentColor"
-                  />
+                    d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
+                    fill="currentColor" />
                 </svg>
-                <a href="#"
-                  ><span>Figma</span>
-                  <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M6.67095 0.807364C6.64706 0.532256 6.40468 0.328602 6.12957 0.352488L1.64644 0.74174C1.37133 0.765626 1.16767 1.00801 1.19156 1.28312C1.21545 1.55822 1.45783 1.76188 1.73294 1.73799L5.71794 1.39199L6.06395 5.377C6.08783 5.6521 6.33022 5.85576 6.60532 5.83187C6.88043 5.80799 7.08408 5.5656 7.0602 5.2905L6.67095 0.807364ZM1.4093 7.29723L6.55563 1.17226L5.79001 0.528968L0.643679 6.65394L1.4093 7.29723Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </a>
-              </p>
-            </div>
-          </section>
+              </a>
+            </p>
+          </div>
         </section>
       </section>
-    </main>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    </section>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>

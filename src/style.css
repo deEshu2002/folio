@@ -357,7 +357,7 @@ main {
 .proj-description p code {
   background-color: #333333;
   background-color: var(--text-bg-secondary);
-  padding: 0.25rem 0.5rem;
+  padding: 0.125rem 0.5rem;
   font-size: 1rem;
   margin-right: 1.5rem;
   border-radius: 0.25rem;
