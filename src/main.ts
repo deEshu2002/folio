@@ -56,15 +56,11 @@ function eventLoaders(resizeEvent?: boolean) {
 
     projectsButton.addEventListener('click', projectsButtonClickEvent);
 
-    modeButton.addEventListener('click', themeToggle);
     menuValues.forEach((item) => {
       item.addEventListener('click', handleShowCaseMenuTransition);
     });
 
-    clipVideos.forEach((item) => {
-      item.addEventListener('mouseover', playEvent);
-      item.addEventListener('mouseout', pauseEvent);
-    })
+    
   } else if (resizeEvent) {
     menuOptions.removeEventListener('click', openMenuModal);
     cues.forEach((img) => {
@@ -80,16 +76,17 @@ function eventLoaders(resizeEvent?: boolean) {
 
     projectsButton.removeEventListener('click', projectsButtonClickEvent);
 
-    modeButton.removeEventListener('click', themeToggle);
     menuValues.forEach((item) => {
       item.removeEventListener('click', handleShowCaseMenuTransition);
     });
 
-    clipVideos.forEach((item) => {
-      item.removeEventListener('mouseover', playEvent);
-      item.removeEventListener('mouseout', pauseEvent);
-    })
   }
+    modeButton.addEventListener('click', themeToggle);
+    clipVideos.forEach((item) => {
+        item.addEventListener('mouseover', playEvent);
+        item.addEventListener('mouseout', pauseEvent);
+    })
+
 }
 
 function initPageTransition() {

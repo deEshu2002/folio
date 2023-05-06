@@ -348,6 +348,11 @@ main {
   max-width: 80%;
 }
 
+.proj-description > p:nth-last-child(2){
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .proj-description > p > a {
   margin-right: 1.5rem;
   margin-left: 0.25rem;
@@ -360,6 +365,7 @@ main {
   padding: 0.125rem 0.5rem;
   font-size: 1rem;
   margin-right: 1.5rem;
+  margin-top: 1rem;
   border-radius: 0.25rem;
 }
 
@@ -551,8 +557,9 @@ main {
   }
 
   #description {
-    width: 85%;
+    width: 85vw;
   }
+
   #first-ref,
   #second-ref,
   #third-ref,
@@ -563,6 +570,9 @@ main {
     visibility: hidden;
   }
 
+.proj-description{
+  width: 85vw;
+}
   .showcase-content section {
     margin: 1rem 0 2rem 0;
   }
