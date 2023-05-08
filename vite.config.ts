@@ -21,19 +21,21 @@ export default defineConfig({
         icons: [{
             "src": "/folio/android-chrome-192x192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
             "src": "/folio/android-chrome-512x512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
         ],
         display: "standalone",
         orientation:"portrait"
       },
           workbox:{
-            globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+            globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
             globIgnores: [
               "node_modules/**/*"
             ],
