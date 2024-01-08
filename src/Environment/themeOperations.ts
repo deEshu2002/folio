@@ -1,6 +1,6 @@
-import { resetJSStyles } from './main';
-import { handleSunMoonAnimation } from './sunMoonTransition';
-import { handleThemeProps, mode } from './types';
+import { resetJSStyles } from '../main';
+import { handleSunMoonAnimation } from '../CSSEffects/SunMoonTransition';
+import { handleThemeProps, mode } from '../types';
 
 const storageKey = 'theme-preference';
 

@@ -1,13 +1,13 @@
-import { handleMouseOverRotation, handleMouseOutRotation } from './CueMouseOver';
-import { handleImageToWorkTransition } from './CueToHintTransition';
-import { handleTheme, themeToggle } from './themeOperations';
+import { handleMouseOverRotation, handleMouseOutRotation } from './CSSEffects/CueMouseOver';
+import { handleImageToWorkTransition } from './CSSEffects/CueToHintTransition';
+import { handleTheme, themeToggle } from './Environment/themeOperations';
 import {
   handleMenuSliderMouseEnterVisibility,
   handleMenuSliderMouseLeaveVisibility,
   handleMenuVisibility,
   handleShowCaseMenuTransition,
 } from './MenuOperations';
-import { openMenuModal, projectsButtonClickEvent } from './NavOperations';
+import { openMenuModal, projectsButtonClickEvent } from './CSSEffects/CircularNavBar';
 
 export const modeButton = document.getElementById('mode-toggle') as HTMLButtonElement;
 handleTheme({ initFlag: true });
@@ -23,7 +23,7 @@ const menuValues = document.querySelectorAll('.showcase-item') as NodeListOf<HTM
 
 const projectsButton = document.querySelector('.menu-item:last-child') as HTMLAnchorElement;
 
- let clipVideos = document.querySelectorAll("video") as NodeListOf<HTMLVideoElement> ;
+ const clipVideos = document.querySelectorAll("video") as NodeListOf<HTMLVideoElement> ;
 
 export function resetJSStyles() {
   cues.forEach((elem) => {

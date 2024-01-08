@@ -1,4 +1,4 @@
-import { menuOptions } from './main';
+import { menuOptions } from '../main';
 
 export function openMenuModal(e: Event) {
   const target = document.querySelector('.circular-menu') as HTMLDivElement;

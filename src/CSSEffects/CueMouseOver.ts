@@ -1,6 +1,6 @@
-import { initialUserPrefferedState } from './themeOperations';
-import { reducedMotion } from './reducedmotion';
-import { darkThemeMap, lightThemeMap } from './jsThemesData';
+import { initialUserPrefferedState } from '../Environment/themeOperations';
+import { reducedMotion } from '../Environment/reducedmotion';
+import { darkThemeMap, lightThemeMap } from '../Database/jsThemesData';
 
 export function handleMouseOutRotation(e: Event) {
   if (reducedMotion) {

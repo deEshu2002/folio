@@ -1,6 +1,6 @@
-import { initialUserPrefferedState } from './themeOperations';
-import { modeButton } from './main';
-import { reducedMotion } from './reducedmotion';
+import { initialUserPrefferedState } from '../Environment/themeOperations';
+import { modeButton } from '../main';
+import { reducedMotion } from '../Environment/reducedmotion';
 
 export function handleSunMoonAnimation() {
   const svg = modeButton?.children[0] as SVGElement;
