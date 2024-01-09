@@ -8,6 +8,10 @@ import {
   handleShowCaseMenuTransition,
 } from './MenuOperations';
 import { openMenuModal, projectsButtonClickEvent } from './CSSEffects/CircularNavBar';
+import { cursorInit, mouseEnterOverPreviewImage, mouseLeaveFromPreviewImage, updateCords } from './CSSEffects/CustomCursor';
+import { coordinates} from './types';
+
+export const dot = document.getElementById('dot');
 
 export const modeButton = document.getElementById('mode-toggle') as HTMLButtonElement;
 handleTheme({ initFlag: true });
@@ -18,12 +22,16 @@ const cues: NodeListOf<HTMLImageElement> = document.querySelectorAll(
   '#first-ref img ,#second-ref img, #third-ref img, #fourth-ref img',
 );
 
+export const circle = dot?.getElementsByTagName('circle').item(0);
+export const text = dot?.getElementsByTagName('text').item(0);
+export const contextFrames = document.getElementsByClassName('proj-link');
+
 const showcaseMenu = document.getElementById('showcase-menu') as HTMLUListElement;
 const menuValues = document.querySelectorAll('.showcase-item') as NodeListOf<HTMLLIElement>;
 
 const projectsButton = document.querySelector('.menu-item:last-child') as HTMLAnchorElement;
 
- const clipVideos = document.querySelectorAll("video") as NodeListOf<HTMLVideoElement> ;
+const clipVideos = document.querySelectorAll("video") as NodeListOf<HTMLVideoElement> ;
 
 export function resetJSStyles() {
   cues.forEach((elem) => {
@@ -60,6 +68,17 @@ function eventLoaders(resizeEvent?: boolean) {
       item.addEventListener('click', handleShowCaseMenuTransition);
     });
 
+    [...contextFrames].forEach((elem) => {
+      elem.addEventListener("mouseleave", (e) => {
+        mouseLeaveFromPreviewImage(elem);
+      })
+    });
+
+    [...contextFrames].forEach((elem) => {
+        elem.addEventListener("mouseenter", (e) =>{
+          mouseEnterOverPreviewImage(elem);
+        })
+    })
     
   } else if (resizeEvent) {
     menuOptions.removeEventListener('click', openMenuModal);
@@ -101,4 +120,13 @@ window.onresize = () => {
   eventLoaders(true);
 };
 
-window.onload = initPageTransition;
+window.addEventListener("load", (e) => {
+  initPageTransition;
+  cursorInit();
+})
+
+
+document.addEventListener('mousemove', (e) => {
+  const newMouseCord:coordinates = {x: e.clientX, y: e.clientY};
+  dot && updateCords(dot, newMouseCord, 62.5);
+});

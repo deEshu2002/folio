@@ -37,6 +37,30 @@
   box-sizing: border-box;
 }
 
+#dot {
+	position: fixed;
+	width: 8rem;
+	height: 8rem;
+	fill: var(--text-bg-secondary);
+	top: -4em;
+	left: -4em;
+	opacity: 0;
+	transform: scale(0);
+	transform-origin: 50% 50%;
+	user-select: none;
+	pointer-events: none;
+	z-index: 48;
+}
+#dot > circle{
+  transform-origin: 50% 50%;
+}
+#dot > text{
+  font: normal 4px sans-serif;
+  text-transform: uppercase;
+  fill: var(--text-color);
+  opacity: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -317,16 +341,13 @@ main {
   margin: 1rem 11rem 2rem 2rem;
 }
 
-.proj-hint {
+.proj-link-container {
   position: sticky;
-  object-position: center;
-  object-fit: cover;
   top: 3.45rem;
-  max-width: 40rem;
   width: 40vw;
-  max-height: 25rem;
   height: 25vw;
-  margin-bottom: 0.5rem;
+  max-width: 40rem;
+  max-height: 25rem;
   border-radius: 2rem;
   box-shadow: 0rem 1.25rem 1.5625rem #090401;
   box-shadow: var(--hint-img-shadow);
@@ -334,12 +355,75 @@ main {
   z-index: 9;
 }
 
+.proj-link{
+  position: relative;
+  overflow: hidden;
+  width: 40vw;
+  height: 25vw;
+  max-width: 40rem;
+  max-height: 25rem;
+}
+
+.preview-image img{
+  width: 40vw;
+  height: 25vw;
+  max-width: 40rem;
+  max-height: 25rem;
+  border-radius: 2rem;
+  position: relative;
+}
+
+.preview-image::after{
+  content: '';
+  background-color: #242424;
+  background-color: var(--background-color);
+  opacity: 0.6;
+  position: absolute;
+  bottom: 1.5%;
+  right: 0;
+  width: 100%;
+  height: 98.5%;
+  border-radius: 2rem;
+}
+
+.proj-link > img, .preview-image{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background: none;
+  border-radius: 2rem;
+}
+
+.proj-link > img {
+  height: inherit;
+  width: inherit;
+  border-radius: 2rem;
+  object-position: center;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.7s ease-in-out;
+  -moz-transition: opacity 0.7s ease-in-out;
+  -webkit-transition: opacity 0.7s ease-in-out;
+/*   zoom in  */
+	transform: scale(1);
+  transform-origin: center;
+	-webkit-transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.proj-link:hover > img {
+  opacity: 0;
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+}
+
 .proj-description {
   display: inline-block;
   position: sticky;
-  top: 50%;
+  top: 55%;
 
-  margin-top: 1rem;
+  margin-top: 2vw;
   margin-left: 2rem;
 }
 
