@@ -1,6 +1,8 @@
+import { header } from "./main";
+
 const menu = document.getElementById('showcase-menu') as HTMLUListElement;
 
-let isMenuVisible = false;
+export let isMenuVisible = false;
 export function handleMenuVisibility() {
   const stickyTopValue = window.innerHeight / 8;
 
@@ -11,8 +13,14 @@ export function handleMenuVisibility() {
       { duration: 600, fill: 'forwards', easing: 'cubic-bezier(0.25, 1, 0.5, 1)' },
     );
     isMenuVisible = true;
+    if(header){
+      header.style.backgroundColor = 'var(--background-color)';
+    }
   } else {
     isMenuVisible = false;
+    if(header){
+      header.removeAttribute('style');
+    }
     menu.animate(
       { opacity: 0, zIndex: -1 },
       { duration: 600, fill: 'forwards', easing: 'cubic-bezier(0.25, 1, 0.5, 1)' },

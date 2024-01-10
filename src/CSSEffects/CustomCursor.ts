@@ -1,18 +1,15 @@
-import { initialUserPrefferedState } from "../Environment/themeOperations";
 import { circle, dot, text} from "../main";
 import { coordinates } from "../types";
 
-const isDarkMode = initialUserPrefferedState === 'dark';
-
 export function mouseLeaveFromPreviewImage(elem:Element){
     elem.animate({transform: "scale(1)"},{ duration: 300, easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)', fill: 'forwards'});
-    circle && circle.animate({transform: "scale(1)", fill: "#333333"},{duration: 300, easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)', delay: 100, fill: 'forwards'})
+    circle && circle.animate({transform: "scale(1)", fill: "var(--text-bg-secondary)"},{duration: 300, easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)', delay: 100, fill: 'forwards'})
     text && text.animate({opacity: 0}, { duration: 250, easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)', fill: 'forwards'});
 }
 
 export function mouseEnterOverPreviewImage(elem: Element){
     elem.animate({transform: "scale(1.125)"},{ duration: 400, easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)', delay: 150, fill: 'forwards' });
-    circle && circle.animate({transform: "scale(6)", fill: "#242424"},{duration: 400, easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)', fill:'forwards'})
+    circle && circle.animate({transform: "scale(6)", fill: "var(--background-color)"},{duration: 400, easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)', fill:'forwards'})
     text && text.animate({opacity: 1}, { duration: 300, easing: 'cubic-bezier(0.1, 0.9, 0.2, 1)', delay: 100 , fill: 'forwards'})
 }
 

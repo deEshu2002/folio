@@ -12,6 +12,7 @@ import { cursorInit, mouseEnterOverPreviewImage, mouseLeaveFromPreviewImage, upd
 import { coordinates} from './types';
 
 export const dot = document.getElementById('dot');
+export const header = document.getElementById('header');
 
 export const modeButton = document.getElementById('mode-toggle') as HTMLButtonElement;
 handleTheme({ initFlag: true });
