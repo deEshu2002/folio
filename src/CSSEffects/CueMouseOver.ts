@@ -13,11 +13,10 @@ export function handleMouseOutRotation(e: Event) {
 
   const currElemParent = eventInitiator.parentElement as HTMLAnchorElement;
 
-  if (eventInitiator.classList.length === 0) {
+  if (eventInitiator.classList.length === 1) {
     if (cueShadows) {
       eventInitiator.style.boxShadow = cueShadows;
     }
-
     if (currElemParent.id == 'first-ref' || currElemParent.id == 'third-ref') {
       eventInitiator.style.rotate = '9deg';
     } else if (currElemParent.id == 'second-ref' || currElemParent.id == 'fourth-ref') {

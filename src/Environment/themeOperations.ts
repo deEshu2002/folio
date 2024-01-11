@@ -1,4 +1,4 @@
-import { resetJSStyles } from '../main';
+import { cues, resetJSSetStyles } from '../main';
 import { handleSunMoonAnimation } from '../CSSEffects/SunMoonTransition';
 import { handleThemeProps, mode } from '../types';
 
@@ -55,7 +55,7 @@ export function themeToggle() {
   setTimeout(() => setSavedPreferenece(), 100);
   handleTheme({ initFlag: false });
 
-  resetJSStyles();
+  resetJSSetStyles(cues);
 }
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
@@ -63,5 +63,5 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
   toggleColorPreferenceState();
   handleTheme({ initFlag: true });
 
-  resetJSStyles();
+  resetJSSetStyles(cues);
 });

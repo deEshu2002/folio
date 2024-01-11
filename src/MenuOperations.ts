@@ -29,7 +29,7 @@ export function handleMenuVisibility() {
 }
 
 export function handleShowCaseMenuTransition(e: Event) {
-  (document.querySelector('.showcase-item.showcase-menu-middle') as HTMLLIElement).classList.remove(
+  (document.getElementsByClassName('showcase-menu-middle').item(0) as HTMLLIElement).classList.remove(
     'showcase-menu-middle',
   );
   (e.target as HTMLLIElement).classList.add('showcase-menu-middle');
@@ -39,9 +39,9 @@ export function handleShowCaseMenuTransition(e: Event) {
 }
 
 export function handleMenuSliderMouseEnterVisibility() {
-  (document.querySelector('.showcase-item.showcase-menu-middle') as HTMLLIElement).classList.add('active');
+  (document.getElementsByClassName('showcase-menu-middle').item(0) as HTMLLIElement).classList.add('active');
 }
 
 export function handleMenuSliderMouseLeaveVisibility() {
-  (document.querySelector('.showcase-item.showcase-menu-middle') as HTMLLIElement).classList.remove('active');
+  (document.getElementsByClassName('showcase-menu-middle').item(0) as HTMLLIElement).classList.remove('active');
 }

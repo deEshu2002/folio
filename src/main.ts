@@ -1,113 +1,47 @@
-import { handleMouseOverRotation, handleMouseOutRotation } from './CSSEffects/CueMouseOver';
-import { handleImageToWorkTransition } from './CSSEffects/CueToHintTransition';
-import { handleTheme, themeToggle } from './Environment/themeOperations';
-import {
-  handleMenuSliderMouseEnterVisibility,
-  handleMenuSliderMouseLeaveVisibility,
-  handleMenuVisibility,
-  handleShowCaseMenuTransition,
-} from './MenuOperations';
-import { openMenuModal, projectsButtonClickEvent } from './CSSEffects/CircularNavBar';
-import { cursorInit, mouseEnterOverPreviewImage, mouseLeaveFromPreviewImage, updateCords } from './CSSEffects/CustomCursor';
+import { eventLoader } from './EventLoader';
 import { coordinates} from './types';
+import { handleTheme } from './Environment/themeOperations';
+import { cursorInit, updateCords } from './CSSEffects/CustomCursor';
+
+
+// exporting elements that will not change on page translation
+export function resetJSSetStyles(elems:HTMLCollectionOf<Element>) {
+  [...elems].forEach((elem) => {
+    elem.removeAttribute('style');
+  });
+}
 
 export const dot = document.getElementById('dot');
 export const header = document.getElementById('header');
 
 export const modeButton = document.getElementById('mode-toggle') as HTMLButtonElement;
-handleTheme({ initFlag: true });
 
-export const menuOptions = document.querySelector('.hamburger') as HTMLButtonElement;
+export const curtain = document.getElementById('curtain') as HTMLDivElement;
+export const projHint = document.getElementById('thumbnail-location-ref') as HTMLImageElement;
 
-const cues: NodeListOf<HTMLImageElement> = document.querySelectorAll(
-  '#first-ref img ,#second-ref img, #third-ref img, #fourth-ref img',
-);
+// circular menu
+export const ham = document.getElementById('hamburger') as HTMLButtonElement;
+export const circularMenu = document.getElementById('circular-menu') as HTMLDivElement;
+export const hiddenMenu = document.getElementById('hamburger-hidden-menu') as HTMLMenuElement;
+export const connectButton = document.getElementById('Connect');
+export const searchButton = document.getElementById('Search');
+export const resourcesButton = document.getElementById('Resources');
+export const projectsButton = document.getElementById('Projects') as HTMLAnchorElement;
+
+export const cues = document.getElementsByClassName('ref-image') as HTMLCollectionOf<Element>;
 
 export const circle = dot?.getElementsByTagName('circle').item(0);
 export const text = dot?.getElementsByTagName('text').item(0);
 export const contextFrames = document.getElementsByClassName('proj-link');
 
-const showcaseMenu = document.getElementById('showcase-menu') as HTMLUListElement;
-const menuValues = document.querySelectorAll('.showcase-item') as NodeListOf<HTMLLIElement>;
+export const showcaseMenu = document.getElementById('showcase-menu') as HTMLUListElement;
+export const menuValues = document.getElementsByClassName('showcase-item') as HTMLCollectionOf<Element>;
 
-const projectsButton = document.querySelector('.menu-item:last-child') as HTMLAnchorElement;
 
-const clipVideos = document.querySelectorAll("video") as NodeListOf<HTMLVideoElement> ;
+export const socialModal = document.getElementById('social-modal') as HTMLDivElement;
+export const popUp = document.getElementById('popup') as HTMLDivElement;
+export const popUpCloseButton = document.getElementById('popup-close');
 
-export function resetJSStyles() {
-  cues.forEach((elem) => {
-    elem.removeAttribute('style');
-  });
-}
-
-function playEvent(e:Event){
-  (e.target as HTMLVideoElement).play();
-}
-
-function pauseEvent(e:Event){
-   (e.target as HTMLVideoElement).pause();
-}
-
-function eventLoaders(resizeEvent?: boolean) {
-  const smallerScreen = window.innerWidth > 220 && window.innerWidth < 723 ? true : false;
-  if (!smallerScreen) {
-    menuOptions.addEventListener('click', openMenuModal);
-    cues.forEach((img) => {
-      img.addEventListener('mouseup', handleImageToWorkTransition, { once: true });
-      img.addEventListener('mouseenter', handleMouseOverRotation);
-      img.addEventListener('mouseout', handleMouseOutRotation);
-    });
-
-    window.addEventListener('scroll', handleMenuVisibility, true);
-
-    showcaseMenu.addEventListener('mouseenter', handleMenuSliderMouseEnterVisibility, false);
-    showcaseMenu.addEventListener('mouseleave', handleMenuSliderMouseLeaveVisibility, false);
-
-    projectsButton.addEventListener('click', projectsButtonClickEvent);
-
-    menuValues.forEach((item) => {
-      item.addEventListener('click', handleShowCaseMenuTransition);
-    });
-
-    [...contextFrames].forEach((elem) => {
-      elem.addEventListener("mouseleave", (e) => {
-        mouseLeaveFromPreviewImage(elem);
-      })
-    });
-
-    [...contextFrames].forEach((elem) => {
-        elem.addEventListener("mouseenter", (e) =>{
-          mouseEnterOverPreviewImage(elem);
-        })
-    })
-    
-  } else if (resizeEvent) {
-    menuOptions.removeEventListener('click', openMenuModal);
-    cues.forEach((img) => {
-      img.removeEventListener('mouseup', handleImageToWorkTransition);
-      img.removeEventListener('mouseenter', handleMouseOverRotation);
-      img.removeEventListener('mouseout', handleMouseOutRotation);
-    });
-
-    window.removeEventListener('scroll', handleMenuVisibility);
-
-    showcaseMenu.removeEventListener('mouseenter', handleMenuSliderMouseEnterVisibility);
-    showcaseMenu.removeEventListener('mouseleave', handleMenuSliderMouseLeaveVisibility);
-
-    projectsButton.removeEventListener('click', projectsButtonClickEvent);
-
-    menuValues.forEach((item) => {
-      item.removeEventListener('click', handleShowCaseMenuTransition);
-    });
-
-  }
-    modeButton.addEventListener('click', themeToggle);
-    clipVideos.forEach((item) => {
-        item.addEventListener('mouseover', playEvent);
-        item.addEventListener('mouseout', pauseEvent);
-    })
-
-}
 
 function initPageTransition() {
   const hashValue = document.location.hash.substring(1);
@@ -115,19 +49,26 @@ function initPageTransition() {
   window.scrollTo({ top: targetTop });
 }
 
-eventLoaders();
-
-window.onresize = () => {
-  eventLoaders(true);
-};
-
 window.addEventListener("load", (e) => {
-  initPageTransition;
+  handleTheme({ initFlag: true });
+  initPageTransition();
+  eventLoader();
   cursorInit();
+  const dateElem = document.getElementById('date');
+  const currDate = new Date();
+
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  const date = `${monthNames[currDate.getMonth()]} ${currDate.getDate()}, ${currDate.getFullYear()}`;
+  dateElem?.append(date);
 })
 
-
-document.addEventListener('mousemove', (e) => {
+window.addEventListener('mousemove', (e) => {
   const newMouseCord:coordinates = {x: e.clientX, y: e.clientY};
   dot && updateCords(dot, newMouseCord, 62.5);
+});
+
+window.addEventListener("resize", () => {
+  eventLoader(true);
+  eventLoader();
 });

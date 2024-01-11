@@ -1,24 +1,38 @@
-import { menuOptions } from '../main';
+import { circularMenu, connectButton, ham, hiddenMenu, searchButton } from '../main';
+import { handleSocialLinksModal } from './SocialLinksPopup';
 
-export function openMenuModal(e: Event) {
-  const target = document.querySelector('.circular-menu') as HTMLDivElement;
-  const currTarget = e.currentTarget as HTMLButtonElement;
-  const menu = target.lastElementChild as HTMLMenuElement;
-  if (target.classList.contains('active')) {
-    target.classList.remove('active');
-    (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto';
-    currTarget.setAttribute('title', 'Show menu options');
-    currTarget.setAttribute('aria-label', 'show menu options');
-    setTimeout(() => menu.toggleAttribute('hidden'), 10);
-  } else {
-    target.classList.add('active');
-    (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
-    currTarget.setAttribute('title', 'Hide menu options');
-    currTarget.setAttribute('aria-label', 'hide menu options');
-    setTimeout(() => menu.toggleAttribute('hidden'), 225);
+function closeMenuModal(){
+  circularMenu.classList.remove('active');
+  (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto';
+  ham.setAttribute('title', 'Show menu options');
+  ham.setAttribute('aria-label', 'show menu options');
+
+  connectButton?.removeEventListener('click', handleSocialLinksModal);
+  searchButton?.removeEventListener('click', handleSocialLinksModal);
+  
+  setTimeout(() => hiddenMenu.toggleAttribute('hidden'), 10);
+}
+
+function openMenuModal() {
+  circularMenu.classList.add('active');
+  (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
+  ham.setAttribute('title', 'Hide menu options');
+  ham.setAttribute('aria-label', 'hide menu options');
+
+  connectButton?.addEventListener('click', handleSocialLinksModal);
+  searchButton?.addEventListener('click', handleSocialLinksModal);
+
+  setTimeout(() => hiddenMenu.toggleAttribute('hidden'), 225);
+}
+
+export function handleHamMenuModal(){
+  if(circularMenu.classList.contains('active')){
+    closeMenuModal();
+  }else{
+    openMenuModal();
   }
 }
 
 export function projectsButtonClickEvent() {
-  menuOptions.click();
+  ham.click();
 }

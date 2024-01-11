@@ -2,14 +2,12 @@ import { handleMouseOutRotation, handleMouseOverRotation } from './CueMouseOver'
 import { initialUserPrefferedState } from '../Environment/themeOperations';
 import { reducedMotion } from '../Environment/reducedmotion';
 import { darkThemeMap, lightThemeMap } from '../Database/jsThemesData';
+import { curtain, header, projHint } from '../main';
 
 export function handleImageToWorkTransition(e: Event) {
   if (window.scrollY > 0 || reducedMotion) {
     return;
   }
-  const curtain = document.querySelector('.curtain') as HTMLDivElement;
-  const projHint = document.querySelector('#first .proj-hint') as HTMLImageElement;
-  const header = document.querySelector('header');
 
   const projHintPosition = projHint.getBoundingClientRect();
   const targetleftPosition = projHintPosition.left;
@@ -88,7 +86,7 @@ export function handleImageToWorkTransition(e: Event) {
 
   setTimeout(() => {
     parent.removeAttribute('style');
-    parent.classList.add('stop-rotation'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
+    parent.classList.add('hidden'); // so that classlist size will increase and it will not be liable to rotate further on mouseover;
   }, 1600);
 
   eventInitiator.removeEventListener('mouseenter', handleMouseOverRotation);
