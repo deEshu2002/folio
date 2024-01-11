@@ -40,8 +40,8 @@ function hideSocialLinks(){
 export function handleSocialLinksModal(){
     if(socialModal.classList.contains('hidden')){
         projectsButtonClickEvent();
-        setTimeout(showSocialLinks, 300);
+        setTimeout(showSocialLinks, 100);
     }else{
-        setTimeout(hideSocialLinks, 300);
+        setTimeout(hideSocialLinks, 100);
     }
 }

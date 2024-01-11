@@ -375,7 +375,7 @@ main {
   content: '';
   background-color: #242424;
   background-color: var(--background-color);
-  opacity: 0.6;
+  opacity: 0.4;
   position: absolute;
   bottom: 0%;
   right: 0;
