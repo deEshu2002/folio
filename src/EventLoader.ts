@@ -14,7 +14,7 @@ import { themeToggle } from "./Environment/themeOperations";
 export function eventLoader(resizeEvent?: boolean) {
   const smallerScreen = window.innerWidth > 220 && window.innerWidth < 723 ? true : false;
 
-  if (!smallerScreen) {
+  // if (!smallerScreen) {
     ham.addEventListener('click', handleHamMenuModal);
 
     [...cues].forEach((img) => {
@@ -45,7 +45,7 @@ export function eventLoader(resizeEvent?: boolean) {
           mouseEnterOverPreviewImage(elem);
         })
     });
-  }
+  // }
   
   if (resizeEvent) {
     ham.removeEventListener('click', handleHamMenuModal);

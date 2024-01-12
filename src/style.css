@@ -334,7 +334,7 @@ main {
 
 .showcase-content section {
   position: relative;
-  min-height: 100vh;
+  min-height: 100vmin;
   align-self: center;
   margin: 1rem 11rem 2rem 2rem;
 }
@@ -356,15 +356,15 @@ main {
 .proj-link{
   position: relative;
   overflow: hidden;
-  width: 40vw;
-  height: 25vw;
+  width: inherit;
+  height: inherit;
   max-width: 40rem;
   max-height: 25rem;
 }
 
 .preview-image img{
-  width: 40vw;
-  height: 25vw;
+  width: inherit;
+  height: inherit;
   max-width: 40rem;
   max-height: 25rem;
   border-radius: 2rem;
@@ -390,8 +390,8 @@ main {
   left: 0%;
   background: none;
   border-radius: 2rem;
-  width: 40vw;
-  height: 25vw;
+  width: inherit;
+  height: inherit;
   max-width: 40rem;
   max-height: 25rem;
 }
@@ -420,8 +420,6 @@ main {
 
 .proj-description {
   display: inline-block;
-  position: sticky;
-  top: 55%;
 
   margin-top: 2vw;
   margin-left: 2rem;
@@ -745,11 +743,12 @@ main {
 }
 
 @media (max-width: 951px) {
-  .proj-hint {
+  .proj-link-container {
     width: 100%;
-    height: 40vh;
-    max-width: none;
-    max-height: none;
+    height: 35vh;
+  }
+  .proj-link{
+    display: block;
   }
 
   .showcase-content {
@@ -774,6 +773,7 @@ main {
   }
 
   #description {
+    margin-top: 2rem;
     width: 85vw;
   }
 
@@ -783,14 +783,44 @@ main {
   #fourth-ref {
     display: none;
   }
-  #circular-menu {
-    visibility: hidden;
-  }
 
-.proj-description{
-  width: 85vw;
-}
+  .proj-description{
+    width: 85vw;
+  }
   .showcase-content section {
     margin: 1rem 0 2rem 0;
+  }
+
+  .social-links-container a{
+    margin-top: .5rem;
+  }
+  
+  #circular-menu::after {
+    border-radius: 0;
+    width: 100vw;
+  }
+
+  #circular-menu.active .menu-item:nth-child(1) {
+    transform: translate3d(3rem, 11rem, 0);
+  }
+
+  #circular-menu.active .menu-item:nth-child(2) {
+    transform: translate3d(3rem, 8rem, 0);
+  }
+
+  #circular-menu.active .menu-item:nth-child(3) {
+    transform: translate3d(3rem, 5rem, 0);
+  }
+
+  #circular-menu.active .menu-item:nth-child(4) {
+    transform: translate3d(3rem, 2rem, 0);
+  }
+
+  .menu-value {
+    opacity: 1;
+  }
+
+  #to-projects svg{
+    opacity: 0;
   }
 }
