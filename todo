@@ -1,4 +1,7 @@
+[] test for multiple screens
+[] add actual making sense content
+[] add accessebility
 [] menu appearance for mobile
 [] find ways to put pwa
-[] menu after clicking hiding effect
-[] popup for all the navbar buttons functionality
+[] page for resources the navbar buttons functionality
+[] change working of menu transition which is currently based on Intersection Observer

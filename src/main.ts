@@ -2,6 +2,7 @@ import { eventLoader } from './EventLoader';
 import { coordinates} from './types';
 import { handleTheme } from './Environment/themeOperations';
 import { cursorInit, updateCords } from './CSSEffects/CustomCursor';
+import { updateShowCaseMiddle } from './MenuOperations';
 
 
 // exporting elements that will not change on page translation
@@ -34,14 +35,13 @@ export const circle = dot?.getElementsByTagName('circle').item(0);
 export const text = dot?.getElementsByTagName('text').item(0);
 export const contextFrames = document.getElementsByClassName('proj-link');
 
-export const showcaseMenu = document.getElementById('showcase-menu') as HTMLUListElement;
+export const showcaseMenu = document.getElementById('showcase-menu') as HTMLMenuElement;
 export const menuValues = document.getElementsByClassName('showcase-item') as HTMLCollectionOf<Element>;
-
+export const showcaseContentItems = document.getElementsByClassName('showcase-content').item(0)?.children;
 
 export const socialModal = document.getElementById('social-modal') as HTMLDivElement;
 export const popUp = document.getElementById('popup') as HTMLDivElement;
 export const popUpCloseButton = document.getElementById('popup-close');
-
 
 function initPageTransition() {
   const hashValue = document.location.hash.substring(1);
@@ -54,6 +54,7 @@ window.addEventListener("load", (e) => {
   initPageTransition();
   eventLoader();
   cursorInit();
+  updateShowCaseMiddle();
   const dateElem = document.getElementById('date');
   const currDate = new Date();
 

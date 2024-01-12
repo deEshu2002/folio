@@ -299,12 +299,12 @@ main {
   z-index: 1;
 }
 
-.showcase-item.showcase-menu-middle {
+#showcase-menu-middle {
   position: relative;
 }
 
-.showcase-item.showcase-menu-middle::before,
-.showcase-item.showcase-menu-middle::after {
+#showcase-menu-middle::before,
+#showcase-menu-middle::after {
   content: '';
   position: absolute;
   right: 0;
@@ -315,13 +315,13 @@ main {
   will-change: height;
 }
 
-.showcase-item.showcase-menu-middle::before {
+#showcase-menu-middle::before {
   top: -500%;
   background: linear-gradient(0deg, rgba(36, 36, 36, 0.75) 0%, #242424 20%);
   background: var(--showcase-slider-bg1);
 }
 
-.showcase-item.showcase-menu-middle::after {
+#showcase-menu-middle::after {
   bottom: -500%;
   background: linear-gradient(180deg, rgba(36, 36, 36, 0.75) 0%, #242424 20%);
   background: var(--showcase-slider-bg2);
@@ -535,8 +535,8 @@ main {
   padding-top: 5px;
 }
 
-.showcase-item.showcase-menu-middle.active::before,
-.showcase-item.showcase-menu-middle.active::after {
+#showcase-menu-middle.active::before,
+#showcase-menu-middle.active::after {
   height: 0;
 }
 
@@ -579,7 +579,7 @@ main {
 
 
 #social-modal{
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -706,6 +706,11 @@ main {
 
 .hidden{
   display: none;
+}
+
+::selection {
+  color: var(--background-color);
+  background: var(--text-color);
 }
 
 
