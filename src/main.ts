@@ -50,7 +50,7 @@ function initPageTransition() {
   window.scrollTo({ top: targetTop });
 }
 
-window.addEventListener("load", (e) => {
+window.addEventListener("load", () => {
   handleTheme({ initFlag: true });
   initPageTransition();
   eventLoader(false);

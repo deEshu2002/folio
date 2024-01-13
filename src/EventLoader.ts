@@ -18,13 +18,13 @@ export function eventLoader(resizeEvent:boolean) {
     projectsButton.addEventListener('click', projectsButtonClickEvent);
 
     [...contextFrames].forEach((elem) => {
-        elem.addEventListener("mouseleave", (e) => {
+        elem.addEventListener("mouseleave", () => {
           mouseLeaveFromPreviewImage(elem);
         })
       });
 
     [...contextFrames].forEach((elem) => {
-        elem.addEventListener("mouseenter", (e) =>{
+        elem.addEventListener("mouseenter", () =>{
           mouseEnterOverPreviewImage(elem);
         })
     });
