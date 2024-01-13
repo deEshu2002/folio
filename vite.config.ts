@@ -11,7 +11,7 @@ export default defineConfig({
     },
   },
   plugins:[ VitePWA({
-          registerType:'autoUpdate',
+      registerType:'autoUpdate',
       manifest: {
         name: 'Deepanshu',
         short_name: 'DM',
