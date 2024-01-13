@@ -1,4 +1,4 @@
-import { popUp, socialModal, popUpCloseButton } from "../main";
+import { popUp, socialModal, popUpCloseButton, main } from "../main";
 import { projectsButtonClickEvent } from "./CircularNavBar";
 
 function showSocialLinks(){
@@ -15,6 +15,9 @@ function showSocialLinks(){
     [...popUp.children].forEach(elem => {
       elem.animate({opacity:1},{duration: 100, fill:'forwards', delay: 300});
     })
+    popUpCloseButton?.focus();
+    main.setAttribute("aria-hidden","true");
+    socialModal.setAttribute('aria-hidden', 'false');
     
     popUpCloseButton?.addEventListener('click', hideSocialLinks);
 }
@@ -33,6 +36,8 @@ function hideSocialLinks(){
     setTimeout(() => {
        socialModal.classList.add('hidden');
        (document.querySelector('body') as HTMLBodyElement).style.overflow = 'auto';
+        main.setAttribute("aria-hidden","false");
+        socialModal.setAttribute('aria-hidden', 'true');
     }, 350);
     popUpCloseButton?.removeEventListener('click', hideSocialLinks);
 }

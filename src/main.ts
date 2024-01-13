@@ -42,6 +42,7 @@ export const showcaseContentItems = document.getElementsByClassName('showcase-co
 export const socialModal = document.getElementById('social-modal') as HTMLDivElement;
 export const popUp = document.getElementById('popup') as HTMLDivElement;
 export const popUpCloseButton = document.getElementById('popup-close');
+export const main = document.getElementsByTagName('main').item(0) as HTMLElement;
 
 function initPageTransition() {
   const hashValue = document.location.hash.substring(1);
