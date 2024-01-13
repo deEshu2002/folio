@@ -1,6 +1,7 @@
 import { header, menuValues, showcaseContentItems, showcaseMenu} from "./main";
 
 export let isMenuVisible = false;
+
 export function handleMenuVisibility() {
   const stickyTopValue = window.innerHeight / 8;
 
@@ -26,14 +27,21 @@ export function handleMenuVisibility() {
   }
 }
 
+let onClickTransitionTimeout = false;
+
 export function handleShowCaseMenuTransition(e: Event) {
+  onClickTransitionTimeout = true;
   (document.getElementById('showcase-menu-middle') as HTMLLIElement).removeAttribute('id');
   const parent = e.currentTarget;
+
 
   (parent as HTMLLIElement).setAttribute('id','showcase-menu-middle');
   setTimeout(() => {
     (parent as HTMLLIElement).classList.remove('active');
-  }, 10);
+  }, 100);
+  setTimeout(() =>{
+    onClickTransitionTimeout = false;
+  }, 600);
 }
 
 export function handleMenuSliderMouseEnterVisibility() {
@@ -54,9 +62,9 @@ export function updateShowCaseMiddle(){
     linksIdRef.push(id);
   })
 
-  const callback = (entries, observer) => {
+  const callback = (entries:any) => {
     entries.forEach((entry:IntersectionObserverEntry) => {
-      if(entry.isIntersecting){
+      if(entry.isIntersecting && !onClickTransitionTimeout){
         const id = entry.target.id;
         const idx = linksIdRef.indexOf(id);
         (document.getElementById('showcase-menu-middle') as HTMLLIElement).removeAttribute('id');

@@ -492,7 +492,7 @@ main {
 
 .menu-item {
   position: absolute;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 #circular-menu.active .menu-item:nth-child(1) {
@@ -794,26 +794,31 @@ main {
   .social-links-container a{
     margin-top: .5rem;
   }
-  
   #circular-menu::after {
-    border-radius: 0;
     width: 100vw;
+    height: 2.5rem;
+    border-radius: 0;
+    left: -2rem;
+  }
+
+  #circular-menu.active::after {
+    transform: scale3d(1, 14, 1);
   }
 
   #circular-menu.active .menu-item:nth-child(1) {
-    transform: translate3d(3rem, 11rem, 0);
+    transform: translate3d(15vw, 11rem, 0);
   }
 
   #circular-menu.active .menu-item:nth-child(2) {
-    transform: translate3d(3rem, 8rem, 0);
+    transform: translate3d(15vw, 8rem, 0);
   }
 
   #circular-menu.active .menu-item:nth-child(3) {
-    transform: translate3d(3rem, 5rem, 0);
+    transform: translate3d(15vw, 5rem, 0);
   }
 
   #circular-menu.active .menu-item:nth-child(4) {
-    transform: translate3d(3rem, 2rem, 0);
+    transform: translate3d(15vw, 2rem, 0);
   }
 
   .menu-value {

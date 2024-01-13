@@ -1,4 +1,4 @@
-import { contextFrames, cues, ham, menuValues, modeButton, projectsButton, showcaseMenu } from "./main";
+import { contextFrames, cues, ham, header, menuValues, modeButton, projectsButton, showcaseMenu} from "./main";
 import {
   handleMenuSliderMouseEnterVisibility,
   handleMenuSliderMouseLeaveVisibility,
@@ -11,62 +11,63 @@ import { handleImageToWorkTransition } from './CSSEffects/CueToHintTransition';
 import { mouseLeaveFromPreviewImage, mouseEnterOverPreviewImage } from "./CSSEffects/CustomCursor";
 import { themeToggle } from "./Environment/themeOperations";
 
-export function eventLoader(resizeEvent?: boolean) {
-  const smallerScreen = window.innerWidth > 220 && window.innerWidth < 723 ? true : false;
-
-  // if (!smallerScreen) {
+export function eventLoader(resizeEvent:boolean) {
+  if(!resizeEvent){
     ham.addEventListener('click', handleHamMenuModal);
-
-    [...cues].forEach((img) => {
-      img.addEventListener('mouseup', handleImageToWorkTransition, { once: true });
-      img.addEventListener('mouseenter', handleMouseOverRotation);
-      img.addEventListener('mouseout', handleMouseOutRotation);
-    });
-
-    window.addEventListener('scroll', handleMenuVisibility, true);
-
-    showcaseMenu.addEventListener('mouseenter', handleMenuSliderMouseEnterVisibility, false);
-    showcaseMenu.addEventListener('mouseleave', handleMenuSliderMouseLeaveVisibility, false);
-
+    modeButton.addEventListener('click', themeToggle);
     projectsButton.addEventListener('click', projectsButtonClickEvent);
 
-    [...menuValues].forEach((item) => {
-      item.addEventListener('click', handleShowCaseMenuTransition);
-    });
-
     [...contextFrames].forEach((elem) => {
-      elem.addEventListener("mouseleave", (e) => {
-        mouseLeaveFromPreviewImage(elem);
-      })
-    });
+        elem.addEventListener("mouseleave", (e) => {
+          mouseLeaveFromPreviewImage(elem);
+        })
+      });
 
     [...contextFrames].forEach((elem) => {
         elem.addEventListener("mouseenter", (e) =>{
           mouseEnterOverPreviewImage(elem);
         })
     });
-  // }
-  
-  if (resizeEvent) {
-    ham.removeEventListener('click', handleHamMenuModal);
-    [...cues].forEach((img) => {
-      img.removeEventListener('mouseup', handleImageToWorkTransition);
-      img.removeEventListener('mouseenter', handleMouseOverRotation);
-      img.removeEventListener('mouseout', handleMouseOutRotation);
-    });
+  }else{
+    const isSmallScreen = window.innerWidth > 220 && window.innerWidth < 723 ? true : false;
+    if(isSmallScreen){
+      return;
+    }
+    // reached | notReached smallScreen
+    if(isSmallScreen){
+      if(header) header.style.backgroundColor = 'var(--background-color)';
+      [...cues].forEach((img) => {
+        img.removeEventListener('mouseup', handleImageToWorkTransition);
+        img.removeEventListener('mouseenter', handleMouseOverRotation);
+        img.removeEventListener('mouseout', handleMouseOutRotation);
+      });
 
-    window.removeEventListener('scroll', handleMenuVisibility);
+      window.removeEventListener('scroll', handleMenuVisibility); 
 
-    showcaseMenu.removeEventListener('mouseenter', handleMenuSliderMouseEnterVisibility);
-    showcaseMenu.removeEventListener('mouseleave', handleMenuSliderMouseLeaveVisibility);
+      showcaseMenu.removeEventListener('mouseenter', handleMenuSliderMouseEnterVisibility);
+      showcaseMenu.removeEventListener('mouseleave', handleMenuSliderMouseLeaveVisibility);
 
-    projectsButton.removeEventListener('click', projectsButtonClickEvent);
 
-    [...menuValues].forEach((item) => {
-      item.removeEventListener('click', handleShowCaseMenuTransition);
-    });
+      [...menuValues].forEach((item) => {
+        item.removeEventListener('click', handleShowCaseMenuTransition);
+      });
+    }else{
+      header && header.removeAttribute('style');
+      [...cues].forEach((img) => {
+          img.addEventListener('mouseup', handleImageToWorkTransition, { once: true });
+          img.addEventListener('mouseenter', handleMouseOverRotation);
+          img.addEventListener('mouseout', handleMouseOutRotation);
+        });
 
+        window.addEventListener('scroll', handleMenuVisibility, true);
+
+        showcaseMenu.addEventListener('mouseenter', handleMenuSliderMouseEnterVisibility, false);
+        showcaseMenu.addEventListener('mouseleave', handleMenuSliderMouseLeaveVisibility, false);
+
+
+        [...menuValues].forEach((item) => {
+          item.addEventListener('click', handleShowCaseMenuTransition);
+        });
+    }
   }
-    modeButton.addEventListener('click', themeToggle);
-
 }

@@ -52,7 +52,8 @@ function initPageTransition() {
 window.addEventListener("load", (e) => {
   handleTheme({ initFlag: true });
   initPageTransition();
-  eventLoader();
+  eventLoader(false);
+  eventLoader(true);
   cursorInit();
   updateShowCaseMiddle();
   const dateElem = document.getElementById('date');
@@ -71,5 +72,4 @@ window.addEventListener('mousemove', (e) => {
 
 window.addEventListener("resize", () => {
   eventLoader(true);
-  eventLoader();
 });
