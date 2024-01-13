@@ -791,6 +791,16 @@ main {
     margin: 1rem 0 2rem 0;
   }
 
+  .social-links-container{
+    height: fit-content;
+  }
+
+  .signature-container{
+    position: absolute;
+    bottom: 10%;
+    left: 35%;
+  }
+
   .social-links-container a{
     margin-top: .5rem;
   }

@@ -31,11 +31,12 @@ export function eventLoader(resizeEvent:boolean) {
   }else{
     const isSmallScreen = window.innerWidth > 220 && window.innerWidth < 723 ? true : false;
     if(isSmallScreen){
+      if(header) header.style.backgroundColor = 'var(--background-color)';
       return;
     }
     // reached | notReached smallScreen
     if(isSmallScreen){
-      if(header) header.style.backgroundColor = 'var(--background-color)';
+      console.log('hello');
       [...cues].forEach((img) => {
         img.removeEventListener('mouseup', handleImageToWorkTransition);
         img.removeEventListener('mouseenter', handleMouseOverRotation);

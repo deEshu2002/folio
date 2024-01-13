@@ -2,7 +2,7 @@ import { popUp, socialModal, popUpCloseButton, main } from "../main";
 import { projectsButtonClickEvent } from "./CircularNavBar";
 
 function showSocialLinks(){
-    const height = (52*(window.screen.height))/100;
+    const height = ((window.innerWidth > window.innerHeight ? 52: 56 )*(window.screen.height))/100;
     socialModal.classList.remove('hidden');
     (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden';
     popUp.animate({
