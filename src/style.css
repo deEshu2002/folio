@@ -255,6 +255,7 @@ main {
   background-color: #242424;
   background-color: var(--background-color);
   border-radius: inherit;
+  filter: brightness(91%);
 
   padding: 0.5rem;
   width: 14vw;

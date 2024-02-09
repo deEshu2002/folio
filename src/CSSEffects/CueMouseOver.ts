@@ -3,10 +3,12 @@ import { reducedMotion } from '../Environment/reducedmotion';
 import { darkThemeMap, lightThemeMap } from '../Database/jsThemesData';
 
 export function handleMouseOutRotation(e: Event) {
+  const eventInitiator = e.target as HTMLImageElement;
+  eventInitiator.style.filter = 'brightness(91%)';
+
   if (reducedMotion) {
     return;
   }
-  const eventInitiator = e.target as HTMLImageElement;
 
   const cueShadows =
     initialUserPrefferedState === 'light' ? lightThemeMap.get('cue-box-shadow') : darkThemeMap.get('cue-box-shadow');
@@ -26,11 +28,12 @@ export function handleMouseOutRotation(e: Event) {
 }
 
 export function handleMouseOverRotation(e: Event) {
+  const eventInitiator = e.target as HTMLImageElement;
+  eventInitiator.style.filter = 'brightness(100%)';
+
   if (reducedMotion) {
     return;
   }
-
-  const eventInitiator = e.target as HTMLImageElement;
 
   eventInitiator.style.rotate = '0deg';
   if (initialUserPrefferedState === 'dark') {
