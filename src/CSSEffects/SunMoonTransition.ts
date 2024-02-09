@@ -6,6 +6,7 @@ export function handleSunMoonAnimation() {
   const svg = modeButton?.children[0] as SVGElement;
 
   const circleMask = svg?.children[0]?.children[1] as SVGCircleElement;
+  console.log(circleMask);
 
   const sharedCircle = svg?.children[1] as SVGCircleElement;
 
@@ -35,7 +36,7 @@ export function handleSunMoonAnimation() {
     { fill: 'forwards', duration: 500, easing: 'ease', delay: 100 },
   );
   circleMask?.animate(
-    { cx: isDarkMode ? '12' : '30', cy: isDarkMode ? '4' : '0' },
+    { cx: isDarkMode ? '12px' : '30px', cy: isDarkMode ? '4px' : '0px' },
     { fill: 'forwards', duration: 500, easing: 'cubic-bezier(.69,.28,0,1.09)', delay: 100 },
   );
   setTimeout(() => {

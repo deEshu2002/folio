@@ -355,7 +355,6 @@ main {
 }
 
 .proj-link{
-  position: relative;
   overflow: hidden;
   width: inherit;
   height: inherit;
